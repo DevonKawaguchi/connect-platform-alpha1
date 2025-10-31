@@ -1,219 +1,723 @@
-<html><head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script><style>body{
-    margin-top:20px;
-    background:#F0F8FF;
-}
-.card {
-    margin-bottom: 1.5rem;
-    box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
-}
-.card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid #e5e9f2;
-    border-radius: .2rem;
-}
-.card-header:first-child {
-    border-radius: calc(.2rem - 1px) calc(.2rem - 1px) 0 0;
-}
-.card-header {
-    border-bottom-width: 1px;
-}
-.card-header {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    color: inherit;
-    background-color: #fff;
-    border-bottom: 1px solid #e5e9f2;
-}</style></head><body><div class="container p-0">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Campus Connect — Settings</title>
+    <style>
+        :root{
+        --accent:#1e90ff;
+        --muted:#6b7280;
+        --border:#c7d0db;
+        --card-bg:#fff;
+        --page-bg:#e9e9eb;
+        --radius:12px;
+        --shadow: 0 4px 8px rgba(21,24,28,0.06);
+        --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
 
-    <h1 class="h3 mb-3">Settings</h1>
+        *{box-sizing:border-box}
+        html, body
+        {
+            height: auto;
+            min-height: 100%;
+        }
+        body{
+        margin:0;
+        font-family:var(--font-sans);
+        background:linear-gradient(#f3f5f7, var(--page-bg));
+        color:#111827;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        line-height:1.3;
+        padding:0;
+        }
 
-    <div class="row">
-        <div class="col-md-5 col-xl-4">
+        /* Header Styling */
+        header {
+        background-color: #0099ff; /* TTU red */
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 2rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        }
 
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="card-title mb-0">Profile Settings</h5>
+        header .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        }
+
+        header nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        padding: 0;
+        }
+
+        header nav li {
+        display: inline;
+        }
+
+        header nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        padding: 6px 0;
+        position: relative;
+        }
+
+        header nav a::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -3px;
+        left: 0;
+        background-color: #00d9ff;
+        }
+
+        header nav a:hover::after {
+        width: 100%;
+        }
+
+        header nav a:hover {
+        color: #00d9ff;
+        }
+
+        /* Layout */
+        .container{
+        max-width:1200px;
+        margin:0 auto;
+        display:grid;
+        grid-template-columns:260px 1fr;
+        gap:20px;
+        align-items:start;
+        }
+
+        /* Left sidebar */
+        .sidebar{
+        background:#fff;
+        border-radius:var(--radius);
+        padding:28px 20px;
+        box-shadow: var(--shadow);
+        border:1px solid var(--border);
+        height:calc(100vh - 100px);
+        position:sticky;
+        top:24px;
+        display:flex;
+        flex-direction:column;
+        gap:8px;
+        }
+
+        .logo{
+        display:flex;
+        gap:12px;
+        align-items:center;
+        margin-bottom:8px;
+        }
+        .logo .mark{
+        width:44px;height:44px;border-radius:50%;
+        border:3px solid var(--accent); display:flex;align-items:center;justify-content:center;
+        color:var(--accent); font-weight:700;
+        font-size:18px;
+        }
+        .sidebar h2{margin:0;font-size:20px;letter-spacing:0.4px}
+        .sidebar nav{margin-top:12px; display:flex;flex-direction:column; gap:6px}
+
+        .nav-btn{
+        background:transparent;border:0;text-align:left;padding:10px 12px;border-radius:8px;
+        color:#111827;font-size:15px;cursor:pointer;display:flex;align-items:center;gap:10px;
+        }
+        .nav-btn:hover{background:#f3f7fb}
+        .nav-btn[aria-current="true"]{
+        background:linear-gradient(90deg, rgba(30,144,255,0.06), rgba(30,144,255,0.02));
+        box-shadow: inset 0 0 0 2px rgba(30,144,255,0.06);
+        border-left:4px solid var(--accent);
+        padding-left:8px;
+        font-weight:600;
+        }
+        .logout {
+            margin-top: auto;
+            color: #ef4444;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 8px;
+            text-align: left;
+            border: none;         /* remove default border */
+            outline: none;        /* remove focus outline */
+            background: transparent; /* optional, if it had a background */
+        }
+
+        /* Main panel */
+        .panel{
+        background:var(--card-bg);
+        border-radius:22px;
+        padding:28px;
+        border:1px solid var(--border);
+        box-shadow: var(--shadow);
+        min-height:70vh;
+        position:relative;
+        overflow:hidden;
+        margin-bottom: 40px; /* adds space below the panel */
+        }
+        .panel h1{margin:0;font-size:34px}
+        .section-title{font-weight:700;margin-top:18px;margin-bottom:10px}
+        .divider{height:1px;background:var(--border);margin:12px 0;border-radius:2px}
+
+        /* Form */
+        form{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+        .row{display:flex;gap:14px;flex-wrap:wrap}
+        .col-1{flex:1 1 180px}
+        .col-2{flex:2 1 320px}
+        .label{font-size:13px;color:var(--muted);margin-bottom:6px}
+        .input, .select{
+        width:100%;
+        padding:10px 12px;border-radius:8px;border:1.5px solid #cfe0f6;background:transparent;
+        font-size:15px;outline:none;
+        }
+        .input:focus, .select:focus{box-shadow:0 0 0 4px rgba(30,144,255,0.06);border-color:var(--accent)}
+        .small-btn{
+        display:inline-block;padding:6px 10px;border-radius:18px;border:1px solid #cfe0f6;background:#fff;font-size:13px;cursor:pointer;
+        }
+
+        .field-with-clear{position:relative}
+        .clear-x{
+        position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:#e6eefc;border-radius:50%;
+        height:26px;width:26px;display:grid;place-items:center;cursor:pointer;color:var(--accent);
+        }
+
+        /* profile preview area */
+        .profile-row{display:flex;gap:20px;align-items:center;margin-top:6px}
+        .avatar{
+        width:88px;height:88px;border-radius:50%;overflow:hidden;border:2px solid #e9eef4;display:grid;place-items:center;background:#f8fafc;
+        }
+        .avatar img{width:100%;height:100%;object-fit:cover}
+        .preview-card{
+        border-radius:10px;border:1px solid #eef2f6;padding:12px;flex:1;display:flex;gap:12px;align-items:center;background:#fbfdff;
+        min-width:240px;
+        }
+        .preview-mini{width:44px;height:44px;border-radius:50%;overflow:hidden;border:1px solid #e6edf6}
+        .preview-lines{flex:1}
+        .muted-note{font-size:13px;color:var(--muted);margin-top:6px;font-style:italic}
+
+        /* Save row */
+        .actions{display:flex;justify-content:flex-end;margin-top:18px;gap:14px}
+        .btn{
+        padding:10px 18px;border-radius:10px;border:0;font-weight:600;cursor:pointer;
+        box-shadow:0 2px 0 rgba(0,0,0,0.06);
+        }
+        .btn.save{background:var(--accent);color:#fff}
+        .btn.reset{background:#fff;border:1px solid var(--border);color:#111827}
+
+        /* toast */
+        .toast{
+        position:fixed;right:28px;bottom:28px;background:#111827;color:#fff;padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);
+        display:none;font-weight:600;
+        }
+
+        /* Responsive */
+        @media (max-width:980px){
+        .container{grid-template-columns:1fr; padding-bottom:60px}
+        .sidebar{position:static; height:auto; order:2}
+        .panel{order:1}
+        .actions{justify-content:space-between}
+        }
+
+        @media (max-width: 600px) {
+        header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        header nav ul { flex-direction: column; gap: 0.5rem; width: 100%; }
+        }
+
+    </style>
+    </head>
+    <body>
+    <!-- ---------- HEADER ---------- -->
+    <header>
+        <div class="logo">CampusConnect</div>
+        <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="apply.html">Apply</a></li>
+            <li><a href="manage.html">Manage</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="account_page.html">Jane Doe</a></li>
+        </ul>
+        </nav>
+    </header>
+
+    <div class="container" aria-live="polite">
+        <aside class="sidebar" aria-label="Settings">
+
+        <h2>SETTINGS</h2>
+
+        <nav role="navigation" aria-label="Settings sections" id="sidebarNav">
+            <button class="nav-btn" data-section="account" aria-current="true">Account Preferences</button>
+            <button class="nav-btn" data-section="security">Sign-In and Security</button>
+            <button class="nav-btn" data-section="visibility">Visibility</button>
+            <button class="nav-btn" data-section="privacy">Data Privacy</button>
+            <button class="nav-btn" data-section="advertising">Advertising Data</button>
+            <button class="nav-btn" data-section="notifications">Notifications</button>
+        </nav>
+
+        <button class="logout" id="logoutBtn">Log Out</button>
+        </aside>
+
+        <main class="panel" id="mainPanel">
+        <!-- Account Section (Default) -->
+        <section id="account" class="content-section" role="region" aria-label="Account Preferences">
+            <h1>Account Preferences</h1>
+            <div class="divider" aria-hidden="true"></div>
+
+            <form id="accountForm" autocomplete="on" novalidate>
+            <div class="section-title">Personal Details</div>
+
+            <div class="row">
+                <div class="col-1">
+                <label class="label" for="firstName">First Name:</label>
+                <div class="field-with-clear">
+                    <input id="firstName" class="input" name="firstName" type="text" placeholder="Jane">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="firstName" aria-label="Clear first name">✕</button>
+                </div>
                 </div>
 
-                <div class="list-group list-group-flush" role="tablist">
-                    <a class="list-group-item list-group-item-action active" data-toggle="list" href="#account" role="tab">
-                      Account Preferences
-                    </a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#password" role="tab">
-                      Sign-In and Security
-                    </a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#privacy_and_safety" role="tab">
-                      Visibility
-                    </a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                      Data Privacy
-                    </a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                      Advertising Data
-                    </a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                      Notifications
-                    </a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab">
-                      Log Out
-                    </a>
+                <div class="col-1">
+                <label class="label" for="middleName">Middle Name (Optional):</label>
+                <div class="field-with-clear">
+                    <input id="middleName" class="input" name="middleName" type="text" placeholder="Enter Middle Name">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="middleName" aria-label="Clear middle name">✕</button>
+                </div>
+                </div>
+
+                <div class="col-1">
+                <label class="label" for="lastName">Last Name:</label>
+                <div class="field-with-clear">
+                    <input id="lastName" class="input" name="lastName" type="text" placeholder="Doe">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="lastName" aria-label="Clear last name">✕</button>
+                </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-7 col-xl-8">
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="account" role="tabpanel">
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Account Preferences</h5>
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label for="inputUsername">Username</label>
-                                            <input type="text" class="form-control" id="inputUsername" placeholder="Username">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputUsername">Biography</label>
-                                            <textarea rows="2" class="form-control" id="inputBio" placeholder="Share something about yourself"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="text-center">
-                                            <img alt="Andrew Jones" src="../connect-platform-alpha1/images/ttu_logo.png" class="rounded-circle img-responsive mt-2" width="128" height="128">
-                                            <div class="mt-2">
-                                                <span class="btn btn-primary"><svg class="svg-inline--fa fa-upload fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="upload" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"></path></svg><!-- <i class="fas fa-upload"></i> --> Upload</span>
-                                            </div>
-                                            <small>For best results, use an image at least 128px by 128px in .jpg format</small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </form>
-
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">Private info</h5>
-                        </div>
-                        <div class="card-body">
-                            <form>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputFirstName">First name</label>
-                                        <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputLastName">Last name</label>
-                                        <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputEmail4">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputAddress2">Address 2</label>
-                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="inputCity">City</label>
-                                        <input type="text" class="form-control" id="inputCity">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputState">State</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected="">Choose...</option>
-                                            <option>Alabama</option>
-                                            <option>Alaska</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-2">
-                                        <label for="inputZip">Zip</label>
-                                        <input type="text" class="form-control" id="inputZip">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </form>
-
-                        </div>
-                    </div>
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="email">Email:</label>
+                <div class="field-with-clear">
+                    <input id="email" class="input" name="email" type="email" placeholder="jdo@ttu.edu">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="email" aria-label="Clear email">✕</button>
                 </div>
-
-                <div class="tab-pane fade" id="password" role="tabpanel">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Password</h5>
-
-                            <form>
-                                <div class="form-group">
-                                    <label for="inputPasswordCurrent">Current password</label>
-                                    <input type="password" class="form-control" id="inputPasswordCurrent">
-                                    <small><a href="#">Forgot your password?</a></small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew">New password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew2">Verify password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew2">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </form>
-
-                        </div>
-                    </div>
                 </div>
-
-                <div class="tab-pane fade" id="privacy_and_safety" role="tabpanel">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Privacy and Safety</h5>
-
-                            <form>
-                                <div class="form-group">
-                                    <label for="inputPasswordCurrent">Current password</label>
-                                    <input type="password" class="form-control" id="inputPasswordCurrent">
-                                    <small><a href="#">Forgot your password?</a></small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew">New password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPasswordNew2">Verify password</label>
-                                    <input type="password" class="form-control" id="inputPasswordNew2">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-                
             </div>
-        </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="website">Personal Website (Optional):</label>
+                <div class="field-with-clear">
+                    <input id="website" class="input" name="website" type="url" placeholder="www.examplewebsite.com">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="website" aria-label="Clear website">✕</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="school">School:</label>
+                <div class="field-with-clear">
+                    <input id="school" class="input" name="school" type="text" placeholder="Texas Tech University">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="school" aria-label="Clear school">✕</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="major">Major/Academic Program:</label>
+                <input id="major" class="input" name="major" type="text" placeholder="Computer Science">
+                <div style="margin-top:8px">
+                    <button type="button" class="small-btn" id="addMajorBtn">+ Additional</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="minor">Minor:</label>
+                <input id="minor" class="input" name="minor" type="text" placeholder="Computer Science">
+                <div style="margin-top:8px">
+                    <button type="button" class="small-btn" id="addMinorBtn">+ Additional</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row" style="align-items:flex-end">
+                <div class="col-1">
+                <label class="label" for="degree">Degree Level:</label>
+                <select id="degree" class="select" name="degree" aria-label="Degree level">
+                    <option>Bachelor's</option>
+                    <option>Master's</option>
+                    <option>Doctorate</option>
+                    <option>Other</option>
+                </select>
+                </div>
+
+                <div class="col-1">
+                <label class="label" for="studentYear">Student Year:</label>
+                <select id="studentYear" class="select" name="studentYear">
+                    <option>Freshman</option>
+                    <option>Sophomore</option>
+                    <option selected>Junior</option>
+                    <option>Senior</option>
+                    <option>Graduate</option>
+                </select>
+                </div>
+
+                <div class="col-1">
+                <label class="label" for="gpa">Undergraduate/Graduate GPA:</label>
+                <input id="gpa" class="input" name="gpa" type="text" inputmode="decimal" placeholder="4.0">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="gradTerm">Graduation Term:</label>
+                <input id="gradTerm" class="input" name="gradTerm" placeholder="Spring 2027">
+                </div>
+            </div>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <div class="section-title">Account</div>
+            <div class="row">
+                <div style="flex:0 0 120px">
+                <label class="label">Profile Picture:</label>
+                <div class="avatar" id="avatarWrap" aria-hidden="true">
+                    <img id="avatarImg" src="" alt="Profile preview">
+                </div>
+                <input id="avatarInput" type="file" accept="image/*" style="margin-top:8px">
+                <div class="muted-note">300 x 300px recommended. JPGs, JPEGs, and PNGs supported.</div>
+                </div>
+
+                <div class="col-2">
+                <label class="label">Preview:</label>
+                <div class="preview-card" aria-hidden="true">
+                    <div class="preview-mini" id="previewMini"><img src="" alt=""></div>
+                    <div class="preview-lines">
+                    <div style="font-weight:700">Jane Doe</div>
+                    <div style="height:8px"></div>
+                    <div style="height:8px;background:#eef3f8;border-radius:4px;margin-top:6px;width:85%"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="actions" role="group" aria-label="Form actions">
+                <button type="button" class="btn reset" id="resetBtn">Reset</button>
+                <button type="submit" class="btn save" id="saveBtn">Save</button>
+            </div>
+            </form>
+        </section>
+
+        <!-- Other content sections (hidden initially) -->
+        <section id="security" class="content-section" hidden role="region" aria-label="Sign-In and Security">
+            <h1>Sign-In and Security</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Change your password, enable 2-step verification, and review active sessions.</p>
+            <div style="margin-top:16px">
+            <label class="label">Password</label>
+            <input class="input" id="password" type="password" placeholder="••••••••">
+            <div style="margin-top:8px">
+                <button class="small-btn" id="changePassword">Change Password</button>
+                <button class="small-btn" id="enable2fa">Enable 2-step verification</button>
+            </div>
+            </div>
+        </section>
+
+        <section id="visibility" class="content-section" hidden role="region" aria-label="Visibility">
+            <h1>Visibility</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Control who can see your profile and what details are visible to employers and peers.</p>
+            <div style="margin-top:12px">
+            <label class="label">Profile visibility</label>
+            <select class="select" id="visibilitySelect">
+                <option>Public</option>
+                <option selected>Students & Employers</option>
+                <option>Students Only</option>
+                <option>Private</option>
+            </select>
+            </div>
+        </section>
+
+        <section id="privacy" class="content-section" hidden role="region" aria-label="Data Privacy">
+            <h1>Data Privacy</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Control how we use your data, request exports, or delete your account data.</p>
+            <div style="margin-top:10px">
+            <button class="small-btn">Download my data</button>
+            <button class="small-btn" style="margin-left:8px;background:#fff;border:1px solid var(--border)">Delete my account</button>
+            </div>
+        </section>
+
+        <section id="advertising" class="content-section" hidden role="region" aria-label="Advertising Data">
+            <h1>Advertising Data</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Manage ad personalization and connected marketing preferences.</p>
+            <div style="margin-top:12px">
+            <label class="label">Ad personalization</label>
+            <select class="select"><option>Enabled</option><option>Disabled</option></select>
+            </div>
+        </section>
+
+        <section id="notifications" class="content-section" hidden role="region" aria-label="Notifications">
+            <h1>Notifications</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Choose email and push notification preferences.</p>
+            <div style="margin-top:10px">
+            <label class="label"><input type="checkbox" id="emailNotif" checked> Email notifications</label><br>
+            <label class="label"><input type="checkbox" id="smsNotif"> SMS notifications</label>
+            </div>
+        </section>
+
+        </main>
     </div>
 
-</div>			
+    <div class="toast" id="toast">Saved</div>
+
+    <script>
+        // --- Sidebar navigation ---
+        const nav = document.getElementById('sidebarNav');
+        const navButtons = nav.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.content-section');
+
+        function showSection(id) {
+        sections.forEach(s => {
+            if (s.id === id) {
+            s.hidden = false;
+            s.setAttribute('aria-hidden', 'false');
+            } else {
+            s.hidden = true;
+            s.setAttribute('aria-hidden', 'true');
+            }
+        });
+        navButtons.forEach(btn => {
+            btn.setAttribute('aria-current', btn.dataset.section === id ? 'true' : 'false');
+        });
+        }
+
+        nav.addEventListener('click', (e) => {
+        const b = e.target.closest('.nav-btn');
+        if (!b) return;
+        showSection(b.dataset.section);
+        });
+
+        // keyboard support for sidebar
+        nav.addEventListener('keydown', (e) => {
+        const focusable = Array.from(navButtons);
+        const idx = focusable.indexOf(document.activeElement);
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusable[(idx + 1) % focusable.length].focus();
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            focusable[(idx - 1 + focusable.length) % focusable.length].focus();
+        } else if (e.key === 'Enter' && document.activeElement.classList.contains('nav-btn')) {
+            document.activeElement.click();
+        }
+        });
+
+        // --- Clear X buttons ---
+        document.querySelectorAll('.clear-x').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.clearFor;
+            const el = document.getElementById(id);
+            if (el) {
+            el.value = '';
+            el.focus();
+            saveFormDebounced();
+            }
+        });
+        });
+
+        // --- Profile upload & preview ---
+        const avatarInput = document.getElementById('avatarInput');
+        const avatarImg = document.getElementById('avatarImg');
+        const previewMini = document.querySelector('#previewMini img');
+
+        function dataUrlToImgsrc(dataUrl) {
+        return dataUrl; // same
+        }
+
+        avatarInput.addEventListener('change', (ev) => {
+        const f = ev.target.files && ev.target.files[0];
+        if (!f) return;
+        if (!f.type.startsWith('image/')) return alert('Please upload an image file.');
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const url = e.target.result;
+            avatarImg.src = dataUrlToImgsrc(url);
+            if (previewMini) previewMini.src = url;
+            saveToLocal('avatar', url);
+            showToast('Profile picture updated');
+        };
+        reader.readAsDataURL(f);
+        });
+
+        // --- Form persistence (localStorage) ---
+        const form = document.getElementById('accountForm');
+        const fields = ['firstName','middleName','lastName','email','website','school','major','minor','degree','studentYear','gpa','gradTerm'];
+
+        function saveToLocal(key, value) {
+        try { localStorage.setItem('cc:'+key, value); } catch(e) {}
+        }
+
+        function readFromLocal(key) {
+        try { return localStorage.getItem('cc:'+key); } catch(e){ return null }
+        }
+
+        function loadForm() {
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            const val = readFromLocal(id);
+            if (el && val !== null) el.value = val;
+        });
+        // select values
+        const degree = readFromLocal('degree');
+        if (degree) document.getElementById('degree').value = degree;
+        const studentYear = readFromLocal('studentYear');
+        if (studentYear) document.getElementById('studentYear').value = studentYear;
+        // avatar
+        const avatarData = readFromLocal('avatar');
+        if (avatarData) {
+            avatarImg.src = avatarData;
+            if (previewMini) previewMini.src = avatarData;
+        } else {
+            // placeholder avatar
+            const placeholder = svgDataUri(88, '#f3f6fb', '#7b8794', 'JD');
+            avatarImg.src = placeholder;
+            if (previewMini) previewMini.src = placeholder;
+        }
+        }
+
+        // generate a simple SVG data-uri placeholder with initials
+        function svgDataUri(size, bg, fg, initials){
+        const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}'><rect width='100%' height='100%' fill='${bg}'/><text x='50%' y='50%' dy='.085em' font-family='Arial' font-size='36' text-anchor='middle' fill='${fg}'>${initials}</text></svg>`;
+        return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+        }
+
+        // save when fields change (debounced)
+        let saveTimer = null;
+        function saveFormDebounced(){
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveForm, 350);
+        }
+
+        function saveForm(){
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            saveToLocal(id, el.value ?? '');
+        });
+        saveToLocal('degree', document.getElementById('degree').value);
+        saveToLocal('studentYear', document.getElementById('studentYear').value);
+        showToast('Changes Saved!');
+        }
+
+        // attach change listeners
+        fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('input', saveFormDebounced);
+        });
+        document.getElementById('degree').addEventListener('change', saveFormDebounced);
+        document.getElementById('studentYear').addEventListener('change', saveFormDebounced);
+
+        // Reset button
+        document.getElementById('resetBtn').addEventListener('click', () => {
+        if (!confirm('Reset the form to default values?')) return;
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.value = '';
+            try { localStorage.removeItem('cc:'+id) } catch(e){}
+        });
+        try { localStorage.removeItem('cc:avatar') } catch(e){}
+        loadForm();
+        showToast('Reset');
+        });
+
+        // Save (submit)
+        form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Basic validation example: email required and names required
+        const email = document.getElementById('email').value.trim();
+        const first = document.getElementById('firstName').value.trim();
+        const last = document.getElementById('lastName').value.trim();
+        if (!first || !last) {
+            alert('Please provide your first and last name.');
+            return;
+        }
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert('Please provide a valid email address.');
+            return;
+        }
+        saveForm();
+        // Simulate server save delay
+        showToast('Profile saved');
+        });
+
+        // Simple toast
+        const toast = document.getElementById('toast');
+        let toastTimer = null;
+        function showToast(msg='Saved', ms=2200){
+        clearTimeout(toastTimer);
+        toast.textContent = msg;
+        toast.style.display = 'block';
+        toast.style.opacity = 1;
+        toastTimer = setTimeout(()=> {
+            toast.style.transition = 'opacity 400ms';
+            toast.style.opacity = 0;
+            setTimeout(()=> toast.style.display='none', 420);
+        }, ms);
+        }
+
+        // small utility: show initial section
+        showSection('account');
+        loadForm();
+
+        // show placeholder text in preview name if user changed their name
+        const firstNameEl = document.getElementById('firstName');
+        const lastNameEl = document.getElementById('lastName');
+        function updatePreviewName(){
+        const name = (firstNameEl.value || 'Jane') + (lastNameEl.value ? ' ' + lastNameEl.value : ' Doe');
+        document.querySelector('.preview-card div').querySelector(':scope > div').textContent = name;
+        // update placeholder avatar initials
+        const initials = ( (firstNameEl.value || 'Jane').charAt(0) + (lastNameEl.value || 'Doe').charAt(0) ).toUpperCase();
+        if (!readFromLocal('avatar')) {
+            const place = svgDataUri(88, '#f3f6fb', '#7b8794', initials);
+            avatarImg.src = place;
+            if (previewMini) previewMini.src = place;
+        }
+        saveFormDebounced();
+        }
+        firstNameEl.addEventListener('input', updatePreviewName);
+        lastNameEl.addEventListener('input', updatePreviewName);
+
+        // small helpers for demo buttons
+        document.getElementById('changePassword').addEventListener('click', ()=> alert('Open change password dialog (placeholder).'));
+        document.getElementById('enable2fa').addEventListener('click', ()=> alert('Enable 2-step flow (placeholder).'));
+        document.getElementById('logoutBtn').addEventListener('click', ()=> alert('Log out pressed (placeholder).'));
+
+        // initialize preview name
+        updatePreviewName();
+
+        // Make nav buttons focusable by keyboard easily
+        navButtons.forEach(b => {
+        b.setAttribute('tabindex', '0');
+        });
+
+    </script>
+    </body>
+    </html>
