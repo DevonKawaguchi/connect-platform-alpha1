@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect Support</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #ffffff;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 10px 40px;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    nav img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(to bottom, #d9e8ff, #ffffff);
+    }
+
+    .hero h1 {
+      color: #007bff;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    .hero input[type="text"] {
+      width: 50%;
+      max-width: 500px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .hero button {
+      padding: 12px 15px;
+      margin-left: 8px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background-color: #005fcc;
+    }
+
+    /* Main Content */
+    .content {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+
+    .shortcuts, .topics {
+      flex: 1;
+      min-width: 280px;
+      margin: 10px 20px;
+    }
+
+    .shortcuts h2, .topics h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .shortcuts a {
+      display: block;
+      color: #007bff;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+
+    .shortcuts a:hover {
+      text-decoration: underline;
+    }
+
+    .topics-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topics-header a {
+      color: #007bff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .topics-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .topics-buttons button {
+      padding: 12px;
+      border: 1px solid #ccc;
+      background-color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .topics-buttons button:hover {
+      border-color: #007bff;
+      color: #007bff;
+    }
+
+    /* Getting Started Section */
+    .getting-started {
+      background-color: #007bff;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .getting-started h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    .image-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .image-grid img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .hero input[type="text"] {
+        width: 80%;
+      }
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="CampusConnect Logo">
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Apply</a>
+      <a href="#">Manage</a>
+      <a href="#">Support</a>
+      <span>Jane Doe</span>
+      <img src="profile.jpg" alt="Profile Picture">
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Support</h1>
+    <p>Explore our support articles and guides to help you make the most of CampusConnect</p>
+    <div>
+      <input type="text" placeholder="How can we help?">
+      <button>🔍</button>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="shortcuts">
+      <h2>CampusConnect Shortcuts</h2>
+      <a href="#">Change or add an email address</a>
+      <a href="#">Reset your password</a>
+      <a href="#">Close your account</a>
+      <a href="#">CampusConnect Public Profile Visibility</a>
+      <a href="#">Apply for jobs on CampusConnect</a>
+    </div>
+
+    <div class="topics">
+      <div class="topics-header">
+        <h2>Recommended Topics</h2>
+        <a href="#">View All &gt;</a>
+      </div>
+      <div class="topics-buttons">
+        <button>Basics</button>
+        <button>Data and Privacy</button>
+        <button>Your Profile</button>
+        <button>Your Projects</button>
+        <button>Connections</button>
+        <button>Search/Apply for Projects</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="getting-started">
+    <h2>New to CampusConnect? Start Here</h2>
+    <div class="image-grid">
+      <img src="image1.jpg" alt="Student learning">
+      <img src="image2.jpg" alt="Team meeting">
+      <img src="image3.jpg" alt="Professional man working">
+    </div>
+  </section>
+
+</body>
+</html>
