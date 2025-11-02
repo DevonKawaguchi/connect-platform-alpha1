@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Campus Connect — Settings</title>
     <style>
         :root{
-        --accent:#1e90ff;
-        --muted:#6b7280;
-        --border:#c7d0db;
-        --card-bg:#fff;
-        --page-bg:#e9e9eb;
-        --radius:12px;
-        --shadow: 0 4px 8px rgba(21,24,28,0.06);
-        --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            --accent:#0073FF;
+            --muted:#6b7280;
+            --border:#000000;
+            --card-bg:#fff;
+            --page-bg:#e9e9eb;
+            --radius:12px;
+            --shadow: 0 4px 8px rgba(21,24,28,0.06);
+            --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
         }
 
         *{box-sizing:border-box}
@@ -22,10 +25,11 @@
             height: auto;
             min-height: 100%;
         }
-        body{
+        body
+        {
         margin:0;
         font-family:var(--font-sans);
-        background:linear-gradient(#f3f5f7, var(--page-bg));
+        background:linear-gradient(#D9D9D9, var(--page-bg));
         color:#111827;
         -webkit-font-smoothing:antialiased;
         -moz-osx-font-smoothing:grayscale;
@@ -35,22 +39,30 @@
 
         /* Header Styling */
         header {
-        background-color: #0099ff; /* TTU red */
-        color: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.75rem 2rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+            background-color: #ffffff; 
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.25rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            border-bottom: 0.7px solid black;
         }
 
+        header .logo img {
+            height: 50px;
+            margin-top: 6px; /*Manually adjust if logo is not centered */
+        }
+
+
         header .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
+            display: flex;
+            align-items: center; /*Vertically centers text and image inside logo */
+            gap: 8px; /*Spacing between image and text */
         }
 
         header nav ul {
@@ -61,14 +73,10 @@
         padding: 0;
         }
 
-        header nav li {
-        display: inline;
-        }
-
         header nav a {
         text-decoration: none;
-        color: white;
-        font-weight: 500;
+        color: black;
+        font-weight: 400;
         padding: 6px 0;
         position: relative;
         }
@@ -80,7 +88,7 @@
         height: 2px;
         bottom: -3px;
         left: 0;
-        background-color: #00d9ff;
+        background-color: #0073FF;
         }
 
         header nav a:hover::after {
@@ -88,7 +96,33 @@
         }
 
         header nav a:hover {
-        color: #00d9ff;
+        color: #0073FF;
+        }
+
+        /*Make nav items horizontal */
+        nav ul.nav-list {
+            display: flex;
+            align-items: center;
+            gap: 2rem; /*Space between items */
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-separator img {
+            height: 35px; /*Manually adjust as needed for design*/
+            width: 0.7px; 
+            display: block;
+        }
+
+        /* Resize profile picture */
+        nav ul.nav-list li.profile-pic img {
+            margin-left: -20px;
+            width: 40px; /*Adjust size */
+            height: 40px;
+            border-radius: 50%; /*Makes the image circular */
+            object-fit: cover;
+            vertical-align: middle;
         }
 
         /* Layout */
@@ -99,6 +133,7 @@
         grid-template-columns:260px 1fr;
         gap:20px;
         align-items:start;
+        min-height: 100vh;
         }
 
         /* Left sidebar */
@@ -107,7 +142,7 @@
         border-radius:var(--radius);
         padding:28px 20px;
         box-shadow: var(--shadow);
-        border:1px solid var(--border);
+        border:0.7px solid var(--border);
         height:calc(100vh - 100px);
         position:sticky;
         top:24px;
@@ -134,6 +169,7 @@
         .nav-btn{
         background:transparent;border:0;text-align:left;padding:10px 12px;border-radius:8px;
         color:#111827;font-size:15px;cursor:pointer;display:flex;align-items:center;gap:10px;
+        font-family: var(--font-sans);
         }
         .nav-btn:hover{background:#f3f7fb}
         .nav-btn[aria-current="true"]{
@@ -144,47 +180,58 @@
         font-weight:600;
         }
         .logout {
-            margin-top: auto;
-            color: #ef4444;
+            display: block;
+            cursor: pointer;
+            margin-top: auto; /*Keeps button at the bottom */
+            color: #FF857B;
             font-weight: 600;
             border-radius: 6px;
             padding: 8px;
             text-align: left;
-            border: none;         /* remove default border */
-            outline: none;        /* remove focus outline */
-            background: transparent; /* optional, if it had a background */
+            border: none;
+            outline: none;
+            background: transparent;
+            z-index: 1000; /*Makes sure there's no elements overlapping it*/
+            font-family: var(--font-sans);
+            font-family: var(--font-sans);
         }
 
-        /* Main panel */
+
+        /*Main Panel*/
         .panel{
         background:var(--card-bg);
         border-radius:22px;
         padding:28px;
-        border:1px solid var(--border);
+        border:0.7px solid var(--border);
         box-shadow: var(--shadow);
         min-height:70vh;
         position:relative;
         overflow:hidden;
-        margin-bottom: 40px; /* adds space below the panel */
+        margin-bottom: 40px; /*Adds space below the panel */
         }
         .panel h1{margin:0;font-size:34px}
-        .section-title{font-weight:700;margin-top:18px;margin-bottom:10px}
-        .divider{height:1px;background:var(--border);margin:12px 0;border-radius:2px}
+        .section-title{font-weight:700; margin-top: 2px}
+        .section-title.account {
+            margin: -4px 0 0px 0; /*Format: Top px 0 Bottom px 0 */
+            font-weight: 700;
+        }
+        .divider{height:0.7px;background:var(--border);margin:12px 0;border-radius:2px}
 
         /* Form */
         form{display:flex;flex-direction:column;gap:14px;margin-top:8px}
         .row{display:flex;gap:14px;flex-wrap:wrap}
         .col-1{flex:1 1 180px}
         .col-2{flex:2 1 320px}
-        .label{font-size:13px;color:var(--muted);margin-bottom:6px}
+        .label{font-size:13px;color:var(--border);margin-bottom:6px}
         .input, .select{
-        width:100%;
-        padding:10px 12px;border-radius:8px;border:1.5px solid #cfe0f6;background:transparent;
-        font-size:15px;outline:none;
+            font-family: var(--font-sans);
+            width:100%;
+            padding:7px 12px;border-radius:8px;border:0.7px solid #004081;background:transparent;
+            font-size:15px;outline:none;
         }
         .input:focus, .select:focus{box-shadow:0 0 0 4px rgba(30,144,255,0.06);border-color:var(--accent)}
         .small-btn{
-        display:inline-block;padding:6px 10px;border-radius:18px;border:1px solid #cfe0f6;background:#fff;font-size:13px;cursor:pointer;
+        display:inline-block;padding:6px 10px;border-radius:18px;border:0.7px solid #000000;background:#fff;font-size:13px;cursor:pointer;
         }
 
         .field-with-clear{position:relative}
@@ -193,36 +240,45 @@
         height:26px;width:26px;display:grid;place-items:center;cursor:pointer;color:var(--accent);
         }
 
-        /* profile preview area */
+        /*Profile Preview Area */
         .profile-row{display:flex;gap:20px;align-items:center;margin-top:6px}
         .avatar{
         width:88px;height:88px;border-radius:50%;overflow:hidden;border:2px solid #e9eef4;display:grid;place-items:center;background:#f8fafc;
         }
         .avatar img{width:100%;height:100%;object-fit:cover}
         .preview-card{
-        border-radius:10px;border:1px solid #eef2f6;padding:12px;flex:1;display:flex;gap:12px;align-items:center;background:#fbfdff;
+        border-radius:10px;border:0.7px solid #eef2f6;padding:12px;flex:1;display:flex;gap:12px;align-items:center;background:#fbfdff;
         min-width:240px;
         }
-        .preview-mini{width:44px;height:44px;border-radius:50%;overflow:hidden;border:1px solid #e6edf6}
+        .preview-mini img {
+            width:44px;
+            height:44px;
+            border-radius:50%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            overflow:hidden;
+            border:0.7px solid #e6edf6
+        }
         .preview-lines{flex:1}
         .muted-note{font-size:13px;color:var(--muted);margin-top:6px;font-style:italic}
 
-        /* Save row */
+        /*Save row */
         .actions{display:flex;justify-content:flex-end;margin-top:18px;gap:14px}
         .btn{
         padding:10px 18px;border-radius:10px;border:0;font-weight:600;cursor:pointer;
         box-shadow:0 2px 0 rgba(0,0,0,0.06);
         }
         .btn.save{background:var(--accent);color:#fff}
-        .btn.reset{background:#fff;border:1px solid var(--border);color:#111827}
+        .btn.reset{background:#fff;border:0.7px solid var(--border);color:#111827}
 
-        /* toast */
+        /*Toast */
         .toast{
         position:fixed;right:28px;bottom:28px;background:#111827;color:#fff;padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);
         display:none;font-weight:600;
         }
 
-        /* Responsive */
+        /*Responsive */
         @media (max-width:980px){
         .container{grid-template-columns:1fr; padding-bottom:60px}
         .sidebar{position:static; height:auto; order:2}
@@ -237,17 +293,28 @@
 
     </style>
     </head>
+    
     <body>
-    <!-- ---------- HEADER ---------- -->
+    <!-- HEADER -->
     <header>
-        <div class="logo">CampusConnect</div>
+        <div class="logo">
+            <img src="../connect-platform-alpha1/images/CampusConnectLogo1_1.png" alt="CampusConnect Logo" />
+        </div>
         <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
+        <ul class="nav-list">
+            <li><a href="home.html">Home</a></li>
             <li><a href="apply.html">Apply</a></li>
             <li><a href="manage.html">Manage</a></li>
             <li><a href="support.html">Support</a></li>
-            <li><a href="account_page.html">Jane Doe</a></li>
+
+            <li class="nav-separator">
+                <img src="../connect-platform-alpha1/images/HeaderSeparator1_1.jpg" alt="" />
+            </li>
+
+            <li><a href="student_settings_page.html" id="headerName">Jane Doe</a></li>
+            <li class="profile-pic">
+                <img src="../connect-platform-alpha1/images/ProfilePicture1_1.jpg" alt="Profile Picture">
+            </li>
         </ul>
         </nav>
     </header>
@@ -255,22 +322,22 @@
     <div class="container" aria-live="polite">
         <aside class="sidebar" aria-label="Settings">
 
-        <h2>SETTINGS</h2>
+            <h2>SETTINGS</h2>
 
-        <nav role="navigation" aria-label="Settings sections" id="sidebarNav">
-            <button class="nav-btn" data-section="account" aria-current="true">Account Preferences</button>
-            <button class="nav-btn" data-section="security">Sign-In and Security</button>
-            <button class="nav-btn" data-section="visibility">Visibility</button>
-            <button class="nav-btn" data-section="privacy">Data Privacy</button>
-            <button class="nav-btn" data-section="advertising">Advertising Data</button>
-            <button class="nav-btn" data-section="notifications">Notifications</button>
-        </nav>
+            <nav role="navigation" aria-label="Settings sections" id="sidebarNav">
+                <button class="nav-btn" data-section="account" aria-current="true">Account Preferences</button>
+                <button class="nav-btn" data-section="security">Sign-In and Security</button>
+                <button class="nav-btn" data-section="visibility">Visibility</button>
+                <button class="nav-btn" data-section="privacy">Data Privacy</button>
+                <button class="nav-btn" data-section="advertising">Advertising Data</button>
+                <button class="nav-btn" data-section="notifications">Notifications</button>
+            </nav>
 
-        <button class="logout" id="logoutBtn">Log Out</button>
+            <button class="logout" id="logoutBtn">Log Out</button>
         </aside>
 
         <main class="panel" id="mainPanel">
-        <!-- Account Section (Default) -->
+        <!-- ACCOUNT SECTION -->
         <section id="account" class="content-section" role="region" aria-label="Account Preferences">
             <h1>Account Preferences</h1>
             <div class="divider" aria-hidden="true"></div>
@@ -282,7 +349,7 @@
                 <div class="col-1">
                 <label class="label" for="firstName">First Name:</label>
                 <div class="field-with-clear">
-                    <input id="firstName" class="input" name="firstName" type="text" placeholder="Jane">
+                    <input id="firstName" class="input" name="firstName" type="text" value="Jane" placeholder="Jane">
                     <button type="button" title="Clear" class="clear-x" data-clear-for="firstName" aria-label="Clear first name">✕</button>
                 </div>
                 </div>
@@ -290,7 +357,7 @@
                 <div class="col-1">
                 <label class="label" for="middleName">Middle Name (Optional):</label>
                 <div class="field-with-clear">
-                    <input id="middleName" class="input" name="middleName" type="text" placeholder="Enter Middle Name">
+                    <input id="middleName" class="input" name="middleName" type="text" value="Smith" placeholder="Enter Middle Name">
                     <button type="button" title="Clear" class="clear-x" data-clear-for="middleName" aria-label="Clear middle name">✕</button>
                 </div>
                 </div>
@@ -298,7 +365,7 @@
                 <div class="col-1">
                 <label class="label" for="lastName">Last Name:</label>
                 <div class="field-with-clear">
-                    <input id="lastName" class="input" name="lastName" type="text" placeholder="Doe">
+                    <input id="lastName" class="input" name="lastName" type="text" value="Doe" placeholder="Doe">
                     <button type="button" title="Clear" class="clear-x" data-clear-for="lastName" aria-label="Clear last name">✕</button>
                 </div>
                 </div>
@@ -308,7 +375,7 @@
                 <div class="col-2">
                 <label class="label" for="email">Email:</label>
                 <div class="field-with-clear">
-                    <input id="email" class="input" name="email" type="email" placeholder="jdo@ttu.edu">
+                    <input id="email" class="input" name="email" type="email" value="jdo@ttu.edu" placeholder="Enter Email">
                     <button type="button" title="Clear" class="clear-x" data-clear-for="email" aria-label="Clear email">✕</button>
                 </div>
                 </div>
@@ -318,7 +385,7 @@
                 <div class="col-2">
                 <label class="label" for="website">Personal Website (Optional):</label>
                 <div class="field-with-clear">
-                    <input id="website" class="input" name="website" type="url" placeholder="www.examplewebsite.com">
+                    <input id="website" class="input" name="website" type="url" value="www.examplewebsite.com" placeholder="Enter Personal Website">
                     <button type="button" title="Clear" class="clear-x" data-clear-for="website" aria-label="Clear website">✕</button>
                 </div>
                 </div>
@@ -328,7 +395,7 @@
                 <div class="col-2">
                 <label class="label" for="school">School:</label>
                 <div class="field-with-clear">
-                    <input id="school" class="input" name="school" type="text" placeholder="Texas Tech University">
+                    <input id="school" class="input" name="school" type="text" value="Texas Tech University" placeholder="Enter University">
                     <button type="button" title="Clear" class="clear-x" data-clear-for="school" aria-label="Clear school">✕</button>
                 </div>
                 </div>
@@ -337,19 +404,19 @@
             <div class="row">
                 <div class="col-2">
                 <label class="label" for="major">Major/Academic Program:</label>
-                <input id="major" class="input" name="major" type="text" placeholder="Computer Science">
+                <input id="major" class="input" name="major" type="text" value="Computer Science" placeholder="Enter Major">
                 <div style="margin-top:8px">
-                    <button type="button" class="small-btn" id="addMajorBtn">+ Additional</button>
+                    <button type="button" class="small-btn" id="addMajorBtn" style="color: #0073FF;">+ Additional</button>
                 </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-2">
-                <label class="label" for="minor">Minor:</label>
+                <label class="label" for="minor">Minor (Optional):</label>
                 <input id="minor" class="input" name="minor" type="text" placeholder="Computer Science">
                 <div style="margin-top:8px">
-                    <button type="button" class="small-btn" id="addMinorBtn">+ Additional</button>
+                    <button type="button" class="small-btn" id="addMajorBtn" style="color: #0073FF;">+ Additional</button>
                 </div>
                 </div>
             </div>
@@ -358,7 +425,7 @@
                 <div class="col-1">
                 <label class="label" for="degree">Degree Level:</label>
                 <select id="degree" class="select" name="degree" aria-label="Degree level">
-                    <option>Bachelor's</option>
+                    <option selected>Bachelor's</option>
                     <option>Master's</option>
                     <option>Doctorate</option>
                     <option>Other</option>
@@ -378,20 +445,20 @@
 
                 <div class="col-1">
                 <label class="label" for="gpa">Undergraduate/Graduate GPA:</label>
-                <input id="gpa" class="input" name="gpa" type="text" inputmode="decimal" placeholder="4.0">
+                <input id="gpa" class="input" name="gpa" type="text" inputmode="decimal" value="4.0" placeholder="Enter GPA">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-2">
                 <label class="label" for="gradTerm">Graduation Term:</label>
-                <input id="gradTerm" class="input" name="gradTerm" placeholder="Spring 2027">
+                <input id="gradTerm" class="input" name="gradTerm" value="Spring 2027" placeholder="Enter Graduation Term">
                 </div>
             </div>
 
             <div class="divider" aria-hidden="true"></div>
 
-            <div class="section-title">Account</div>
+            <div class="section-title account">Account</div>
             <div class="row">
                 <div style="flex:0 0 120px">
                 <label class="label">Profile Picture:</label>
@@ -407,14 +474,15 @@
                 <div class="preview-card" aria-hidden="true">
                     <div class="preview-mini" id="previewMini"><img src="" alt=""></div>
                     <div class="preview-lines">
-                    <div style="font-weight:700">Jane Doe</div>
+                    <div id="previewName" style="font-weight:500">Jane Doe</div>
                     <div style="height:8px"></div>
-                    <div style="height:8px;background:#eef3f8;border-radius:4px;margin-top:6px;width:85%"></div>
+                    <div style="height:16px;background:#eef3f8;border-radius:4px;margin-top:6px;width:100%"></div>
+                    <div style="height:16px;background:#eef3f8;border-radius:4px;margin-top:6px;width:100%"></div>
+                    <div style="height:16px;background:#eef3f8;border-radius:4px;margin-top:6px;width:100%"></div>
                     </div>
                 </div>
                 </div>
             </div>
-
             <div class="actions" role="group" aria-label="Form actions">
                 <button type="button" class="btn reset" id="resetBtn">Reset</button>
                 <button type="submit" class="btn save" id="saveBtn">Save</button>
@@ -422,17 +490,17 @@
             </form>
         </section>
 
-        <!-- Other content sections (hidden initially) -->
+        <!-- OTHER CONTENT (Hidden On Default) -->
         <section id="security" class="content-section" hidden role="region" aria-label="Sign-In and Security">
             <h1>Sign-In and Security</h1>
             <div class="divider"></div>
             <p style="color:var(--muted)">Change your password, enable 2-step verification, and review active sessions.</p>
             <div style="margin-top:16px">
-            <label class="label">Password</label>
+            <label class="label">Password:</label>
             <input class="input" id="password" type="password" placeholder="••••••••">
-            <div style="margin-top:8px">
-                <button class="small-btn" id="changePassword">Change Password</button>
-                <button class="small-btn" id="enable2fa">Enable 2-step verification</button>
+            <div style="margin-top:8px; display:flex; justify-content:flex-end; gap:8px;">
+                <button class="btn save" id="changePassword">Change Password</button>
+                <button class="btn save" id="enable2fa">Enable 2-step verification</button>
             </div>
             </div>
         </section>
@@ -442,11 +510,11 @@
             <div class="divider"></div>
             <p style="color:var(--muted)">Control who can see your profile and what details are visible to employers and peers.</p>
             <div style="margin-top:12px">
-            <label class="label">Profile visibility</label>
+            <label class="label">Profile Visibility:</label>
             <select class="select" id="visibilitySelect">
-                <option>Public</option>
-                <option selected>Students & Employers</option>
+                <option selected>Students and Employers</option>
                 <option>Students Only</option>
+                <option>Employers Only</option>
                 <option>Private</option>
             </select>
             </div>
@@ -457,8 +525,10 @@
             <div class="divider"></div>
             <p style="color:var(--muted)">Control how we use your data, request exports, or delete your account data.</p>
             <div style="margin-top:10px">
-            <button class="small-btn">Download my data</button>
-            <button class="small-btn" style="margin-left:8px;background:#fff;border:1px solid var(--border)">Delete my account</button>
+            <button class="btn save">Download My Data</button>
+            <button class="btn save" style="margin-left:8px;background:#fff;border:0.7px solid #FF857B; color:#000;">
+                Delete My Account
+            </button>
             </div>
         </section>
 
@@ -467,7 +537,7 @@
             <div class="divider"></div>
             <p style="color:var(--muted)">Manage ad personalization and connected marketing preferences.</p>
             <div style="margin-top:12px">
-            <label class="label">Ad personalization</label>
+            <label class="label">Ad Personalization:</label>
             <select class="select"><option>Enabled</option><option>Disabled</option></select>
             </div>
         </section>
@@ -480,6 +550,9 @@
             <label class="label"><input type="checkbox" id="emailNotif" checked> Email notifications</label><br>
             <label class="label"><input type="checkbox" id="smsNotif"> SMS notifications</label>
             </div>
+            <div class="actions" role="group" aria-label="Form actions" style="margin-top:16px">
+                <button type="button" class="btn save" id="saveNotifications">Save</button>
+            </div>
         </section>
 
         </main>
@@ -487,8 +560,9 @@
 
     <div class="toast" id="toast">Saved</div>
 
+    <!-- JavaScript Code: -->
     <script>
-        // --- Sidebar navigation ---
+        // SIDEBAR NAVIGATION
         const nav = document.getElementById('sidebarNav');
         const navButtons = nav.querySelectorAll('.nav-btn');
         const sections = document.querySelectorAll('.content-section');
@@ -514,7 +588,7 @@
         showSection(b.dataset.section);
         });
 
-        // keyboard support for sidebar
+        //Keyboard Support for Sidebar
         nav.addEventListener('keydown', (e) => {
         const focusable = Array.from(navButtons);
         const idx = focusable.indexOf(document.activeElement);
@@ -529,7 +603,7 @@
         }
         });
 
-        // --- Clear X buttons ---
+        //Clear Field Buttons
         document.querySelectorAll('.clear-x').forEach(btn => {
         btn.addEventListener('click', () => {
             const id = btn.dataset.clearFor;
@@ -537,36 +611,50 @@
             if (el) {
             el.value = '';
             el.focus();
-            saveFormDebounced();
             }
         });
         });
 
-        // --- Profile upload & preview ---
+        //Profile Upload and Preview
         const avatarInput = document.getElementById('avatarInput');
         const avatarImg = document.getElementById('avatarImg');
         const previewMini = document.querySelector('#previewMini img');
+        const headerProfileImg = document.querySelector('nav ul.nav-list li.profile-pic img');
+        const saveBtn = document.getElementById('saveBtn');
 
-        function dataUrlToImgsrc(dataUrl) {
-        return dataUrl; // same
-        }
+        let newAvatarUrl = null; //Stores the uploaded image temporarily
 
         avatarInput.addEventListener('change', (ev) => {
-        const f = ev.target.files && ev.target.files[0];
-        if (!f) return;
-        if (!f.type.startsWith('image/')) return alert('Please upload an image file.');
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const url = e.target.result;
-            avatarImg.src = dataUrlToImgsrc(url);
-            if (previewMini) previewMini.src = url;
-            saveToLocal('avatar', url);
-            showToast('Profile picture updated');
-        };
-        reader.readAsDataURL(f);
+            const f = ev.target.files && ev.target.files[0];
+            if (!f) return;
+            if (!f.type.startsWith('image/')) return alert('Please upload an image file.');
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const url = e.target.result;
+
+                //Preview immediately
+                avatarImg.src = url;
+                if (previewMini) previewMini.src = url;
+                if (headerProfileImg) headerProfileImg.src = url;
+
+                //Store temporarily. Don't save yet
+                newAvatarUrl = url;
+            };
+            reader.readAsDataURL(f);
         });
 
-        // --- Form persistence (localStorage) ---
+        //Save Button Handler
+        saveBtn.addEventListener('click', () => {
+            if (newAvatarUrl) {
+                saveToLocal('avatar', newAvatarUrl);
+                showToast('Profile picture updated!');
+                newAvatarUrl = null; // reset after saving
+            }
+        });
+
+
+        //Form Persistance (Local Storage)
         const form = document.getElementById('accountForm');
         const fields = ['firstName','middleName','lastName','email','website','school','major','minor','degree','studentYear','gpa','gradTerm'];
 
@@ -579,43 +667,46 @@
         }
 
         function loadForm() {
-        fields.forEach(id => {
-            const el = document.getElementById(id);
-            const val = readFromLocal(id);
-            if (el && val !== null) el.value = val;
-        });
-        // select values
-        const degree = readFromLocal('degree');
-        if (degree) document.getElementById('degree').value = degree;
-        const studentYear = readFromLocal('studentYear');
-        if (studentYear) document.getElementById('studentYear').value = studentYear;
-        // avatar
-        const avatarData = readFromLocal('avatar');
-        if (avatarData) {
-            avatarImg.src = avatarData;
-            if (previewMini) previewMini.src = avatarData;
-        } else {
-            // placeholder avatar
-            const placeholder = svgDataUri(88, '#f3f6fb', '#7b8794', 'JD');
-            avatarImg.src = placeholder;
-            if (previewMini) previewMini.src = placeholder;
-        }
+            const avatarData = readFromLocal('avatar');
+
+            if (avatarData) {
+                avatarImg.src = avatarData;
+                if (previewMini) previewMini.src = avatarData;
+                if (headerProfileImg) headerProfileImg.src = avatarData;
+            } else {
+                //Use default profile picture image instead of generated placeholder
+                const defaultImg = "../connect-platform-alpha1/images/DefaultProfilePicture1_1.png";
+                avatarImg.src = defaultImg;
+                if (previewMini) previewMini.src = defaultImg;
+                if (headerProfileImg) headerProfileImg.src = defaultImg;
+            }
+
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                const val = readFromLocal(id);
+                if (el && val !== null) el.value = val;
+            });
+            //Select values
+            const degree = readFromLocal('degree');
+            if (degree) document.getElementById('degree').value = degree;
+            const studentYear = readFromLocal('studentYear');
+            if (studentYear) document.getElementById('studentYear').value = studentYear;
+            //Avatar
+            if (avatarData) {
+                avatarImg.src = avatarData;
+                if (previewMini) previewMini.src = avatarData;
+            } 
         }
 
-        // generate a simple SVG data-uri placeholder with initials
-        function svgDataUri(size, bg, fg, initials){
-        const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${size}' height='${size}'><rect width='100%' height='100%' fill='${bg}'/><text x='50%' y='50%' dy='.085em' font-family='Arial' font-size='36' text-anchor='middle' fill='${fg}'>${initials}</text></svg>`;
-        return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-        }
-
-        // save when fields change (debounced)
+        //Save Field Changes (localStorage)
         let saveTimer = null;
         function saveFormDebounced(){
         clearTimeout(saveTimer);
         saveTimer = setTimeout(saveForm, 350);
         }
 
-        function saveForm(){
+        function saveForm() {
+        //Save all fields to localStorage
         fields.forEach(id => {
             const el = document.getElementById(id);
             if (!el) return;
@@ -623,19 +714,31 @@
         });
         saveToLocal('degree', document.getElementById('degree').value);
         saveToLocal('studentYear', document.getElementById('studentYear').value);
-        showToast('Changes Saved!');
+
+        //Update header name and preview ONLY when saving
+        const first = document.getElementById('firstName').value.trim();
+        const last = document.getElementById('lastName').value.trim();
+        const display = [first, last].filter(Boolean).join(' ') || 'Jane Doe';
+
+        const headerNameEl = document.getElementById('headerName');
+        const previewNameEl = document.getElementById('previewName');
+        if (headerNameEl) headerNameEl.textContent = display;
+        if (previewNameEl) previewNameEl.textContent = display;
+
+        saveToLocal('displayName', display);
+        showToast('Profile save');
         }
 
-        // attach change listeners
-        fields.forEach(id => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        el.addEventListener('input', saveFormDebounced);
-        });
-        document.getElementById('degree').addEventListener('change', saveFormDebounced);
-        document.getElementById('studentYear').addEventListener('change', saveFormDebounced);
+        //Autosave Functionality (commented in case I'd like to add it later)
+        // fields.forEach(id => {
+        //     const el = document.getElementById(id);
+        //     if (!el) return;
+        //     el.addEventListener('input', saveFormDebounced);
+        // });
+        // document.getElementById('degree').addEventListener('change', saveFormDebounced);
+        // document.getElementById('studentYear').addEventListener('change', saveFormDebounced);
 
-        // Reset button
+        //Reset Button
         document.getElementById('resetBtn').addEventListener('click', () => {
         if (!confirm('Reset the form to default values?')) return;
         fields.forEach(id => {
@@ -645,13 +748,14 @@
         });
         try { localStorage.removeItem('cc:avatar') } catch(e){}
         loadForm();
-        showToast('Reset');
+        showToast('Reset Preferences');
         });
 
-        // Save (submit)
+        //Save (Submit)
         form.addEventListener('submit', (e) => {
         e.preventDefault();
-        // Basic validation example: email required and names required
+
+        //Basic Name and Email Validation
         const email = document.getElementById('email').value.trim();
         const first = document.getElementById('firstName').value.trim();
         const last = document.getElementById('lastName').value.trim();
@@ -664,11 +768,10 @@
             return;
         }
         saveForm();
-        // Simulate server save delay
-        showToast('Profile saved');
+        showToast('Profile Saved!');
         });
 
-        // Simple toast
+        //Simple Toast
         const toast = document.getElementById('toast');
         let toastTimer = null;
         function showToast(msg='Saved', ms=2200){
@@ -683,40 +786,57 @@
         }, ms);
         }
 
-        // small utility: show initial section
+        //Small Utility: Show Initial Section
         showSection('account');
         loadForm();
 
-        // show placeholder text in preview name if user changed their name
+        //Button Logic
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            // Redirect to another page
+            window.location.href = 'home.html';
+        });
+
+        //Update Placeholder Text in Preview
         const firstNameEl = document.getElementById('firstName');
         const lastNameEl = document.getElementById('lastName');
         function updatePreviewName(){
-        const name = (firstNameEl.value || 'Jane') + (lastNameEl.value ? ' ' + lastNameEl.value : ' Doe');
-        document.querySelector('.preview-card div').querySelector(':scope > div').textContent = name;
-        // update placeholder avatar initials
-        const initials = ( (firstNameEl.value || 'Jane').charAt(0) + (lastNameEl.value || 'Doe').charAt(0) ).toUpperCase();
-        if (!readFromLocal('avatar')) {
-            const place = svgDataUri(88, '#f3f6fb', '#7b8794', initials);
-            avatarImg.src = place;
-            if (previewMini) previewMini.src = place;
-        }
-        saveFormDebounced();
-        }
-        firstNameEl.addEventListener('input', updatePreviewName);
-        lastNameEl.addEventListener('input', updatePreviewName);
+            const name = (firstNameEl.value || 'Jane') + (lastNameEl.value ? ' ' + lastNameEl.value : ' Doe');
+            
+            const previewNameEl = document.getElementById('previewName');
+            if(previewNameEl) previewNameEl.textContent = name;
 
-        // small helpers for demo buttons
-        document.getElementById('changePassword').addEventListener('click', ()=> alert('Open change password dialog (placeholder).'));
-        document.getElementById('enable2fa').addEventListener('click', ()=> alert('Enable 2-step flow (placeholder).'));
-        document.getElementById('logoutBtn').addEventListener('click', ()=> alert('Log out pressed (placeholder).'));
+            //Update placeholder avatar initials if needed
+            const initials = ((firstNameEl.value || 'Jane').charAt(0) + (lastNameEl.value || 'Doe').charAt(0)).toUpperCase();
+        }
 
-        // initialize preview name
+        //Initialize Preview Name
         updatePreviewName();
 
-        // Make nav buttons focusable by keyboard easily
+        //Make Nav Buttons Focusable
         navButtons.forEach(b => {
-        b.setAttribute('tabindex', '0');
-        });
+            b.setAttribute('tabindex', '0');
+            });
+
+            //Update Header Name Automatically
+            const headerName = document.getElementById('headerName');
+            const firstInput = document.getElementById('firstName');
+            const lastInput = document.getElementById('lastName');
+
+            //Helper: Builds display name
+            function updateHeaderName() {
+            const first = firstInput.value.trim();
+            const last = lastInput.value.trim();
+            const display = [first, last].filter(Boolean).join(' ') || 'Jane Doe';
+            const previewName = document.getElementById('previewName');
+            if (previewName) previewName.textContent = display;
+
+            if (headerName) headerName.textContent = display;
+            saveToLocal('displayName', display);
+            }
+
+            //Load Saved Name on Startup
+            const savedDisplayName = readFromLocal('displayName');
+            if (savedDisplayName && headerName) headerName.textContent = savedDisplayName;
 
     </script>
     </body>
