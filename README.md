@@ -8,25 +8,31 @@
 - Avaneesh Jha - [AViJ11](https://github.com/AViJ11)
   
 ## Project Description
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1359f216-710f-43fa-85fb-190cd26acf55" 
+       alt="CampusConnect Logo" 
+       width="200">
+</p>
+
 CampusConnect is a career platform designed to connect students to paid, 16-week company projects relevant to their major, technical expertise, and cultural fit.
 
-## Pages Implemented
+## Implemented Pages
 | Page | File |
-| --- | --- |
+| :---: | :---: |
 | Landing Page | index.html |
 | Login/Register Page | loginregisterpage.html |
 | Student Support Page | support.html |
 | Business Support Page | business-support.html |
 | Student Account Page | student_account_page.html |
 
-## Technologies Used
+## Technologies Utilized
 - HTML5
 - CSS3 (Flexbox, Grid, Media Queries)
 - JavaScript
 - Git and GitHub
 - GitHub Pages
 
-## Individual Contributions Sample
+## Individual Contributions
 ### Devon Kawaguchi:
 - Implemented student settings page that persistently saves user preferences
 - Developed the platform's navigation bar
@@ -43,5 +49,5 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 - Implemented hero section styling
 - Made site responsive for mobile devices
 
-## Licence Information:
-The application is protected under the MIT Licence. The full conditions of the licence can be found in this repository's [LICENCE](https://github.com/DevonKawaguchi/connect-platform-alpha1?tab=MIT-1-ov-file#readme).
+## License Information:
+The application is protected under the MIT License. The full conditions of the license can be found in this repository's [LICENSE](https://github.com/DevonKawaguchi/connect-platform-alpha1?tab=MIT-1-ov-file#readme).
