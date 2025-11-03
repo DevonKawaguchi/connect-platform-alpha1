@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CampusConnect — Apply</title>
+
+  <!-- Fonts (similar feel to your mock) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html" aria-label="Go to Home">
+        <img src="images/cc-logo.png" alt="CampusConnect logo" class="brand__img" />
+        <span class="brand__text">CAMPUS<span class="brand__text--accent">CONNECT</span></span>
+      </a>
+
+      <button class="nav__toggle" aria-expanded="false" aria-controls="navmenu">☰</button>
+
+      <ul id="navmenu" class="nav__menu">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link nav__link--active" href="StudentApplyPage.html" aria-current="page">Apply</a></li>
+        <li><a class="nav__link" href="manage.html">Manage</a></li>
+        <li><a class="nav__link" href="support.html">Support</a></li>
+      </ul>
+
+      <a class="user" href="profile.html" aria-label="Open profile">
+        <span class="user__name">Jane Doe</span>
+        <img src="images/avatar.jpg" alt="Profile photo" class="user__avatar">
+      </a>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__inner">
+      <h1 id="hero-title">Apply</h1>
+      <p>Submit your resume and we’ll connect you with projects specifically
+         built to align with your field of study</p>
+    </div>
+  </section>
+
+  <main id="main" class="container">
+
+    <!-- ================= Submit Resume (open) ================= -->
+    <details class="card accordion" open>
+      <summary class="accordion__summary">
+        <h2 class="accordion__title">Submit Resume</h2>
+        <span class="accordion__chev" aria-hidden="true">▾</span>
+      </summary>
+
+      <div class="field field--file">
+        <label for="resume"><strong>Upload Resume:</strong></label>
+        <input id="resume" name="resume" type="file" />
+        <small class="help">PDF or DOCX • Max 10 MB</small>
+      </div>
+    </details>
+
+    <!-- ================= Job Specific Information (open) ================= -->
+    <details class="card accordion" open>
+      <summary class="accordion__summary">
+        <h2 class="accordion__title">Job Specific Information</h2>
+        <span class="accordion__chev" aria-hidden="true">▾</span>
+      </summary>
+
+      <form class="form-grid" novalidate>
+        <!-- Names row -->
+        <div class="field">
+          <label for="first-name">First Name:</label>
+          <input id="first-name" type="text" value="Jane" />
+        </div>
+
+        <div class="field">
+          <label for="middle-name">Middle Name (Optional):</label>
+          <input id="middle-name" type="text" value="Marie" />
+        </div>
+
+        <div class="field">
+          <label for="last-name">Last Name:</label>
+          <input id="last-name" type="text" value="Doe" />
+        </div>
+
+        <!-- Email -->
+        <div class="field field--full">
+          <label for="email">Email:</label>
+          <input id="email" type="email" value="jdo@ttu.edu" />
+        </div>
+
+        <!-- Website -->
+        <div class="field field--full">
+          <label for="website">Personal Website (Optional):</label>
+          <input id="website" type="url" value="www.examplewebsite.com" />
+        </div>
+
+        <!-- School -->
+        <div class="field field--full">
+          <label for="school">School:</label>
+          <input id="school" type="text" value="Texas Tech University" />
+        </div>
+
+        <!-- Major -->
+        <div class="field field--full">
+          <label for="major">Major/Academic Program:</label>
+          <input id="major" type="text" value="Computer Science" />
+          <button class="chip" type="button">+ Additional</button>
+        </div>
+
+        <!-- Minor -->
+        <div class="field field--full">
+          <label for="minor">Minor:</label>
+          <input id="minor" type="text" value="Computer Science" />
+          <button class="chip" type="button">+ Additional</button>
+        </div>
+
+        <!-- Degree / Year / GPA -->
+        <div class="field">
+          <label for="degree">Degree Level:</label>
+          <select id="degree">
+            <option selected>Bachelor’s</option>
+            <option>Master’s</option>
+            <option>Ph.D.</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="year">Student Year:</label>
+          <input id="year" type="text" value="Junior" />
+        </div>
+
+        <div class="field">
+          <label for="gpa">Undergraduate/Graduate GPA:</label>
+          <input id="gpa" type="number" step="0.01" value="4.0" />
+        </div>
+
+        <!-- Grad term -->
+        <div class="field field--full">
+          <label for="grad-term">Graduation Term:</label>
+          <input id="grad-term" type="text" value="Spring 2027" />
+        </div>
+      </form>
+    </details>
+
+    <!-- ================= Other sections (collapsed) ================= -->
+    <details class="card accordion">
+      <summary class="accordion__summary">
+        <h2 class="accordion__title">Psychometric Assessment</h2>
+        <span class="accordion__chev" aria-hidden="true">▾</span>
+      </summary>
+      <p class="muted">Coming soon.</p>
+    </details>
+
+    <details class="card accordion">
+      <summary class="accordion__summary">
+        <h2 class="accordion__title">Confidential Applicant Form</h2>
+        <span class="accordion__chev" aria-hidden="true">▾</span>
+      </summary>
+      <p class="muted">Optional demographic information.</p>
+    </details>
+
+    <details class="card accordion">
+      <summary class="accordion__summary">
+        <h2 class="accordion__title">Disclosure of Potential Employment Conflicts</h2>
+        <span class="accordion__chev" aria-hidden="true">▾</span>
+      </summary>
+      <p class="muted">Please disclose any current employment or conflicts.</p>
+    </details>
+  </main>
+
+  <!-- ================= Sticky submit ================= -->
+  <div class="submit-bar">
+    <button class="btn btn--primary" type="button">Submit</button>
+  </div>
+
+  <script>
+    // Mobile menu
+    const toggle = document.querySelector('.nav__toggle');
+    const menu = document.getElementById('navmenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        menu.classList.toggle('is-open');
+      });
+    }
+  </script>
+</body>
+</html>
