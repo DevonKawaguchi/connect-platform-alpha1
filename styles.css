@@ -2776,3 +2776,385 @@ body.keyboard-navigation *:focus {
    
    Good luck with your project! 🚀
    ========================================== */
+/* ==========================================
+   15. CUSTOM STYLES FOR APPLY PAGE
+   
+   These styles are ADDED to match the user's images.
+   They override some of the template styles above and add new ones.
+   ========================================== */
+
+/* --- Font and Body Overrides --- */
+
+/* Override the default body font and background to match the image */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f0f8ff; /* Light blue background from image */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Override the default heading font */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Override default input border from the template */
+input[type="text"],
+input[type="email"],
+input[type="url"] {
+    border-width: 1px; /* Image has 1px border, not 2px */
+    padding: 10px;
+    box-shadow: none; /* Remove template's inset shadow */
+}
+
+/* --- Header & Navigation Overrides --- */
+
+/* Override template navbar */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: var(--shadow-sm); /* Use shadow from template */
+    position: static; /* Remove sticky from template if not desired */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row; /* Ensure horizontal layout */
+}
+
+.navbar .logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Override nav-links alignment */
+.nav-links {
+    flex-direction: row; /* Ensure horizontal */
+    gap: 30px;
+    width: auto;
+}
+
+.nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+    color: #555;
+    border-bottom: none; /* Remove template's default active border */
+}
+
+.nav-links a:hover {
+    color: var(--primary-color); /* Use template's primary blue */
+}
+
+/* Style for the active "Apply" link to match the image */
+.nav-links a[aria-current="page"] {
+    color: var(--primary-color); /* Use template's primary blue */
+    padding-bottom: 0; /* Reset padding */
+}
+
+/* Add the blue underline from the image */
+.nav-links a[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px; /* Position underline below text */
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* --- New User Profile Styles --- */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-profile span {
+    font-weight: 600;
+    color: #555;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+/* --- Page Header Override --- */
+
+/* Override the template's .page-header */
+.page-header {
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #c9e6ff;
+    /* Light blue background with subtle SVG pattern from image */
+    background-color: #e0efff;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18.273L18.273 11l.707.707L11.707 19l-.707-.727zm.707 8.59l8.59.707.707-.707-8.59-.707-.707.707zm8.59 8.59l.707 8.59.707-.707-.707-8.59-.707.707zm8.59.707l8.59-.707.707.707-8.59.707-.707-.707zM11 51.545l8.59.707.707-.707-8.59-.707-.707.707zm8.59 8.59l.707 8.59.707-.707-.707-8.59-.707.707zm8.59.707l8.59-.707.707.707-8.59.707-.707-.707zM11 84.818l8.59.707.707-.707-8.59-.707-.707.707zm8.59 8.59l.707 8.59.707-.707-.707-8.59-.707.707zM51.545 11l.707 8.59.707-.707-.707-8.59-.707.707zm8.59.707l8.59-.707.707.707-8.59.707-.707-.707zm.707 8.59l8.59.707.707-.707-8.59-.707-.707.707zm8.59 8.59l.707 8.59.707-.707-.707-8.59-.707.707zM51.545 51.545l.707 8.59.707-.707-.707-8.59-.707.707zm8.59 8.59l.707 8.59.707-.707-.707-8.59-.707.707zM51.545 84.818l.707 8.59.707-.707-.707-8.59-.707.707zm8.59 8.59l.707 8.59.707-.707-.707-8.59-.707.707zM84.818 11l.707 8.59.707-.707-.707-8.59-.707.707zm8.59.707l8.59-.707.707.707-8.59.707-.707-.707zm.707 8.59l8.59.707.707-.707-8.59-.707-.707.707zm8.59 8.59l.707 8.59.707-.707-.707-8.59-.707.707z' fill='%23007bff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 100px;
+}
+
+/* Add overlay to soften the pattern */
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.6) 100%);
+    z-index: 0;
+}
+
+.page-header h2, .page-header p {
+    position: relative; /* Bring text above the overlay */
+    z-index: 1;
+}
+
+.page-header h2 {
+    font-size: 3.2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- New Accordion Card Styles --- */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    /* Use a very rounded corner as shown in the image */
+    border-radius: 16px; 
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 20px 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Remove bottom border when card is collapsed */
+.card.collapsed .card-header {
+    border-bottom: none;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.card-header .accordion-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* Point icon up when expanded */
+.card .accordion-icon {
+    transform: rotate(-180deg);
+}
+/* Point icon down when collapsed */
+.card.collapsed .accordion-icon {
+    transform: rotate(0deg);
+}
+
+.card-body {
+    padding: 25px;
+    display: block;
+    transition: all 0.3s ease-out;
+    max-height: 1500px; /* Set a large max-height for transition */
+    overflow: hidden;
+    border-top: 1px solid #eee; /* Separator line */
+}
+
+/* This class hides the card body */
+.card.collapsed .card-body {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top: none;
+}
+
+
+/* --- New Form Element Styles --- */
+
+/* Position relative for the 'x' button */
+.form-group {
+    position: relative;
+}
+
+/* New 3-column row style */
+.form-row-three {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 1.5rem;
+}
+
+/* Custom file upload styles */
+.file-upload-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.file-upload-group label {
+    margin-bottom: 0; /* Remove bottom margin */
+    flex-shrink: 0;
+}
+.file-upload {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-md);
+    padding: 5px;
+    background-color: #f9f9f9;
+    width: 100%;
+}
+.file-upload .file-name {
+    margin-left: 10px;
+    color: #666;
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Use the button styles from the template for "Choose File" */
+.file-upload .btn-primary {
+    white-space: nowrap; /* Prevent "Choose File" from wrapping */
+}
+
+/* New '+ Additional' button style */
+.btn-additional {
+    background-color: #e6f2ff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px 15px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    transition: background-color 0.2s ease;
+}
+.btn-additional:hover {
+    background-color: #cfe6ff;
+}
+
+/* New 'Clear Input' (×) button style */
+.clear-input {
+    position: absolute;
+    right: 12px;
+    /* Adjust top position to vertically center in the input */
+    top: 43px; 
+    color: #aaa;
+    font-size: 1.3rem;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+}
+.clear-input:hover {
+    color: #555;
+}
+
+/* New container to right-align the submit button */
+.submit-button-container {
+    text-align: right;
+    margin-top: 10px;
+    padding: 0 5px; /* Add slight padding to align with cards */
+}
+
+/* Override .btn-primary from template to match image */
+.btn-primary {
+    /* The template blue is fine, but let's match the padding/font */
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 968px) {
+    /* Override template's navbar stacking */
+    .navbar .container {
+        flex-direction: row; /* Keep it horizontal */
+    }
+    
+    /* Hide nav links, show a mobile menu button (not implemented) */
+    .nav-links {
+        display: none; 
+    }
+
+    /* Stack 3-column rows on tablet */
+    .form-row-three {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .form-row-three .form-group {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h2 {
+        font-size: 2.5rem;
+    }
+    .page-header p {
+        font-size: 1rem;
+    }
+    .card-header h2 {
+        font-size: 1.1rem;
+    }
+    /* Stack file upload on mobile */
+    .file-upload-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .file-upload-group label {
+        margin-bottom: 5px;
+    }
+    .file-upload {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .file-upload .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .file-upload .file-name {
+        margin-left: 0;
+        margin-top: 8px;
+        text-align: center;
+    }
+    
+    /* Center submit button on mobile */
+    .submit-button-container {
+        text-align: center;
+    }
+    .submit-button-container .btn {
+        width: 100%;
+    }
+}
