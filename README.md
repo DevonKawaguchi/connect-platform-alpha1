@@ -38,8 +38,9 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 - Developed the platform's navigation bar
 
 ### Zaine Brobbey:
-- Designed and implemented color scheme
-- Created footer component
+- Worked on the login/register page.
+- Worked on the support page for students.
+- Worked on the support page for businesses.
 
 ### Isaac Woodward:
 - Implemented hero section styling
