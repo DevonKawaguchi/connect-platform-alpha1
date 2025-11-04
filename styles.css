@@ -147,10 +147,10 @@ nav ul.nav-list li.profile-pic img {
 .btn.reset { background: #fff; border: 0.7px solid var(--border); color: #111827; }
 .small-btn { display: inline-block; padding: 6px 10px; border-radius: 18px; border: 0.7px solid #000000; background: #fff; font-size: 13px; cursor: pointer; }
 .field-with-clear {
-    position: relative; /* makes absolute positioning work inside the input container */
+    position: relative; /*Makes absolute positioning work inside the input container */
 }
 .field-with-clear .input {
-    padding-right: 36px; /* leave room for the X button */
+    padding-right: 36px; /*Leaves room for the X button */
 }
 
 .clear-x {
@@ -313,13 +313,13 @@ X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
   padding: 28px 20px;
   box-shadow: var(--shadow);
   border: 0.7px solid var(--border);
-  height: auto; /* allow it to expand naturally */
+  height: auto; /*Allows it to expand naturally */
   position: sticky;
   top: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  overflow: visible; /* or auto if you want scroll */
+  overflow: visible; 
 }
 .sidebar h2 { margin: 0; font-size: 20px; letter-spacing: 0.4px; }
 .sidebar nav { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
@@ -339,7 +339,7 @@ X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
     text-align: left;
     padding: 10px 12px;
     border-radius: 8px;
-    color: #FF857B; /* red text */
+    color: #FF857B;
     font-size: 15px;
     cursor: pointer;
     display: flex;
@@ -352,7 +352,7 @@ X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
 }
 /* Add hover state like .nav-btn */
 .logout:hover {
-    background: #f3f7fb; /* same hover background as nav-btn */
+    background: #f3f7fb;
 }
 /* Optional: Add subtle border or left accent on hover to match current nav item */
 .logout:active {
@@ -407,9 +407,9 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
     .timeline-step { width: 80%; margin-bottom: 50px; text-align: center; }
     .timeline-step:last-child { margin-bottom: 0; }
 }
-/* Media query for mobile */
+/*Media query for mobile */
 @media (max-width: 600px) {
-    /* Header row: logo + hamburger */
+    /*Header row: logo + hamburger */
     .column-separator {
         display: none;
     }
@@ -420,11 +420,11 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         align-items: center;
         padding: 0.5rem 1rem;
         height: auto;
-        position: relative;
+        position: sticky;
         box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
-    /* Hamburger button visible */
+    /*Hamburger button visible */
     .hamburger {
         display: block;
         font-size: 1.8rem;
@@ -433,7 +433,7 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         cursor: pointer;
     }
 
-    /* Hide nav initially */
+    /*Hide nav initially */
     header nav {
         position: absolute;
         top: 100%;
@@ -447,12 +447,12 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
-    /* Show nav when hamburger is clicked */
+    /*Show nav when hamburger is clicked */
     header nav.open {
         max-height: 500px;
     }
 
-    /* Nav list as column */
+    /*Nav list as column */
     header nav ul.nav-list {
         display: flex;
         flex-direction: column;
@@ -461,12 +461,12 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         gap: 0;
     }
 
-    /* Hide separator in mobile */
+    /*Hides separator in mobile */
     nav ul.nav-list li.nav-separator {
         display: none;
     }
 
-    /* Each menu item */
+    /*Each menu item */
     nav ul.nav-list li {
         width: 100%;
         margin: 0;
@@ -475,14 +475,13 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         display: flex;
     }
 
-    /* Links & buttons uniform */
     nav ul.nav-list li a,
     nav ul.nav-list li button {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding: 0.5rem 1rem; /* uniform vertical spacing */
+        padding: 0.5rem 1rem; /*Uniform vertical spacing */
         font-size: 0.95rem;
         line-height: 1.2;
         box-sizing: border-box;
@@ -514,8 +513,8 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
     .nav-btn {
         justify-content: center;
         font-size: 16px;
-        white-space: normal; /* Prevent text like “Sign-In and Security” from being cut off */
-        word-break: break-word; /* Allow long button names to wrap */
+        white-space: normal; /*Prevent text like “Sign-In and Security” from being cut off */
+        word-break: break-word; /*Allow long button names to wrap */
     }
 
     .logout {
