@@ -36,6 +36,8 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 ### Devon Kawaguchi:
 - Implemented student settings page that persistently saves user preferences
 - Developed the platform's navigation bar
+- Helped Isaac with Campus Connect logo
+- Helped Isaac add backround to hompage 
 
 ### Zaine Brobbey:
 - Worked on the login/register page.
@@ -45,6 +47,13 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 ### Isaac Woodward:
 - Implemented hero section styling
 - Made site responsive for mobile devices
+- Created Homepage (Landing Page)
+- Created Buisness manage page
+- Added Buisness manage page to main repository
+- Added Homepage to main repository
+- Ran debug and found 5 "spacing errors" in my code
+- Fixed 5 spacing errors
+- Fixed "to" bar to corrrect length
 
 ### Avaneesh Jha:
 - Implemented hero section styling
