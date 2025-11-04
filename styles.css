@@ -183,7 +183,7 @@ nav ul.nav-list li.profile-pic img {
     position: absolute;
     top: -10px; left: -10px; right: -10px; bottom: -10px;
     z-index: 0;
-    background: url("../connect-platform-alpha1/images/Home-Page-Hero-Image-1_1.jpg") center/cover no-repeat;
+    background: url("images/Home-Page-Hero-Image-1_1.jpg") center/cover no-repeat;
     filter: blur(4px);
     opacity: 0.2;
 }
@@ -250,7 +250,7 @@ nav ul.nav-list li.profile-pic img {
 /* Our Value Section */
 .our-value-title { text-align: center; font-size: 35px; font-weight: 600; margin-top: 30px; color: #000; }
 .our-value-wrapper { display: flex; justify-content: center; align-items: stretch; gap: 35px; flex-wrap: nowrap; max-width: 1100px; margin: 0 auto; }
-.column-separator { width: 0.7px; background: url('../connect-platform-alpha1/images/Header-Separator-1_1.jpg') no-repeat center; background-size: cover; height: auto; align-self: stretch; }
+.column-separator { width: 0.7px; background: url('images/Header-Separator-1_1.jpg') no-repeat center; background-size: cover; height: auto; align-self: stretch; }
 .our-value-wrapper .section {
     display: flex; flex-direction: column; justify-content: space-between;
     background: #fff; border: 0.7px solid #000000; box-shadow: var(--shadow); border-radius: var(--radius);
