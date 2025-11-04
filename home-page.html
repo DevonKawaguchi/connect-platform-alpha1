@@ -234,12 +234,15 @@
         margin:10px 0 22px; text-align:center; font-weight:700; font-size:35px;
         margin-bottom: 50px;
       }
-      .cards{
-        display:grid; gap:22px; grid-template-columns: repeat(3, minmax(0,1fr));
+      .cards {
+        display: flex;
+        flex-direction: column; /* stack cards vertically */
+        gap: 26px; /* space between cards */
+        align-items: center; /* optional: center them horizontally */
       }
-      .card{
-        background: var(--card-bg); border:0.7px solid #000000; border-radius:28px; box-shadow:var(--shadow);
-        padding:28px 26px; text-align:center;
+      .card {
+        width: 100%;
+        max-width: 600px; /* optional: limits how wide each card can go */
       }
       .card .icon {
         width: auto;             /* pick a consistent width for all icons */
@@ -282,6 +285,218 @@
       .cta-band .btn.outline:hover {
           background-color: #5FAFFF;
           color: #ffffff;
+      }
+
+      /* ===== Side-by-side layout for "Our Value" ===== */
+      /* MAIN TITLE */
+      .our-value-title {
+        text-align: center;
+        font-size: 35px;
+        font-weight: 600;
+        margin-top: 30px;
+        color: #000;
+      }
+      .our-value-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: stretch; /* stretch all flex items to same height */
+        gap: 35px;
+        flex-wrap: nowrap; /* keep side-by-side */
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .column-separator {
+        width: 0.7px;          /* thin vertical line, adjust as needed */
+        background: url('../connect-platform-alpha1/images/HeaderSeparator1_1.jpg') no-repeat center;
+        background-size: cover;
+        height: auto;         /* will stretch to fit flex container if needed */
+        align-self: stretch;  /* match height of columns */
+      }
+
+      /* Make content inside section vertically centered */
+      .our-value-wrapper .section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* <-- spreads content evenly top/bottom */
+        background: #fff;
+        border: 0.7px solid #000000;
+        box-shadow: var(--shadow);
+        border-radius: var(--radius);
+        padding: 10px 20px 25px 20px;
+        max-width: 480px;
+        height: 100%; /* optional if you want equal height columns */
+      }
+
+      .our-value-wrapper .section h2 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 25px;
+      }
+
+      .our-value-wrapper .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      /* Center content within each card */
+      .our-value-wrapper .card {
+        text-align: center;
+      }
+
+      .our-value-wrapper .card p {
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      /* Blue background for Companies section */
+      .our-value-wrapper .for-companies {
+        background-color: #004081; /* your blue */
+        color: #ffffff;             /* make text white so it's readable */
+      }
+
+      /* Make cards text readable */
+      .our-value-wrapper .for-companies .card p,
+      .our-value-wrapper .for-companies .card h3,
+      .our-value-wrapper .for-companies h2 {
+        color: #ffffff;
+      }
+
+      /* Responsive fix for mobile */
+      @media (max-width: 900px) {
+        .our-value-wrapper {
+          flex-direction: column;
+          gap: 50px;
+          max-width: 95%;
+        }
+      }
+
+      /* HOW IT WORKS TIMELINE */
+      .how-it-works-timeline {
+        margin-top: 30px;
+        padding: 30px 20px;
+        background: #ffffff;
+        text-align: center;
+      }
+
+      .how-it-works-timeline h2 {
+        font-size: 35px;
+        font-weight: 600;
+        margin-bottom: 50px;
+      }
+
+      .timeline-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: relative;
+        max-width: 1100px;
+        margin: 0 auto;
+        gap: 40px;
+      }
+
+      /* Connecting horizontal line */
+      .timeline-container::before {
+        content: '';
+        position: absolute;
+        top: calc(35px); /* half of the icon height to center line */
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: #0073FF;
+        z-index: 1;
+        border-radius: 2px;
+      }
+
+      .timeline-step {
+        position: relative;
+        width: 30%;
+        z-index: 2;
+      }
+
+      .timeline-icon {
+        width: 70px;
+        height: 70px;
+        background: #ffffff;
+        border: 3px solid #0073FF;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .timeline-icon img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .timeline-step h3 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .timeline-step p {
+        font-size: 15px;
+        color: rgb(0, 0, 0);
+        line-height: 1.5;
+      }
+
+      /* Responsive: stack on mobile */
+      @media (max-width: 900px) {
+        .timeline-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .timeline-container::before {
+          top: auto;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 4px;
+          height: 100%;
+        }
+        .timeline-step {
+          width: 80%;
+          margin-bottom: 50px;
+          text-align: center;
+        }
+        .timeline-step:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      footer {
+        background: #f8f8f8;
+        padding: 40px 20px;
+        text-align: center;
+        border-top: 1px solid #e5e5e5;
+      }
+
+      footer p {
+        margin-bottom: 15px;
+        color: #6b7280;
+      }
+
+      footer a {
+        margin: 0 10px;
+        color: #0073FF;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      footer img {
+        margin: 0 10px;
+        width: 24px;
+        height: 24px;
       }
 
       /*Responsive */
@@ -335,27 +550,99 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section container">
+  <!-- OUR VALUE MAIN TITLE -->
+  <h1 class="our-value-title">Our Value</h1>
+
+  <!-- OUR VALUE WRAPPER (Start) -->
+  <div class="our-value-wrapper">
+
+    <!-- OUR VALUE – FOR STUDENTS -->
+    <section class="section container">
+      <h2>For Students:</h2>
+      <div class="cards">
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/StudentIcon1_2.png" alt="Step 1" />
+          <h3>1. Browse Projects</h3>
+          <p>Explore real company projects that align with your field of study and fit your academic schedule.</p>
+        </article>
+
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/ExportIcon1_2.png" alt="Step 2" />
+          <h3>2. Apply and Collaborate</h3>
+          <p>Submit your application, showcase your skills, and collaborate directly with company mentors.</p>
+        </article>
+
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/CompanyIcon1_2.png" alt="Step 3" />
+          <h3>3. Gain Real Experience</h3>
+          <p>Complete semester-long projects, build your portfolio, and gain real-world experience for your career.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <img src="../connect-platform-alpha1/images/HeaderSeparator1_1.jpg" 
+       alt="Separator" class="column-separator" />
+       
+    <!-- OUR VALUE – FOR COMPANIES -->
+    <section class="section container for-companies">
+      <h2>For Companies:</h2>
+      <div class="cards">
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/CompanyIcon1_2.png" alt="Step 1" />
+          <h3>1. Post Opportunities</h3>
+          <p>Submit your semester-long projects or research ideas and connect with skilled, motivated students.</p>
+        </article>
+
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/ExportIcon1_2.png" alt="Step 2" />
+          <h3>2. Match and Collaborate</h3>
+          <p>We match your company with students based on interests, goals, and skillsets to ensure strong partnerships.</p>
+        </article>
+
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/StudentIcon1_2.png" alt="Step 3" />
+          <h3>3. Achieve Results</h3>
+          <p>Work with students to bring fresh ideas, complete impactful projects, and discover potential future hires.</p>
+        </article>
+      </div>
+    </section>
+
+  </div>
+  <!-- OUR VALUE WRAPPER (End) -->
+
+  <!-- HOW IT WORKS / HORIZONTAL TIMELINE -->
+  <section class="how-it-works-timeline">
     <h2>How It Works</h2>
-    <div class="cards">
-      <article class="card">
-        <img class="icon" src="../connect-platform-alpha1/images/StudentIcon1_2.png" alt="For Students" />
-        <h3>For Students</h3>
-        <p>Browse and apply to real company projects that fit your field of study and schedule</p>
-      </article>
+    <div class="timeline-container">
 
-      <article class="card">
-        <img class="icon" src="../connect-platform-alpha1/images/CompanyIcon1_2.png" alt="For Companies" />
-        <h3>For Companies</h3>
-        <p>Post semester-long projects or research ideas and connect with motivated students ready to help.</p>
-      </article>
+      <!-- Step 1 -->
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <img src="../connect-platform-alpha1/images/StudentIcon1_2.png" alt="Step 1">
+        </div>
+        <h3>1. Browse Projects</h3>
+        <p>Explore real company projects that align with your field of study and fit your academic schedule.</p>
+      </div>
 
-      <article class="card">
-        <img class="icon" src="../connect-platform-alpha1/images/ExportIcon1_2.png" alt="Match and Collaborate" />
-        <h3>Match and Collaborate</h3>
-        <p>We help match students and companies based on interests, skills, and project goals.</p>
-      </article>
+      <!-- Step 2 -->
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <img src="../connect-platform-alpha1/images/ExportIcon1_2.png" alt="Step 2">
+        </div>
+        <h3>2. Apply and Collaborate</h3>
+        <p>Submit your application, showcase your skills, and collaborate directly with company mentors.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="timeline-step">
+        <div class="timeline-icon">
+          <img src="../connect-platform-alpha1/images/CompanyIcon1_2.png" alt="Step 3">
+        </div>
+        <h3>3. Gain Real Experience</h3>
+        <p>Complete semester-long projects, build your portfolio, and gain real-world experience for your career.</p>
+      </div>
+
     </div>
   </section>
 
@@ -367,6 +654,27 @@
       <a class="btn outline" href="login-register-page.html">Get Started</a>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#f8f8f8; padding:40px 20px; text-align:center; border-top:1px solid #e5e5e5;">
+    <!-- Copyright -->
+    <p style="margin:0 0 15px; color:#6b7280;">&copy; 2025 CampusConnect. All rights reserved.</p>
+
+    <!-- Links -->
+    <div style="margin-bottom:15px;">
+      <a href="#" style="margin:0 10px; color:#0073FF; text-decoration:none;">Terms</a>|
+      <a href="#" style="margin:0 10px; color:#0073FF; text-decoration:none;">Privacy</a>|
+      <a href="#" style="margin:0 10px; color:#0073FF; text-decoration:none;">Contact</a>
+    </div>
+
+    <!-- Social Media Icons (Placeholder links) -->
+    <div>
+      <a href="#" style="margin:0 10px;"><img src="../connect-platform-alpha1/images/facebook-icon.png" alt="Facebook" width="24" height="24"></a>
+      <a href="#" style="margin:0 10px;"><img src="../connect-platform-alpha1/images/twitter-icon.png" alt="Twitter" width="24" height="24"></a>
+      <a href="#" style="margin:0 10px;"><img src="../connect-platform-alpha1/images/linkedin-icon.png" alt="LinkedIn" width="24" height="24"></a>
+      <a href="#" style="margin:0 10px;"><img src="../connect-platform-alpha1/images/instagram-icon.png" alt="Instagram" width="24" height="24"></a>
+    </div>
+  </footer>
 
 </body>
 </html>
