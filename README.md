@@ -34,10 +34,13 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 
 ## Individual Contributions
 ### Devon Kawaguchi:
-- Implemented student settings page that persistently saves user preferences
-- Developed the platform's navigation bar
-- Helped Isaac with Campus Connect logo
-- Helped Isaac add backround to hompage 
+- Implemented the platform's student settings page, which can persistently save user preferences
+- Assisted in the design and development of the home page, including the student and company value propositions table, "How It Works" timeline, and footer
+- Developed the platform's navigation bar, which can present its contents in a hamburger menu on mobile devices and adapt to unregistered and student users
+- Refactored and consolidated the platform's CSS page styles into styles.css
+- Integrated ARIA labels and alt text into the home and student settings pages
+- Revised the home and student settings pages to become more respponsive to multiple media queries such as desktop, tablet, and mobile devices
+- Implemented project graphics into the home page such as hero image, platform logo, and value proposition icons
 
 ### Zaine Brobbey:
 - Worked on the login/register page.
@@ -56,8 +59,7 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 - Fixed "to" bar to corrrect length
 
 ### Avaneesh Jha:
-- Implemented hero section styling
-- Made site responsive for mobile devices
+
 
 ## License Information:
 The application is protected under the MIT License. The full conditions of the license can be found in this repository's [LICENSE](https://github.com/DevonKawaguchi/connect-platform-alpha1?tab=MIT-1-ov-file#readme).
