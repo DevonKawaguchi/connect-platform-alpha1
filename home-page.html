@@ -6,306 +6,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="styles.css">
     <title>CampusConnect Home</title>
-    <style>
-      :root{
-          --accent:#0073FF;
-          --brand: #0073FF;
-          --muted:#6b7280;
-          --border:#000000;
-          --card-bg:#fff;
-          --page-bg:#ffffff;
-          --radius:12px;
-          --shadow: 0 4px 8px rgba(21,24,28,0.06);
-          --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      }
-
-      *{box-sizing:border-box}
-      html, body
-      {
-          height: auto;
-          min-height: 100%;
-      }
-      body
-      {
-      margin:0;
-      font-family:var(--font-sans);
-      background:linear-gradient(#ffffff, var(--page-bg));
-      color:#111827;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.3;
-      padding:0;
-      }
-
-      /* Header Styling */
-      header {
-          background-color: #ffffff; 
-          color: white;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 0 2rem;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-          position: sticky;
-          top: 0;
-          height: 70px;
-          border-bottom: 0.7px solid black;
-          z-index: 5;
-      }
-
-      header .logo img {
-          height: 50px;
-          display: block;
-      }
-
-      header .logo {
-          display: flex;
-          align-items: center; /*Vertically centers text and image inside logo */
-          gap: 8px; /*Spacing between image and text */
-      }
-
-      header nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-      }
-
-      header nav a {
-      text-decoration: none;
-      color: black;
-      font-weight: 400;
-      padding: 6px 0;
-      position: relative;
-      }
-
-      header nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: -3px;
-      left: 0;
-      background-color: #0073FF;
-      }
-
-      header nav a:hover::after {
-      width: 100%;
-      }
-
-      header nav a:hover {
-      color: #0073FF;
-      }
-
-      /*Make nav items horizontal */
-      nav ul.nav-list {
-          display: flex;
-          align-items: center;
-          gap: 2rem; /*Space between items */
-          list-style: none;
-          margin: 0;
-          padding: 0;
-      }
-
-      .nav-separator img {
-          height: 35px; /*Manually adjust as needed for design*/
-          width: 0.7px; 
-          display: block;
-      }
-
-      .sign-in-btn {
-          background-color: var(--accent);
-          color: #fff;
-          border: 0.7px solid #000000; 
-          border-radius: 7px;
-          padding: 8px 16px;
-          cursor: pointer;
-          font-size: 15px;
-          font-weight: 400;
-          font-family:var(--font-sans);
-          transition: background-color 0.2s ease;
-      }
-
-      .sign-in-btn:hover {
-          background-color: #004081; /* Slightly darker on hover */
-      }
-
-      /* ========== Hero ========== */
-      .hero {
-        position: relative;
-        overflow: hidden;
-        background: #ffffff;
-        color: #000000;
-      }
-
-      /* === Image layer (with opacity) === */
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: -10px; left: -10px; right: -10px; bottom: -10px;
-        z-index: 0;
-        background: url("../connect-platform-alpha1/images/HomePageHeroImage1_1.jpg") center/cover no-repeat;
-        filter: blur(4px);
-        opacity: 0.2; /* only the image fades */
-      }
-
-      /* === Gradient overlay layer === */
-      .hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1; /* stays above image but BELOW text */
-        background:
-          /* Blue fade from top */
-          linear-gradient(to bottom, rgba(0, 115, 255, 0.35) 0%, rgba(0,115,255,0.0) 70%),
-          /* White fade at bottom */
-          linear-gradient(to bottom, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%);
-        pointer-events: none; /* ensures text is clickable */
-      }
-
-      /* === Content === */
-      .hero-inner {
-        position: relative;
-        z-index: 2; /* higher than ::after */
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 86px 18px 120px;
-        text-align: center;
-      }
-
-      .hero h1 {
-        margin-top: 12px;
-        margin-bottom: 20px;
-        font-size: 35px;
-        font-weight: 700;
-      }
-
-      .hero p {
-        margin: 0 auto 24px;
-        color: #000000;
-        max-width: 720px;
-        font-size: 18px;
-        font-weight: 400;
-      }
-
-      .hero .cta {
-        display: flex;
-        gap: 15px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .hero .btn {
-        padding: 12px 18px;          /* spacing inside button */
-        border-radius: 7px;         /* rounded corners */
-        background-color: #0073FF;   /* primary button color */
-        color: #ffffff; /* text color */
-        border: 0.7px solid #000000; 
-        font-weight: 500;            /* slightly bolder text */
-        font-size: 16px;             /* readable text */
-        cursor: pointer;             /* pointer on hover */
-        transition: background 0.2s ease, transform 0.1s ease; /* smooth hover */
-        display: inline-block;       /* ensures proper sizing */
-        text-decoration: none;       /* remove underline if <a> */
-      }
-
-      .hero .btn:hover {
-        background-color: #004081; 
-      }
-
-      /* Outline button variant */
-      .hero .btn.outline {
-        background: white;
-        border: 0.7px solid #000000;  /* outline style */
-        color: #0073FF; /*Text Color */
-      }
-
-      .hero .btn.outline:hover {
-        background-color: #5FAFFF;  
-        color: #fff;
-      }
-
-      /* ========== How It Works ========== */
-      .section{padding:26px 18px; background: #ffffff;}
-      .container{max-width:1200px; margin:0 auto;}
-      .section h2{
-        margin:10px 0 22px; text-align:center; font-weight:700; font-size:35px;
-        margin-bottom: 50px;
-      }
-      .cards{
-        display:grid; gap:22px; grid-template-columns: repeat(3, minmax(0,1fr));
-      }
-      .card{
-        background: var(--card-bg); border:0.7px solid #000000; border-radius:28px; box-shadow:var(--shadow);
-        padding:28px 26px; text-align:center;
-      }
-      .card .icon {
-        width: auto;             /* pick a consistent width for all icons */
-        height: 50px;            /* pick a consistent height */
-        margin: 0 auto 14px;     
-        object-fit: contain;      /* preserves aspect ratio, no stretching */
-        display: block;           /* ensures margin auto centers it */
-      }
-      .card h3{margin:6px 0 8px; font-size:18px; font-weight:700}
-      .card p{margin:0; color:var(--muted); line-height:1.5}
-
-      /* ========== Call to Action (CTA) Banner ========== */
-      .cta-band{
-        margin-top:46px;
-        background:var(--brand);
-        color:#fff;
-      }
-      .cta-band .inner{
-        max-width:1000px; margin:0 auto; padding:80px 18px; text-align:center;
-      }
-      .cta-band h2{margin:0 0 10px; font-weight:700; font-size:35px}
-      .cta-band p{margin:0 0 22px; opacity:.95}
-      .cta-band .btn{background:#fff; color:var(--brand)}
-      .cta-band .btn:hover{background:#eef2ff}
-
-      .cta-band .btn.outline {
-          background: white;
-          border: 0.7px solid #000000;
-          color: #0073FF;
-          padding: 12px 18px;
-          border-radius: 7px;
-          font-weight: 500;
-          font-size: 16px;
-          text-decoration: none;
-          display: inline-block;
-          cursor: pointer;
-          transition: background 0.2s ease, color 0.2s ease;
-      }
-
-      .cta-band .btn.outline:hover {
-          background-color: #5FAFFF;
-          color: #ffffff;
-      }
-
-      /*Responsive */
-      @media (max-width:980px){
-      .container{grid-template-columns:1fr; padding-bottom:60px}
-      .sidebar{position:static; height:auto; order:2}
-      .panel{order:1}
-      .actions{justify-content:space-between}
-      }
-
-      @media (max-width: 600px) {
-      header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-      header nav ul { flex-direction: column; gap: 0.5rem; width: 100%; }
-      }
-    </style>
   </head>
 <body>
-
-  <!-- HEADER -->
+  <!-- HEADER (START) -->
   <header>
     <div class="logo">
-      <img src="../connect-platform-alpha1/images/CampusConnectLogo1_1.png" alt="CampusConnect Logo" />
+      <img src="../connect-platform-alpha1/images/Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
     </div>
-    <nav>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      &#9776; <!-- hamburger icon -->
+    </button>
+
+    <nav aria-label="Header Webpage Navigation">
       <ul class="nav-list">
         <li><a href="javascript:void(0)">Home</a></li>
         <li><a href="login-register-page.html">Apply</a></li>
@@ -313,53 +29,126 @@
         <li><a href="login-register-page.html">Support</a></li>
 
         <li class="nav-separator">
-          <img src="../connect-platform-alpha1/images/HeaderSeparator1_1.jpg" alt="" />
+          <img src="../connect-platform-alpha1/images/Header-Separator-1_1.jpg" alt="|" />
         </li>
 
         <li>
-          <button class="sign-in-btn" onclick="window.location.href='login-register-page.html'">Sign In</button>
+          <button class="sign-in-btn" aria-label="Sign into your account" onclick="window.location.href='login-register-page.html'">Sign In</button>
         </li>
       </ul>
     </nav>
   </header>
+  <!-- HEADER (END) -->
 
   <!-- HERO -->
-  <section class="hero" role="banner">
+  <section class="hero" aria-label="Hero section introducing CampusConnect" role="banner">
     <div class="hero-inner">
       <h1>Connect with Real-World Projects.<br>Build Real-World Experience.</h1>
       <p>CampusConnect links college students with companies seeking fresh ideas and energy for semester-long projects and research opportunities.</p>
       <div class="cta">
-        <a class="btn" href="login-register-page.html">Find a Project</a>
-        <a class="btn outline" href="login-register-page.html">Post an Opportunity</a>
+        <a class="btn" href="login-register-page.html" aria-label="Find a project as a student">Find a Project</a>
+        <a class="btn outline" href="login-register-page.html" aria-label="Post a company opportunity">Post an Opportunity</a>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section container">
+  <!-- OUR VALUE TITLE -->
+  <h1 class="our-value-title">Our Value</h1>
+
+  <!-- OUR VALUE WRAPPER (START) -->
+  <div class="our-value-wrapper">
+
+    <!-- OUR VALUE - FOR STUDENTS -->
+    <section class="section container" aria-label="Student value section">
+      <h2>For Students:</h2>
+      <div class="cards">
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/Blue-Student-Icon-1_2.png" alt="Step 1" />
+          <h3>Grow Your Work Experience</h3>
+          <p>Gain insightful, short-term work experiences that align with your major, expertise, and interests.</p>
+        </article>
+
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/Blue-Search-Icon-1_2.png" alt="Step 2" />
+          <h3>Real Projects. Real Results </h3>
+          <p>Match with real company projects that are hand-picked for your needs.</p>
+        </article>
+
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/Blue-Company-Icon-1_2.png" alt="Step 3" />
+          <h3>Learn and Earn</h3>
+          <p>Receive fair compensation while developing your professional skills.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Separator -->
+    <img src="../connect-platform-alpha1/images/Header-Separator-1_1.jpg" alt="|" class="column-separator" />
+       
+    <!-- OUR VALUE - FOR COMPANIES -->
+    <section class="section container for-companies" aria-label="Company value section">
+      <h2>For Companies:</h2>
+      <div class="cards">
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/Light-Blue-Student-Icon-1_1.png" alt="Step 1" />
+          <h3>Harness Student Talent</h3>
+          <p>Collaborate with skilled, motivated students who can drive real impact and bring fresh ideas to your projects.</p>
+        </article>
+
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/Light-Blue-Search-Icon-1_1.png" alt="Step 2" />
+          <h3>Connect with Like-Minded Candidates</h3>
+          <p>We match you with students whose expertise, soft skills, and interests directly align with your company's needs.</p>
+        </article>
+
+        <article class="card">
+          <img class="icon" src="../connect-platform-alpha1/images/Light-Blue-Company-Icon-1_1.png" alt="Step 3" />
+          <h3>From Collaboration to Career</h3>
+          <p>Drive business growth while discovering potential future hires for your organization.</p>
+        </article>
+      </div>
+    </section>
+
+  </div>
+  <!-- OUR VALUE WRAPPER (END) -->
+
+  <!-- HOW IT WORKS (START) -->
+  <section class="how-it-works-timeline" aria-label="CampusConnect How It Works Timeline">
     <h2>How It Works</h2>
-    <div class="cards">
-      <article class="card">
-        <img class="icon" src="../connect-platform-alpha1/images/StudentIcon1_2.png" alt="For Students" />
-        <h3>For Students</h3>
-        <p>Browse and apply to real company projects that fit your field of study and schedule</p>
-      </article>
+    <div class="timeline-container">
 
-      <article class="card">
-        <img class="icon" src="../connect-platform-alpha1/images/CompanyIcon1_2.png" alt="For Companies" />
-        <h3>For Companies</h3>
-        <p>Post semester-long projects or research ideas and connect with motivated students ready to help.</p>
-      </article>
+      <!-- Step 1 -->
+      <div class="timeline-step" aria-label="Step 1: Browse Projects">
+        <div class="timeline-icon">
+          <img src="../connect-platform-alpha1/images/Blue-Student-Icon-1_2.png" alt="Step 1">
+        </div>
+        <h3>1. Apply</h3>
+        <p>Students submit an application to our platform and we connect them with relevant, paid company projects</p>
+      </div>
 
-      <article class="card">
-        <img class="icon" src="../connect-platform-alpha1/images/ExportIcon1_2.png" alt="Match and Collaborate" />
-        <h3>Match and Collaborate</h3>
-        <p>We help match students and companies based on interests, skills, and project goals.</p>
-      </article>
+      <!-- Step 2 -->
+      <div class="timeline-step" aria-label="Step 2: Apply and Collaborate">
+        <div class="timeline-icon">
+          <img src="../connect-platform-alpha1/images/Blue-Search-Icon-1_2.png" alt="Step 2">
+        </div>
+        <h3>2. Screening</h3>
+        <p>Companies assess matched student applications and determine if they align with their project's needs</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="timeline-step" aria-label="Step 3: Gain Real Experience">
+        <div class="timeline-icon">
+          <img src="../connect-platform-alpha1/images/Blue-Company-Icon-1_2.png" alt="Step 3">
+        </div>
+        <h3>3. Review</h3>
+        <p>Students review and select which company projects they'd like to move forward with</p>
+      </div>
+
     </div>
   </section>
+  <!-- HOW IT WORKS (END) -->
 
-  <!-- CTA BAND -->
+  <!-- CALL TO ACTION (CTA) BAND (START) -->
   <section class="cta-band">
     <div class="inner">
       <h2>Start Building Your Future Today</h2>
@@ -367,6 +156,39 @@
       <a class="btn outline" href="login-register-page.html">Get Started</a>
     </div>
   </section>
+  <!-- CALL TO ACTION (CTA) BAND (START) -->
 
+  <!-- FOOTER (START) -->
+  <footer style="background:#ffffff; padding:40px 20px; text-align:center; border-top:1px solid #e5e5e5;" aria-label="CampusConnect Footer">
+    <!-- Copyright -->
+    <p style="margin:0 0 15px; color:#6c6c6c;">&copy; 2025 CampusConnect. All rights reserved.</p>
+
+    <!-- Links (Terms, Privacy, Contact) -->
+    <div style="margin-bottom:15px;"> <!-- Creates spacing between sections -->
+      <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Terms</a>|
+      <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Privacy</a>|
+      <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Contact</a>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div>
+      <a href="javascript:void(0)" aria-label="Visit CampusConnect on Facebook" style="margin:0 10px;"><img src="../connect-platform-alpha1/images/Facebook-Icon-1_1.png" alt="Facebook" width="24" height="24"></a>
+      <a href="javascript:void(0)" aria-label="Visit CampusConnect on X" style="margin:0 10px;"><img src="../connect-platform-alpha1/images/X-Icon-1_1.png" alt="X" width="24" height="24"></a>
+      <a href="javascript:void(0)" aria-label="Visit CampusConnect on LinkedIn" style="margin:0 10px;"><img src="../connect-platform-alpha1/images/LinkedIn-Icon-1_1.png" alt="LinkedIn" width="24" height="24"></a>
+      <a href="javascript:void(0)" aria-label="Visit CampusConnect on Instagram" style="margin:0 10px;"><img src="../connect-platform-alpha1/images/Instagram-Icon-1_1.png" alt="Instagram" width="24" height="24"></a>
+    </div>
+  </footer>
+  <!-- FOOTER (END) -->
+
+  <script>
+      const hamburger = document.querySelector('.hamburger');
+      const nav = document.querySelector('header nav');
+
+      hamburger.addEventListener('click', () => {
+          const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+          hamburger.setAttribute('aria-expanded', !expanded);
+          nav.classList.toggle('open');
+      });
+  </script>
 </body>
 </html>
