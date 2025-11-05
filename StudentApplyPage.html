@@ -175,52 +175,34 @@
     </main>
 
     <script>
-        // === ACCORDION FUNCTIONALITY ===
-        // Get all card headers
         const cardHeaders = document.querySelectorAll('.card-header');
-
-        // Add a click listener to each header
         cardHeaders.forEach(header => {
             header.addEventListener('click', () => {
-                // Find the parent card element
                 const card = header.parentElement;
-                // Toggle the 'collapsed' class on the card
                 card.classList.toggle('collapsed');
-                
-                // Find the icon within this header
                 const icon = header.querySelector('.accordion-icon');
-                
-                // Change the arrow direction
                 if (card.classList.contains('collapsed')) {
-                    icon.innerHTML = '&#9660;'; // Down arrow
+                    icon.innerHTML = '&#9660;'; 
                 } else {
-                    icon.innerHTML = '&#9650;'; // Up arrow
+                    icon.innerHTML = '&#9650;';
                 }
             });
         });
-
-        // === CUSTOM FILE UPLOAD DISPLAY ===
         const resumeUpload = document.getElementById('resume-upload');
         const fileNameSpan = document.querySelector('.file-name');
 
         resumeUpload.addEventListener('change', function() {
             if (this.files.length > 0) {
-                // If a file is chosen, show its name
                 fileNameSpan.textContent = this.files[0].name;
             } else {
-                // Otherwise, show the default text
                 fileNameSpan.textContent = 'No File(s) Chosen';
             }
         });
-
-        // === CLEAR INPUT (×) BUTTON FUNCTIONALITY ===
         const clearInputButtons = document.querySelectorAll('.clear-input');
         
         clearInputButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Find the <input> element right before this button
                 const inputField = this.previousElementSibling;
-                // Clear its value
                 inputField.value = '';
             });
         });
