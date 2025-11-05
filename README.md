@@ -59,6 +59,7 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 - Fixed "to" bar to corrrect length
 
 ### Avaneesh Jha:
+- Created the Student Apply Page.
 
 
 ## License Information:
