@@ -313,7 +313,7 @@ X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
   padding: 28px 20px;
   box-shadow: var(--shadow);
   border: 0.7px solid var(--border);
-  height: auto; /*Allows it to expand naturally */
+  height: auto; /*Allows the sidebar to expand naturally */
   position: sticky;
   top: 24px;
   display: flex;
@@ -350,11 +350,9 @@ X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
     margin-top: auto;
     transition: background 0.2s ease;
 }
-/* Add hover state like .nav-btn */
 .logout:hover {
     background: #f3f7fb;
 }
-/* Optional: Add subtle border or left accent on hover to match current nav item */
 .logout:active {
     background: linear-gradient(90deg, rgba(255,133,123,0.08), rgba(255,133,123,0.03));
     border-left: 4px solid #FF857B;
@@ -409,7 +407,6 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
 }
 /*Media query for mobile */
 @media (max-width: 600px) {
-    /*Header row: logo + hamburger */
     .column-separator {
         display: none;
     }
@@ -424,7 +421,6 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
-    /*Hamburger button visible */
     .hamburger {
         display: block;
         font-size: 1.8rem;
@@ -433,7 +429,7 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         cursor: pointer;
     }
 
-    /*Hide nav initially */
+    /*Hides nav initially */
     header nav {
         position: absolute;
         top: 100%;
@@ -447,7 +443,7 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
-    /*Show nav when hamburger is clicked */
+    /*Shows nav when hamburger is clicked */
     header nav.open {
         max-height: 500px;
     }
@@ -481,7 +477,7 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding: 0.5rem 1rem; /*Uniform vertical spacing */
+        padding: 0.5rem 1rem; /*Adds uniformity to vertical spacing */
         font-size: 0.95rem;
         line-height: 1.2;
         box-sizing: border-box;
@@ -513,8 +509,8 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
     .nav-btn {
         justify-content: center;
         font-size: 16px;
-        white-space: normal; /*Prevent text like “Sign-In and Security” from being cut off */
-        word-break: break-word; /*Allow long button names to wrap */
+        white-space: normal; /*Prevents text like “Sign-In and Security” from being cut off */
+        word-break: break-word; /*Allows long button names to wrap */
     }
 
     .logout {

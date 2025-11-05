@@ -409,7 +409,7 @@
             if (newAvatarUrl) {
                 saveToLocal('avatar', newAvatarUrl);
                 showToast('Profile picture updated!');
-                newAvatarUrl = null; // reset after saving
+                newAvatarUrl = null; //Reset after saving
             }
         });
 
@@ -433,7 +433,6 @@
                 if (previewMini) previewMini.src = avatarData;
                 if (headerProfileImg) headerProfileImg.src = avatarData;
             } else {
-                //Use default profile picture image instead of generated placeholder
                 const defaultImg = "images/Default-Profile-Picture-1_1.png";
                 avatarImg.src = defaultImg;
                 if (previewMini) previewMini.src = defaultImg;
@@ -545,13 +544,13 @@
         }, ms);
         }
 
-        //Small Utility: Show Initial Section
+        //Shows Initial Section
         showSection('account');
         loadForm();
 
         //Button Logic
         document.getElementById('logoutBtn').addEventListener('click', () => {
-            // Redirect to another page
+            // Redirects to another page
             window.location.href = 'home-page.html';
         });
 
@@ -571,17 +570,17 @@
         //Initialize Preview Name
         updatePreviewName();
 
-        //Make Nav Buttons Focusable
+        //Makes Nav Buttons Focusable
         navButtons.forEach(b => {
             b.setAttribute('tabindex', '0');
             });
 
-            //Update Header Name Automatically
+            //Updates Header Name Automatically
             const headerName = document.getElementById('headerName');
             const firstInput = document.getElementById('firstName');
             const lastInput = document.getElementById('lastName');
 
-            //Helper: Builds display name
+            //Builds display name
             function updateHeaderName() {
             const first = firstInput.value.trim();
             const last = lastInput.value.trim();
