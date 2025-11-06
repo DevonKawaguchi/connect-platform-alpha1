@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Settings</title>
+</head>
+
+<body>
+    <!-- HEADER (START) -->
+    <header>
+        <div class="logo">
+            <img src="images/Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
+        </div>
+        
+        <!-- Hamburger Button -->
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776; <!-- hamburger icon -->
+        </button>
+
+        <nav aria-label="Main navigation">
+        <ul class="nav-list">
+            <li><a href="home-page.html">Home</a></li>
+            <li><a href="apply.html">Apply</a></li>
+            <li><a href="manage.html">Manage</a></li>
+            <li><a href="student-support-page.html">Support</a></li>
+
+            <li class="nav-separator">
+                <img src="images/Header-Separator-1_1.jpg" alt="|" />
+            </li>
+
+            <li><a href="javascript:void(0)" id="headerName">Jane Doe</a></li>
+            <li class="profile-pic">
+                <img src="images/Profile-Picture-1_1.jpg" alt="Profile Picture">
+            </li>
+        </ul>
+        </nav>
+    </header>
+    <!-- HEADER (END) -->
+
+    <!-- SETTINGS CONTENT (START) -->
+    <div class="container settings" aria-live="polite">
+        <!-- SIDEBAR (START) -->
+        <aside class="sidebar" aria-label="Settings">
+
+            <h2>SETTINGS</h2>
+
+            <nav role="navigation" aria-label="Settings Sections" id="sidebarNav">
+                <button class="nav-btn" data-section="account" aria-current="true" aria-label="Account Preferences">Account Preferences</button>
+                <button class="nav-btn" data-section="security" aria-label="Sign-In and Security">Sign-In and Security</button>
+                <button class="nav-btn" data-section="visibility" aria-label="Visibility">Visibility</button>
+                <button class="nav-btn" data-section="privacy" aria-label="Data Privacy">Data Privacy</button>
+                <button class="nav-btn" data-section="advertising" aria-label="Advertising Data">Advertising Data</button>
+                <button class="nav-btn" data-section="notifications" aria-label="Notifications">Notifications</button>
+            </nav>
+
+            <button class="logout" id="logoutBtn">Log Out</button>
+        </aside>
+        <!-- SIDEBAR (END) -->
+
+        <main class="panel" id="mainPanel">
+        <!-- ACCOUNT SECTION (START) -->
+        <section id="account" class="content-section" role="region" aria-label="Account Preferences">
+            <h1>Account Preferences</h1>
+            <div class="divider" aria-hidden="true"></div>
+
+            <form id="accountForm" autocomplete="on" novalidate>
+            <div class="section-title">Personal Details</div>
+
+            <div class="row">
+                <div class="col-1">
+                <label class="label" for="firstName">First Name:</label>
+                <div class="field-with-clear">
+                    <input id="firstName" class="input" name="firstName" type="text" value="Jane" placeholder="Jane">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="firstName" aria-label="Clear first name">✕</button>
+                </div>
+                </div>
+
+                <div class="col-1">
+                <label class="label" for="middleName">Middle Name (Optional):</label>
+                <div class="field-with-clear">
+                    <input id="middleName" class="input" name="middleName" type="text" value="Smith" placeholder="Enter Middle Name">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="middleName" aria-label="Clear middle name">✕</button>
+                </div>
+                </div>
+
+                <div class="col-1">
+                <label class="label" for="lastName">Last Name:</label>
+                <div class="field-with-clear">
+                    <input id="lastName" class="input" name="lastName" type="text" value="Doe" placeholder="Doe">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="lastName" aria-label="Clear last name">✕</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="email">Email:</label>
+                <div class="field-with-clear">
+                    <input id="email" class="input" name="email" type="email" value="jdo@ttu.edu" placeholder="Enter Email">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="email" aria-label="Clear email">✕</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="website">Personal Website (Optional):</label>
+                <div class="field-with-clear">
+                    <input id="website" class="input" name="website" type="url" value="www.examplewebsite.com" placeholder="Enter Personal Website">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="website" aria-label="Clear website">✕</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="school">School:</label>
+                <div class="field-with-clear">
+                    <input id="school" class="input" name="school" type="text" value="Texas Tech University" placeholder="Enter University">
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="school" aria-label="Clear school">✕</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="major">Major/Academic Program:</label>
+                <input id="major" class="input" name="major" type="text" value="Computer Science" placeholder="Enter Major">
+                <div style="margin-top:8px">
+                    <button type="button" class="small-btn" id="addMajorBtn" style="color: #0073FF;">+ Additional</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="minor">Minor (Optional):</label>
+                <input id="minor" class="input" name="minor" type="text" placeholder="Computer Science">
+                <div style="margin-top:8px">
+                    <button type="button" class="small-btn" id="addMajorBtn" style="color: #0073FF;">+ Additional</button>
+                </div>
+                </div>
+            </div>
+
+            <div class="row" style="align-items:flex-end">
+                <div class="col-1">
+                <label class="label" for="degree">Degree Level:</label>
+                <select id="degree" class="select" name="degree" aria-label="Degree level">
+                    <option selected>Bachelor's</option>
+                    <option>Master's</option>
+                    <option>Doctorate</option>
+                    <option>Other</option>
+                </select>
+                </div>
+
+                <div class="col-1">
+                <label class="label" for="studentYear">Student Year:</label>
+                <select id="studentYear" class="select" name="studentYear">
+                    <option>Freshman</option>
+                    <option>Sophomore</option>
+                    <option selected>Junior</option>
+                    <option>Senior</option>
+                    <option>Graduate</option>
+                </select>
+                </div>
+
+                <div class="col-1">
+                <label class="label" for="gpa">Undergraduate/Graduate GPA:</label>
+                <input id="gpa" class="input" name="gpa" type="text" inputmode="decimal" value="4.0" placeholder="Enter GPA">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                <label class="label" for="gradTerm">Graduation Term:</label>
+                <input id="gradTerm" class="input" name="gradTerm" value="Spring 2027" placeholder="Enter Graduation Term">
+                </div>
+            </div>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <div class="section-title account">Account</div>
+            <div class="row">
+                <div style="flex:0 0 120px">
+                <label class="label">Profile Picture:</label>
+                <div class="avatar" id="avatarWrap" aria-hidden="true" aria-label="Profile Picture Upload">
+                    <img id="avatarImg" src="" alt="Profile Preview">
+                </div>
+                <input id="avatarInput" type="file" accept="image/*" style="margin-top:8px" aria-label="Upload Profile Picture">
+                <div class="muted-note">300 x 300px recommended. JPGs, JPEGs, and PNGs supported.</div>
+                </div>
+
+                <div class="col-2">
+                <label class="label">Preview:</label>
+                <div class="preview-card" aria-hidden="true" aria-label="Profile Preview">
+                    <div class="preview-mini" id="previewMini"><img src="" alt="Preview Card Mini Profile"></div>
+                    <div class="preview-lines">
+                    <div id="previewName" style="font-weight:500">Jane Doe</div>
+                    <div style="height:8px"></div>
+                    <div style="height:16px;background:#eef3f8;border-radius:4px;margin-top:6px;width:100%"></div>
+                    <div style="height:16px;background:#eef3f8;border-radius:4px;margin-top:6px;width:100%"></div>
+                    <div style="height:16px;background:#eef3f8;border-radius:4px;margin-top:6px;width:100%"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="actions" role="group" aria-label="Form actions">
+                <button type="button" class="btn reset" id="resetBtn" aria-label="Reset Form">Reset</button>
+                <button type="submit" class="btn save" id="saveBtn" aria-label="Save Form">Save</button>
+            </div>
+            </form>
+        </section>
+        <!-- ACCOUNT SECTION (END) -->
+
+        <!-- SECURITY (START) -->
+        <section id="security" class="content-section" hidden role="region" aria-label="Sign-In and Security">
+            <h1>Sign-In and Security</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Change your password, enable 2-step verification, and review active sessions.</p>
+            <div style="margin-top:16px">
+            <label class="label">Password:</label>
+            <input class="input" id="password" type="password" placeholder="••••••••">
+            <div style="margin-top:8px; display:flex; justify-content:flex-end; gap:8px;">
+                <button class="btn save" id="changePassword">Change Password</button>
+                <button class="btn save" id="enable2fa">Enable 2-step verification</button>
+            </div>
+            </div>
+        </section>
+        <!-- SECURITY (END) -->
+
+        <!-- VISIBILITY (START) -->
+        <section id="visibility" class="content-section" hidden role="region" aria-label="Visibility">
+            <h1>Visibility</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Control who can see your profile and what details are visible to employers and peers.</p>
+            <div style="margin-top:12px">
+            <label class="label">Profile Visibility:</label>
+            <select class="select" id="visibilitySelect">
+                <option selected>Students and Employers</option>
+                <option>Students Only</option>
+                <option>Employers Only</option>
+                <option>Private</option>
+            </select>
+            </div>
+        </section>
+        <!-- VISIBILITY (END) -->
+
+        <!-- PRIVACY (START) -->
+        <section id="privacy" class="content-section" hidden role="region" aria-label="Data Privacy">
+            <h1>Data Privacy</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Control how we use your data, request exports, or delete your account data.</p>
+            <div style="margin-top:10px">
+            <button class="btn save">Download My Data</button>
+            <button class="btn save" style="margin-left:8px;background:#fff;border:0.7px solid #FF857B; color:#000;">
+                Delete My Account
+            </button>
+            </div>
+        </section>
+        <!-- PRIVACY (END) -->
+
+        <!-- ADVERTISING (START) -->
+        <section id="advertising" class="content-section" hidden role="region" aria-label="Advertising Data">
+            <h1>Advertising Data</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Manage ad personalization and connected marketing preferences.</p>
+            <div style="margin-top:12px">
+            <label class="label">Ad Personalization:</label>
+            <select class="select"><option>Enabled</option><option>Disabled</option></select>
+            </div>
+        </section>
+        <!-- ADVERTISING (END) -->
+
+        <!-- NOTIFICATIONS (START) -->
+        <section id="notifications" class="content-section" hidden role="region" aria-label="Notifications">
+            <h1>Notifications</h1>
+            <div class="divider"></div>
+            <p style="color:var(--muted)">Choose email and push notification preferences.</p>
+            <div style="margin-top:10px">
+            <label class="label"><input type="checkbox" id="emailNotif" checked> Email notifications</label><br>
+            <label class="label"><input type="checkbox" id="smsNotif"> SMS notifications</label>
+            </div>
+            <div class="actions" role="group" aria-label="Form actions" style="margin-top:16px">
+                <button type="button" class="btn save" id="saveNotifications">Save</button>
+            </div>
+        </section>
+        <!-- NOTIFICATIONS (END) -->
+
+        </main>
+    </div>
+    <!-- SETTINGS CONTENT (END) -->
+
+    <div class="toast" id="toast">Saved</div>
+
+    <!-- JAVASCRIPT CODE: -->
+    <script>
+        //HAMBURGER LOGIC (START)
+        const hamburger = document.querySelector('.hamburger');
+        const headerNav = document.querySelector('header nav');
+        const headerNameHamburger = document.getElementById('headerName');
+        const profilePic = document.querySelector('.profile-pic');
+
+        hamburger.addEventListener('click', () => {
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+            hamburger.setAttribute('aria-expanded', !expanded);
+            headerNav.classList.toggle('open');
+
+            // Only change for mobile widths
+            if (window.innerWidth <= 600) {
+                profilePic.style.display = 'none';
+                headerNameHamburger.textContent = 'Settings';
+            } else {
+                profilePic.style.display = 'block';
+                headerNameHamburger.textContent = 'Jane Doe';
+            }
+        });
+
+        //HAMBURGER LOGIC (END)
+        
+        //SIDEBAR NAVIGATION
+        const nav = document.getElementById('sidebarNav');
+        const navButtons = nav.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.content-section');
+
+        function showSection(id) {
+        sections.forEach(s => {
+            if (s.id === id) {
+            s.hidden = false;
+            s.setAttribute('aria-hidden', 'false');
+            } else {
+            s.hidden = true;
+            s.setAttribute('aria-hidden', 'true');
+            }
+        });
+        navButtons.forEach(btn => {
+            btn.setAttribute('aria-current', btn.dataset.section === id ? 'true' : 'false');
+        });
+        }
+
+        nav.addEventListener('click', (e) => {
+        const b = e.target.closest('.nav-btn');
+        if (!b) return;
+        showSection(b.dataset.section);
+        });
+
+        //Keyboard Support for Sidebar
+        nav.addEventListener('keydown', (e) => {
+        const focusable = Array.from(navButtons);
+        const idx = focusable.indexOf(document.activeElement);
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusable[(idx + 1) % focusable.length].focus();
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            focusable[(idx - 1 + focusable.length) % focusable.length].focus();
+        } else if (e.key === 'Enter' && document.activeElement.classList.contains('nav-btn')) {
+            document.activeElement.click();
+        }
+        });
+
+        //Clear Field Buttons
+        document.querySelectorAll('.clear-x').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.clearFor;
+            const el = document.getElementById(id);
+            if (el) {
+            el.value = '';
+            el.focus();
+            }
+        });
+        });
+
+        //Profile Upload and Preview
+        const avatarInput = document.getElementById('avatarInput');
+        const avatarImg = document.getElementById('avatarImg');
+        const previewMini = document.querySelector('#previewMini img');
+        const headerProfileImg = document.querySelector('nav ul.nav-list li.profile-pic img');
+        const saveBtn = document.getElementById('saveBtn');
+
+        let newAvatarUrl = null; //Stores the uploaded image temporarily
+
+        avatarInput.addEventListener('change', (ev) => {
+            const f = ev.target.files && ev.target.files[0];
+            if (!f) return;
+            if (!f.type.startsWith('image/')) return alert('Please upload an image file.');
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const url = e.target.result;
+
+                //Preview immediately
+                avatarImg.src = url;
+                if (previewMini) previewMini.src = url;
+                if (headerProfileImg) headerProfileImg.src = url;
+
+                //Stores temporarily
+                newAvatarUrl = url;
+            };
+            reader.readAsDataURL(f);
+        });
+
+        //Save Button Handler
+        saveBtn.addEventListener('click', () => {
+            if (newAvatarUrl) {
+                saveToLocal('avatar', newAvatarUrl);
+                showToast('Profile picture updated!');
+                newAvatarUrl = null; //Reset after saving
+            }
+        });
+
+        //Form Persistance (Local Storage)
+        const form = document.getElementById('accountForm');
+        const fields = ['firstName','middleName','lastName','email','website','school','major','minor','degree','studentYear','gpa','gradTerm'];
+
+        function saveToLocal(key, value) {
+        try { localStorage.setItem('cc:'+key, value); } catch(e) {}
+        }
+
+        function readFromLocal(key) {
+        try { return localStorage.getItem('cc:'+key); } catch(e){ return null }
+        }
+
+        function loadForm() {
+            const avatarData = readFromLocal('avatar');
+
+            if (avatarData) {
+                avatarImg.src = avatarData;
+                if (previewMini) previewMini.src = avatarData;
+                if (headerProfileImg) headerProfileImg.src = avatarData;
+            } else {
+                const defaultImg = "images/Default-Profile-Picture-1_1.png";
+                avatarImg.src = defaultImg;
+                if (previewMini) previewMini.src = defaultImg;
+                if (headerProfileImg) headerProfileImg.src = defaultImg;
+            }
+
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                const val = readFromLocal(id);
+                if (el && val !== null) el.value = val;
+            });
+            //Select values
+            const degree = readFromLocal('degree');
+            if (degree) document.getElementById('degree').value = degree;
+            const studentYear = readFromLocal('studentYear');
+            if (studentYear) document.getElementById('studentYear').value = studentYear;
+            //Avatar
+            if (avatarData) {
+                avatarImg.src = avatarData;
+                if (previewMini) previewMini.src = avatarData;
+            } 
+        }
+
+        //Save Field Changes (localStorage)
+        let saveTimer = null;
+        function saveFormDebounced(){
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveForm, 350);
+        }
+
+        function saveForm() {
+        //Save all fields to localStorage
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            saveToLocal(id, el.value ?? '');
+        });
+        saveToLocal('degree', document.getElementById('degree').value);
+        saveToLocal('studentYear', document.getElementById('studentYear').value);
+
+        //Update header name and preview ONLY when saving
+        const first = document.getElementById('firstName').value.trim();
+        const last = document.getElementById('lastName').value.trim();
+        const display = [first, last].filter(Boolean).join(' ') || 'Jane Doe';
+
+        const headerNameEl = document.getElementById('headerName');
+        const previewNameEl = document.getElementById('previewName');
+        if (headerNameEl) headerNameEl.textContent = display;
+        if (previewNameEl) previewNameEl.textContent = display;
+
+        saveToLocal('displayName', display);
+        showToast('Profile save');
+        }
+
+        //Autosave Functionality (commented in case I'd like to add it later)
+        // fields.forEach(id => {
+        //     const el = document.getElementById(id);
+        //     if (!el) return;
+        //     el.addEventListener('input', saveFormDebounced);
+        // });
+        // document.getElementById('degree').addEventListener('change', saveFormDebounced);
+        // document.getElementById('studentYear').addEventListener('change', saveFormDebounced);
+
+        //Reset Button
+        document.getElementById('resetBtn').addEventListener('click', () => {
+        if (!confirm('Reset the form to default values?')) return;
+        fields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.value = '';
+            try { localStorage.removeItem('cc:'+id) } catch(e){}
+        });
+        try { localStorage.removeItem('cc:avatar') } catch(e){}
+        loadForm();
+        showToast('Reset Preferences');
+        });
+
+        //Save (Submit)
+        form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        //Basic Name and Email Validation
+        const email = document.getElementById('email').value.trim();
+        const first = document.getElementById('firstName').value.trim();
+        const last = document.getElementById('lastName').value.trim();
+        if (!first || !last) {
+            alert('Please provide your first and last name.');
+            return;
+        }
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert('Please provide a valid email address.');
+            return;
+        }
+        saveForm();
+        showToast('Profile Saved!');
+        });
+
+        //Simple Toast
+        const toast = document.getElementById('toast');
+        let toastTimer = null;
+        function showToast(msg='Saved', ms=2200){
+        clearTimeout(toastTimer);
+        toast.textContent = msg;
+        toast.style.display = 'block';
+        toast.style.opacity = 1;
+        toastTimer = setTimeout(()=> {
+            toast.style.transition = 'opacity 400ms';
+            toast.style.opacity = 0;
+            setTimeout(()=> toast.style.display='none', 420);
+        }, ms);
+        }
+
+        //Shows Initial Section
+        showSection('account');
+        loadForm();
+
+        //Button Logic
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            // Redirects to another page
+            window.location.href = 'home-page.html';
+        });
+
+        //Update Placeholder Text in Preview
+        const firstNameEl = document.getElementById('firstName');
+        const lastNameEl = document.getElementById('lastName');
+        function updatePreviewName(){
+            const name = (firstNameEl.value || 'Jane') + (lastNameEl.value ? ' ' + lastNameEl.value : ' Doe');
+            
+            const previewNameEl = document.getElementById('previewName');
+            if(previewNameEl) previewNameEl.textContent = name;
+
+            //Update placeholder avatar initials if needed
+            const initials = ((firstNameEl.value || 'Jane').charAt(0) + (lastNameEl.value || 'Doe').charAt(0)).toUpperCase();
+        }
+
+        //Initialize Preview Name
+        updatePreviewName();
+
+        //Makes Nav Buttons Focusable
+        navButtons.forEach(b => {
+            b.setAttribute('tabindex', '0');
+            });
+
+            //Updates Header Name Automatically
+            const headerName = document.getElementById('headerName');
+            const firstInput = document.getElementById('firstName');
+            const lastInput = document.getElementById('lastName');
+
+            //Builds display name
+            function updateHeaderName() {
+            const first = firstInput.value.trim();
+            const last = lastInput.value.trim();
+            const display = [first, last].filter(Boolean).join(' ') || 'Jane Doe';
+            const previewName = document.getElementById('previewName');
+            if (previewName) previewName.textContent = display;
+
+            if (headerName) headerName.textContent = display;
+            saveToLocal('displayName', display);
+            }
+
+            //Load Saved Name on Startup
+            const savedDisplayName = readFromLocal('displayName');
+            if (savedDisplayName && headerName) headerName.textContent = savedDisplayName;
+    </script>
+</body>
+</html>
