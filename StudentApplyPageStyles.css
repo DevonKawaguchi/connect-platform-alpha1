@@ -1,7 +1,7 @@
 :root {
     --primary-color: #2563eb;
     --secondary-color: #7c3aed;
-    --text-dark: #1f2937;
+    --text-dark: #1f2537;
     --text-light: #6b7280;
     --background: #ffffff;
     --background-alt: #f9fafb;
@@ -35,7 +35,10 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    background-image: url('images/Blue-White-Smooth-Patterned-Background-1_1.jpg');
     background-color: #f0f8ff;
+    background-size: cover;
+    background-attachment: fixed;
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
@@ -108,6 +111,11 @@ button {
 
 .logo a {
     color: var(--primary-color);
+}
+
+.logo img {
+    height: 52px; /* Changed from 40px */
+    width: auto;
 }
 
 .nav-links {
@@ -1819,12 +1827,7 @@ body.keyboard-navigation *:focus {
 }
 
 .card {
-    /* CHANGED: Added background image and position: relative */
-    background-image: url('images/Blue-White-Patterned-Background-1_1.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    
+    background-color: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 16px;
     margin-bottom: 20px;
@@ -1958,17 +1961,4 @@ body.keyboard-navigation *:focus {
     display: flex;
     align-items: center;
     gap: 30px; 
-} 
-.card > * {
-    
-    position: relative;
-    z-index: 2;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255, 255, 255, 0.85); 
-    z-index: 1;
 }
