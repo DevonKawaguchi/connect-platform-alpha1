@@ -52,7 +52,7 @@ select, input[type="text"], input[type="date"] {
 
 select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: 16px 12px;
@@ -142,11 +142,10 @@ select {
     object-fit: contain;
 }
 
-/* This new rule styles the wrapper */
 .header-right {
     display: flex;
     align-items: center;
-    gap: 2rem; /* This adds space between the nav and the profile */
+    gap: 2rem;
 }
 
 .main-nav ul {
@@ -408,6 +407,7 @@ main {
 
 .resume-content .resume-contact {
     display: flex;
+    flex-wrap: wrap; /* Allows contact items to wrap on smaller screens */
     gap: 1.5rem;
     font-size: 0.9rem;
     color: var(--text-light);
@@ -450,9 +450,15 @@ main {
 .resume-section .date-location {
     font-size: 0.9rem;
     color: var(--text-light);
+    margin-bottom: 0.75rem;
 }
 .resume-section .date-location span {
     margin-left: 1rem;
+}
+
+.resume-section .experience-list {
+    padding-left: 20px;
+    margin-top: 0;
 }
 
 .skills-list {
@@ -469,6 +475,8 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 1rem;
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border-color);
