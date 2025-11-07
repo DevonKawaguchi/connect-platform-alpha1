@@ -207,7 +207,31 @@
       border:2px solid rgba(255,255,255,.7);
     }
 
-    /* Responsive */
+    /* --- New Sections Styling (Form + Applications) --- */
+    .block{background:var(--card);border:2px solid #C9D3E0;border-radius:24px;padding:18px 18px 8px;box-shadow:var(--shadow);margin-bottom:28px}
+    .block h2{margin:6px 0 14px;text-align:center;font-size:30px}
+    .form{border:2px solid #C9D3E0;border-radius:12px;padding:16px;display:grid;gap:14px}
+    .row-grid{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+    .form label{font-weight:600;color:#314055;margin-bottom:6px;display:block}
+    .form input[type="text"], .form input[type="number"], .form textarea, .form select{
+      width:100%;padding:12px 12px;border:2px solid #C9D3E0;border-radius:10px;font:500 14px Poppins,ui-sans-serif;color:#243142;background:#fff;
+    }
+    .form textarea{min-height:120px;resize:vertical}
+    .checks{display:flex;flex-wrap:wrap;gap:10px}
+    .check{display:inline-flex;align-items:center;gap:8px;border:2px solid #C9D3E0;border-radius:999px;padding:8px 12px;background:#fff;cursor:pointer;}
+    .help{color:var(--muted);font-size:13px}
+    .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:4px}
+
+    .cards{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+    .card{border:2px solid #C9D3E0;border-radius:14px;padding:14px;display:grid;gap:10px;background:#fff}
+    .card .title{font-weight:700;font-size:18px}
+    .sub{color:var(--muted);font-size:14px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{background:#eef4ff;color:#174ea6;border:1.5px solid #cfe0ff;padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px}
+    .card .cta{display:flex;gap:10px;justify-content:flex-end}
+    .btn.ghost{border-color:#bfc8d4;background:#f7f8fb;color:#2f3b4a}
+    .status-pill{margin-right:auto;background:#eef7ee;border:1.5px solid #cfe8d0;color:#1b6d36;border-radius:999px;padding:6px 10px;font-weight:700;font-size:12.5px;display:none}
+
     @media (max-width: 980px){
       .projects{ grid-template-columns: 1fr; }
       .panel h2{ font-size:28px }
@@ -215,6 +239,8 @@
       .team-hdr{ font-size:18px; flex-wrap:wrap }
       .kv{ grid-template-columns: 1fr }
       .navlinks{ display:none }
+      .row-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -557,7 +583,177 @@
       </div>
     </section>
 
+    <!-- === New Sections: Post New Project & Recent Applications === -->
+    <section class="block" id="post-new-project">
+      <h2>Post New Project</h2>
+      <form class="form" id="new-project-form" novalidate>
+        <div>
+          <label for="p-title">Project title</label>
+          <input id="p-title" name="title" type="text" placeholder="e.g., Internal Dashboard Tool" required />
+        </div>
+
+        <div>
+          <label for="p-desc">Description</label>
+          <textarea id="p-desc" name="description" placeholder="Briefly describe goals, deliverables, and tech stack…" required></textarea>
+        </div>
+
+        <div>
+          <label>Skills required</label>
+          <div class="checks" role="group" aria-label="Skills required">
+            <label class="check"><input type="checkbox" name="skills" value="Python" /> Python</label>
+            <label class="check"><input type="checkbox" name="skills" value="JavaScript" /> JavaScript</label>
+            <label class="check"><input type="checkbox" name="skills" value="React" /> React</label>
+            <label class="check"><input type="checkbox" name="skills" value="SQL" /> SQL</label>
+            <label class="check"><input type="checkbox" name="skills" value="Azure" /> Azure</label>
+            <label class="check"><input type="checkbox" name="skills" value="Data Analysis" /> Data Analysis</label>
+          </div>
+          <div class="row-grid">
+            <div>
+              <label for="p-skills-extra" class="help">Add custom skills (comma-separated)</label>
+              <input id="p-skills-extra" name="skills_extra" type="text" placeholder="e.g., Docker, Figma" />
+            </div>
+            <div></div>
+          </div>
+        </div>
+
+        <div class="row-grid">
+          <div>
+            <label for="p-duration">Duration</label>
+            <select id="p-duration" name="duration" required>
+              <option value="" disabled selected>Select duration</option>
+              <option value="8">8 weeks</option>
+              <option value="12">12 weeks</option>
+              <option value="16">16 weeks</option>
+            </select>
+          </div>
+          <div>
+            <label for="p-comp">Compensation (USD)</label>
+            <input id="p-comp" name="compensation" type="number" min="0" step="1" placeholder="e.g., 1500" required />
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="reset" class="btn secondary">Clear</button>
+          <button type="submit" class="btn">Submit Project</button>
+        </div>
+
+        <p class="help">Submitting will validate required fields and log the payload to the console for now.</p>
+      </form>
+    </section>
+
+    <section class="block" id="recent-applications">
+      <h2>Recent Applications</h2>
+      <div class="cards">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="row" style="align-items:center;gap:10px">
+            <span class="status-pill" aria-live="polite">Accepted</span>
+            <div class="title">Jane Doe</div>
+          </div>
+          <div class="sub">Applied to: <strong>Internal Dashboard Tool</strong></div>
+          <div class="tags">
+            <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Figma</span>
+          </div>
+          <div class="sub">Applied: 10/28/2025</div>
+          <div class="cta">
+            <button class="btn ghost">View Profile</button>
+            <button class="btn secondary act-reject">Reject</button>
+            <button class="btn act-accept">Accept</button>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="row" style="align-items:center;gap:10px">
+            <span class="status-pill" aria-live="polite">Accepted</span>
+            <div class="title">John Smith</div>
+          </div>
+          <div class="sub">Applied to: <strong>AI Resume Matcher</strong></div>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Azure</span>
+          </div>
+          <div class="sub">Applied: 10/29/2025</div>
+          <div class="cta">
+            <button class="btn ghost">View Profile</button>
+            <button class="btn secondary act-reject">Reject</button>
+            <button class="btn act-accept">Accept</button>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="row" style="align-items:center;gap:10px">
+            <span class="status-pill" aria-live="polite">Rejected</span>
+            <div class="title">Emma Stone</div>
+          </div>
+          <div class="sub">Applied to: <strong>Productivity Tracker</strong></div>
+          <div class="tags">
+            <span class="tag">SQL</span><span class="tag">Dashboards</span><span class="tag">Data Viz</span>
+          </div>
+          <div class="sub">Applied: 10/30/2025</div>
+          <div class="cta">
+            <button class="btn ghost">View Profile</button>
+            <button class="btn secondary act-reject">Reject</button>
+            <button class="btn act-accept">Accept</button>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card">
+          <div class="row" style="align-items:center;gap:10px">
+            <span class="status-pill" aria-live="polite">—</span>
+            <div class="title">Max Dawson</div>
+          </div>
+          <div class="sub">Applied to: <strong>System Optimization</strong></div>
+          <div class="tags">
+            <span class="tag">C++</span><span class="tag">Profiling</span><span class="tag">Linux</span>
+          </div>
+          <div class="sub">Applied: 11/01/2025</div>
+          <div class="cta">
+            <button class="btn ghost">View Profile</button>
+            <button class="btn secondary act-reject">Reject</button>
+            <button class="btn act-accept">Accept</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
   </main>
 
+  <script>
+    // Handle New Project submission (demo behavior)
+    const form = document.getElementById('new-project-form');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+      const data = new FormData(form);
+      const out = {
+        title: data.get('title')?.trim(),
+        description: data.get('description')?.trim(),
+        duration: data.get('duration'),
+        compensation: Number(data.get('compensation')),
+        skills: [...document.querySelectorAll('input[name="skills"]:checked')].map(el=>el.value),
+        skills_extra: data.get('skills_extra')?.split(',').map(s=>s.trim()).filter(Boolean) || []
+      };
+      console.log('[New Project Submission]', out);
+      alert('Project submitted! (Check console for payload)');
+      form.reset();
+    });
+
+    // Accept / Reject handlers for demo
+    const setStatus = (card, text, color) => {
+      const pill = card.querySelector('.status-pill');
+      pill.style.display = 'inline-block';
+      pill.textContent = text;
+      pill.style.background = color === 'green' ? '#e9f8ee' : '#fff2f0';
+      pill.style.borderColor = color === 'green' ? '#bfe7c9' : '#f4c7c3';
+      pill.style.color = color === 'green' ? '#1b6d36' : '#9b2c2c';
+    };
+
+    document.querySelectorAll('.card').forEach(card=>{
+      card.querySelector('.act-accept').addEventListener('click', ()=>setStatus(card,'Accepted','green'));
+      card.querySelector('.act-reject').addEventListener('click', ()=>setStatus(card,'Rejected','red'));
+    });
+  </script>
 </body>
 </html>
