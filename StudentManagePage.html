@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Student Dashboard - CampusConnect</title>
+    <link rel="stylesheet" href="StudentManagePageStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="images/Business-Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" class="logo-img">
+        </div>
+
+        <div class="header-right">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Apply</a></li>
+                    <li><a href="#" class="active">Manage</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <span>Jane Doe</span>
+                <img src="images/Profile-Picture-1_1.jpg" alt="Jane Doe Avatar" class="avatar">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="dashboard-title">
+            <h1>Student Dashboard</h1>
+            <p>Track your applications, stay connected with company partners, and manage your quarterly resumes</p>
+        </section>
+
+        <section class="card" id="applications-section">
+            <div class="projects-container">
+                <div class="projects-header">
+                    <h2>My Applied Projects (8)</h2>
+                    <select name="quarter" id="quarter-select">
+                        <option value="q4-2025" selected>Q4 2025</option>
+                        <option value="q3-2025">Q3 2025</option>
+                        <option value="q2-2025">Q2 2025</option>
+                        <option value="q1-2025">Q1 2025</option>
+                    </select>
+                </div>
+                
+                <table class="applications-table">
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th>Company</th>
+                            <th>Date Applied</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Internal Dashboard Tool</td>
+                            <td>Microsoft</td>
+                            <td>10/17/25</td>
+                            <td><span class="status-review">Under Review</span></td>
+                            <td>
+                                <button class="btn btn-secondary">Withdraw</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>AI Resume Matcher</td>
+                            <td>Apple</td>
+                            <td>09/12/25</td>
+                            <td><span class="status-review">Under Review</span></td>
+                            <td>
+                                <button class="btn btn-secondary">Withdraw</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Productivity Tracker</td>
+                            <td>Apple</td>
+                            <td>09/27/25</td>
+                            <td><span class="status-rejected">Rejected</span></td>
+                            <td>
+                                <button class="btn btn-primary">View Decision</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>System Optimization</td>
+                            <td>Meta</td>
+                            <td>10/05/25</td>
+                            <td><span class="status-accepted">Accepted</span></td>
+                            <td>
+                                <button class="btn btn-primary">View/Accept Decision</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Company Website Redesign</td>
+                            <td>Meta</td>
+                            <td>08/01/25</td>
+                            <td><span class="status-accepted">Accepted</span></td>
+                            <td>
+                                <button class="btn btn-primary">View/Accept Decision</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sales Forecasting System</td>
+                            <td>Microsoft</td>
+                            <td>09/18/25</td>
+                            <td><span class="status-review">Under Review</span></td>
+                            <td>
+                                <button class="btn btn-secondary">Withdraw</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Environmental Monitor</td>
+                            <td>Netflix</td>
+                            <td>08/29/25</td>
+                            <td><span class="status-rejected">Rejected</span></td>
+                            <td>
+                                <button class="btn btn-primary">View Decision</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Social Media Engagement Study</td>
+                            <td>Amazon</td>
+                            <td>10/08/25</td>
+                            <td><span class="status-review">Under Review</span></td>
+                            <td>
+                                <button class="btn btn-secondary">Withdraw</button>
+                                <button class="btn btn-secondary">Details</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <aside class="search-sidebar">
+                <h3>Search Companies...</h3>
+                <form class="search-form">
+                    <div class="date-group">
+                        <input type="text" placeholder="From:" onfocus="(this.type='date')" onblur="(this.type='text')">
+                        <input type="text" placeholder="To:" onfocus="(this.type='date')" onblur="(this.type='text')">
+                    </div>
+                    <input type="text" placeholder="Enter a City">
+                    <select name="job-title" id="job-title-select">
+                        <option value="" disabled selected>Job Title</option>
+                        <option value="swe">Software Engineer</option>
+                        <option value="pm">Product Manager</option>
+                        <option value="design">Designer</option>
+                    </select>
+                    <select name="job-status" id="job-status-select">
+                        <option value="" disabled selected>Job Status</option>
+                        <option value="open">Open</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary btn-full">Apply</button>
+                </form>
+            </aside>
+        </section>
+
+        <section class="card" id="milestones-section">
+            <div class="milestones-header">
+                <h2>Milestones (6)</h2>
+                <div class="milestones-filters">
+                    <select name="status-filter" id="status-filter">
+                        <option value="active" selected>Active</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <select name="project-filter" id="project-filter">
+                        <option value="example" selected>Example Company - Example Project</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="milestones-list">
+                <div class="milestone-item">
+                    <i class='bx bx-search'></i>
+                    <div class="milestone-info">
+                        <h4>Complete Cloud Infrastructure Due Diligence Report</h4>
+                        <p>Due: 30 October 2025, 11:59pm CDT</p>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                    <span class="status-badge">No Submission</span>
+                </div>
+                <div class="milestone-item">
+                    <i class='bx bx-calendar-edit'></i>
+                    <div class="milestone-info">
+                        <h4>Setup Microsoft Azure App Service Backend</h4>
+                        <p>Due: 3 November 2025, 11:59pm CDT</p>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                    <span class="status-badge">No Submission</span>
+                </div>
+                <div class="milestone-item">
+                    <i class='bx bx-purchase-tag'></i>
+                    <div class="milestone-info">
+                        <h4>Label Control Groups for Computer Vision Model</h4>
+                        <p>Due: 5 November 2025, 11:59pm CDT</p>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                    <span class="status-badge">No Submission</span>
+                </div>
+                <div class="milestone-item">
+                    <i class='bx bx-search'></i>
+                    <div class="milestone-info">
+                        <h4>Research Potential Homography Methodologies</h4>
+                        <p>Due: 12 November 2025, 11:59pm CDT</p>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                    <span class="status-badge">No Submission</span>
+                </div>
+                <div class="milestone-item">
+                    <i class='bx bx-calendar-edit'></i>
+                    <div class="milestone-info">
+                        <h4>Revise Company Website with Updated Demo Videos</h4>
+                        <p>Due: 20 November 2025, 11:59pm CDT</p>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                    <span class="status-badge">No Submission</span>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <span>1 - 5 of 6</span>
+                <button class="btn-icon"><i class='bx bx-chevron-left'></i></button>
+                <button class="btn-icon"><i class='bx bx-chevron-right'></i></button>
+            </div>
+        </section>
+
+        <section class="card" id="resume-section">
+            <div class="resume-header">
+                <h2>Manage Resume</h2>
+                <select name="resume-quarter" id="resume-quarter-select">
+                    <option value="q4-2025" selected>Q4 2025</option>
+                    <option value="q3-2025">Q3 2025</option>
+                </select>
+            </div>
+
+            <label for="resume-quarter-select" class="current-resume-label">Current Resume:</label>
+            <div class="resume-preview-container">
+                <div class="resume-content">
+                    <h3>Michael Smith</h3>
+                    <p class="resume-title">Industrial Engineer | Advanced Computing | Sensors and Communications Technologies</p>
+                    
+                    <div class="resume-contact">
+                        <span><i class='bx bx-phone'></i> +1-541-754-3010</span>
+                        <span><i class='bx bx-envelope'></i> help@enhancv.com</span>
+                        <span><i class='bx bxl-linkedin'></i> linkedin.com</span>
+                    </div>
+
+                    <div class="resume-body">
+                        <div class="resume-left">
+                            <div class="resume-section">
+                                <h4>SUMMARY</h4>
+                                <p>With over 10 years of experience as an Industrial Engineer, I have a proven track record in developing efficient manufacturing processes, implementing LEAN principles, and leading successful projects. My technical skills include CAD, automation software development, and process modeling. One of my biggest achievements was the development of an automated assembly process that reduced assembly time by 25%, leading to significant savings.</p>
+                            </div>
+                            <div class="resume-section">
+                                <h4>EXPERIENCE</h4>
+                                <h5>Industrial Engineer</h5>
+                                <p class="company">Lockheed Martin</p>
+                                <p class="date-location"><i class='bx bx-calendar'></i> 2019 – 2023 <span><i class='bx bx-map'></i> Los Angeles, CA</span></p>
+                            </div>
+                        </div>
+                        <div class="resume-right">
+                            <div class="resume-section">
+                                <h4>SKILLS</h4>
+                                <ul class="skills-list">
+                                    <li>LEAN Manufacturing</li>
+                                    <li>Root Cause Analysis</li>
+                                    <li>Process Modeling</li>
+                                    <li>Design of Experiments</li>
+                                    <li>CAD (Creo, SolidWorks, NX, Catia)</li>
+                                    <li>Automation Software Development</li>
+                                    <li>Project Scheduling</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-footer">
+                <div class="resume-info">
+                    <p>Dimensions: 1410x1995 | Last Submitted: 23 October 2025</p>
+                    <form class="resume-upload-form">
+                        <label>Reupload Resume:</label>
+                        <div class="file-input-wrapper">
+                            <button type="button" class="btn-file">Choose File</button>
+                            <span>No file(s) Chosen</span>
+                            <input type="file" name="resume-upload" id="resume-upload">
+                        </div>
+                    </form>
+                </div>
+                <div class="save-button-container">
+                    <button type="submit" class="btn btn-save" disabled>Save</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
