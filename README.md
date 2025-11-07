@@ -57,6 +57,8 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 - Ran debug and found 5 "spacing errors" in my code
 - Fixed 5 spacing errors
 - Fixed "to" bar to corrrect length
+- Added "Post New Project" Section which includes: Project title, Description, Skills required, Duration (dropdown: 8, 12, 16 weeks), Compensation, Functional submit button
+- Added "Recent Application" Section which includes: Student name, Project they applied to, Key skills (tags), Application date, "View Profile" and "Accept/Reject" buttons
 
 ### Avaneesh Jha:
 - Created the Student Apply Page.
