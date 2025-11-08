@@ -9,6 +9,7 @@ Team: Alpha 1
 ==========================================*/
 :root {
     --accent: #0073FF;
+    --companyaccent: #004081;
     --brand: #0073FF;
     --muted: #6b7280;
     --border: #000000;
@@ -18,6 +19,24 @@ Team: Alpha 1
     --radius: 12px;
     --shadow: 0 4px 8px rgba(21,24,28,0.06);
     --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --ink:#101828;
+    --muted:#667085;
+    --stroke:#DFE4EA;
+    --card:#ffffff;
+    --bg:#f5f7fb;
+    --chip:#f9e08c;
+    --chip-green:#1aa639;
+    --soft:#e9f1ff;
+    --radius:18px;
+    --radius-sm:12px;
+    --shadow:0 1px 2px rgba(16,24,40,.06), 0 10px 20px rgba(16,24,40,.06);
+    --light-blue-bg: #eaf6ff;
+    --border-color: #dee2e6;
+    --card-border: #dcdcdc;
+    --text-dark: #212529;
+    --status-rejected: #dc3545;
+    --status-accepted: #198754;
+    --status-badge-text: #663c00;
 }
 
 /*========================================
@@ -69,6 +88,11 @@ header {
 }
 header .logo img { height: 50px; display: block; }
 header .logo { display: flex; align-items: center; gap: 8px; }
+header .logo .logo-text {
+    font-size: 1rem; /* adjust size as needed */
+    font-weight: 600;
+    color: white; /* or whatever color fits your header */
+}
 header nav ul { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
 header nav a {
     text-decoration: none;
@@ -87,7 +111,7 @@ header nav a::after {
     background-color: #0073FF;
 }
 header nav a:hover::after { width: 100%; }
-header nav a:hover { color: #0073FF; }
+header nav a:hover { color: #000000; }
 nav ul.nav-list { display: flex; align-items: center; gap: 2rem; list-style: none; margin: 0; padding: 0; }
 .nav-separator img { height: 35px; width: 0.7px; display: block; }
 
@@ -142,17 +166,54 @@ nav ul.nav-list li.profile-pic img {
 }
 .sign-in-btn:hover { background-color: #004081; }
 
-.btn { padding: 10px 18px; border-radius: 10px; border: 0; font-weight: 600; cursor: pointer; box-shadow: 0 2px 0 rgba(0,0,0,0.06); }
-.btn.save { background: var(--accent); color: #fff; }
-.btn.reset { background: #fff; border: 0.7px solid var(--border); color: #111827; }
-.small-btn { display: inline-block; padding: 6px 10px; border-radius: 18px; border: 0.7px solid #000000; background: #fff; font-size: 13px; cursor: pointer; }
-.field-with-clear {
-    position: relative; /* makes absolute positioning work inside the input container */
-}
-.field-with-clear .input {
-    padding-right: 36px; /* leave room for the X button */
+/* Company dashboard button variants */
+.company-dashboard .btn {
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: none; /*Removes shadow */
+    border: 0; 
 }
 
+.company-dashboard .btn.gray {
+    border: 0.7px solid #D9D9D9;
+    background: #f7f8fb;
+    color: #50607a;
+}
+
+.company-dashboard .btn.ghost {
+    border: 0.7px solid #bfc8d4;
+    background: #f7f8fb;
+    color: #2f3b4a;
+}
+
+.company-dashboard .btn.gray:hover {
+    background: #e0e3ea;
+}
+
+.company-dashboard .btn.ghost:hover {
+    background: #e0e3ea;
+}
+
+.btn { 
+    padding: 10px 18px; 
+    border-radius: 10px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    box-shadow: 0 2px 0 rgba(0,0,0,0.06); 
+}
+.btn.save { background: var(--accent); color: #fff; border: 0.7px solid var(--border); }
+.btn.reset { background: #fff; border: 0.7px solid var(--border); color: #111827; }
+.small-btn { display: inline-block; padding: 6px 10px; border-radius: 18px; border: 0.7px solid #000000; background: #fff; font-size: 13px; cursor: pointer; }
+
+/*Clear X for inputs */
+.field-with-clear {
+    position: relative; /*Makes absolute positioning work inside the input container */
+}
+.field-with-clear .input {
+    padding-right: 36px; /*Leaves room for the X button */
+}
 .clear-x {
     position: absolute;
     right: 8px;
@@ -172,13 +233,13 @@ nav ul.nav-list li.profile-pic img {
 /*========================================
 6. LANDING PAGE STYLES (home-page.html)
 ==========================================*/
-.hero {
+.home-page .hero {
     position: relative;
     overflow: hidden;
     background: #ffffff;
     color: #000000;
 }
-.hero::before {
+.home-page .hero::before {
     content: "";
     position: absolute;
     top: -10px; left: -10px; right: -10px; bottom: -10px;
@@ -187,7 +248,7 @@ nav ul.nav-list li.profile-pic img {
     filter: blur(4px);
     opacity: 0.2;
 }
-.hero::after {
+.home-page .hero::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -197,7 +258,7 @@ nav ul.nav-list li.profile-pic img {
         linear-gradient(to bottom, rgba(255,255,255,0) 60%, rgba(255,255,255,1) 100%);
     pointer-events: none;
 }
-.hero-inner {
+.home-page .hero-inner {
     position: relative;
     z-index: 2;
     max-width: 1100px;
@@ -205,10 +266,10 @@ nav ul.nav-list li.profile-pic img {
     padding: 86px 18px 120px;
     text-align: center;
 }
-.hero h1 { margin: 12px 0 20px; font-size: 35px; font-weight: 700; }
-.hero p { margin: 0 auto 24px; color: #000000; max-width: 720px; font-size: 18px; font-weight: 400; }
-.hero .cta { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-.hero .btn {
+.home-page .hero h1 { margin: 12px 0 20px; font-size: 35px; font-weight: 700; }
+.home-page .hero p { margin: 0 auto 24px; color: #000000; max-width: 720px; font-size: 18px; font-weight: 400; }
+.home-page .hero .cta { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+.home-page .hero .btn {
     padding: 12px 18px;
     border-radius: 7px;
     background-color: #0073FF;
@@ -221,71 +282,71 @@ nav ul.nav-list li.profile-pic img {
     display: inline-block;
     text-decoration: none;
 }
-.hero .btn:hover { background-color: #004081; }
-.hero .btn.outline { background: white; border: 0.7px solid #000000; color: #0073FF; }
-.hero .btn.outline:hover { background-color: #5FAFFF; color: #fff; }
+.home-page .hero .btn:hover { background-color: #004081; }
+.home-page .hero .btn.outline { background: white; border: 0.7px solid #000000; color: #0073FF; }
+.home-page .hero .btn.outline:hover { background-color: #5FAFFF; color: #fff; }
 
 /* Sections & Cards */
-.section h2 { margin: 10px 0 22px; text-align: center; font-weight: 700; font-size: 35px; margin-bottom: 50px; }
-.cards { display: flex; flex-direction: column; gap: 26px; align-items: center; }
-.card { width: 100%; max-width: 600px; }
-.card .icon { width: auto; height: 50px; margin: 0 auto 14px; object-fit: contain; display: block; }
-.card h3 { margin: 6px 0 8px; font-size: 18px; font-weight: 700; }
-.card p { margin: 0; color: var(--muted); line-height: 1.5; }
+.home-page .section h2 { margin: 10px 0 22px; text-align: center; font-weight: 700; font-size: 35px; margin-bottom: 50px; }
+.home-page .cards { display: flex; flex-direction: column; gap: 26px; align-items: center; }
+.home-page .card { width: 100%; max-width: 600px; }
+.home-page .card .icon { width: auto; height: 50px; margin: 0 auto 14px; object-fit: contain; display: block; }
+.home-page .card h3 { margin: 6px 0 8px; font-size: 18px; font-weight: 700; }
+.home-page .card p { margin: 0; color: var(--muted); line-height: 1.5; }
 
-/* Call to Action (CTA) Banner */
-.cta-band {
+/* CTA Banner */
+.home-page .cta-band {
     margin-top: 46px;
     background: var(--brand);
     color: #fff;
 }
-.cta-band .inner { max-width: 1000px; margin: 0 auto; padding: 80px 18px; text-align: center; }
-.cta-band h2 { margin: 0 0 10px; font-weight: 700; font-size: 35px; }
-.cta-band p { margin: 0 0 22px; opacity: .95; }
-.cta-band .btn { background: #fff; color: var(--brand); }
-.cta-band .btn:hover { background: #eef2ff; }
-.cta-band .btn.outline { background: white; border: 0.7px solid #000000; color: #0073FF; padding: 12px 18px; border-radius: 7px; font-weight: 500; font-size: 16px; text-decoration: none; display: inline-block; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
-.cta-band .btn.outline:hover { background-color: #5FAFFF; color: #ffffff; }
+.home-page .cta-band .inner { max-width: 1000px; margin: 0 auto; padding: 80px 18px; text-align: center; }
+.home-page .cta-band h2 { margin: 0 0 10px; font-weight: 700; font-size: 35px; }
+.home-page .cta-band p { margin: 0 0 22px; opacity: .95; }
+.home-page .cta-band .btn { background: #fff; color: var(--brand); }
+.home-page .cta-band .btn:hover { background: #eef2ff; }
+.home-page .cta-band .btn.outline { background: white; border: 0.7px solid #000000; color: #0073FF; padding: 12px 18px; border-radius: 7px; font-weight: 500; font-size: 16px; text-decoration: none; display: inline-block; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
+.home-page .cta-band .btn.outline:hover { background-color: #5FAFFF; color: #ffffff; }
 
 /* Our Value Section */
-.our-value-title { text-align: center; font-size: 35px; font-weight: 600; margin-top: 30px; color: #000; }
-.our-value-wrapper { display: flex; justify-content: center; align-items: stretch; gap: 35px; flex-wrap: nowrap; max-width: 1100px; margin: 0 auto; }
-.column-separator { width: 0.7px; background: url('../connect-platform-alpha1/images/Header-Separator-1_1.jpg') no-repeat center; background-size: cover; height: auto; align-self: stretch; }
-.our-value-wrapper .section {
+.home-page .our-value-title { text-align: center; font-size: 35px; font-weight: 600; margin-top: 30px; color: #000; }
+.home-page .our-value-wrapper { display: flex; justify-content: center; align-items: stretch; gap: 35px; flex-wrap: nowrap; max-width: 1100px; margin: 0 auto; }
+.home-page .column-separator { width: 0.7px; background: url('../connect-platform-alpha1/images/Header-Separator-1_1.jpg') no-repeat center; background-size: cover; height: auto; align-self: stretch; }
+.home-page .our-value-wrapper .section {
     display: flex; flex-direction: column; justify-content: space-between;
     background: #fff; border: 0.7px solid #000000; box-shadow: var(--shadow); border-radius: var(--radius);
     padding: 10px 20px 25px 20px; max-width: 480px; height: 100%;
 }
-.our-value-wrapper .section h2 { text-align: center; font-size: 24px; margin-bottom: 25px; }
-.our-value-wrapper .cards { display: flex; flex-direction: column; gap: 25px; }
-.our-value-wrapper .card { text-align: center; }
-.our-value-wrapper .card p { color: var(--border); font-size: 15px; line-height: 1.5; }
-.our-value-wrapper .for-companies { background-color: #004081; color: #ffffff; }
-.our-value-wrapper .for-companies .card p,
-.our-value-wrapper .for-companies .card h3,
-.our-value-wrapper .for-companies h2 { color: #ffffff; }
+.home-page .our-value-wrapper .section h2 { text-align: center; font-size: 24px; margin-bottom: 25px; }
+.home-page .our-value-wrapper .cards { display: flex; flex-direction: column; gap: 25px; }
+.home-page .our-value-wrapper .card { text-align: center; }
+.home-page .our-value-wrapper .card p { color: var(--border); font-size: 15px; line-height: 1.5; }
+.home-page .our-value-wrapper .for-companies { background-color: #004081; color: #ffffff; }
+.home-page .our-value-wrapper .for-companies .card p,
+.home-page .our-value-wrapper .for-companies .card h3,
+.home-page .our-value-wrapper .for-companies h2 { color: #ffffff; }
 
 /* How It Works Timeline */
-.how-it-works-timeline { margin-top: 30px; padding: 30px 20px; background: #ffffff; text-align: center; }
-.how-it-works-timeline h2 { font-size: 35px; font-weight: 600; margin-bottom: 50px; }
-.timeline-container { display: flex; justify-content: space-between; align-items: flex-start; position: relative; max-width: 1100px; margin: 0 auto; gap: 40px; }
-.timeline-container::before {
+.home-page .how-it-works-timeline { margin-top: 30px; padding: 30px 20px; background: #ffffff; text-align: center; }
+.home-page .how-it-works-timeline h2 { font-size: 35px; font-weight: 600; margin-bottom: 50px; }
+.home-page .timeline-container { display: flex; justify-content: space-between; align-items: flex-start; position: relative; max-width: 1100px; margin: 0 auto; gap: 40px; }
+.home-page .timeline-container::before {
     content: ''; position: absolute; top: calc(35px); left: 0; right: 0; height: 4px; background: #0073FF; z-index: 1; border-radius: 2px;
 }
-.timeline-step { position: relative; width: 30%; z-index: 2; }
-.timeline-icon {
+.home-page .timeline-step { position: relative; width: 30%; z-index: 2; }
+.home-page .timeline-icon {
     width: 70px; height: 70px; background: #ffffff; border: 3px solid #0073FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
 }
-.timeline-icon img { width: 40px; height: 40px; object-fit: contain; }
-.timeline-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-.timeline-step p { font-size: 15px; color: #000; line-height: 1.5; }
+.home-page .timeline-icon img { width: 40px; height: 40px; object-fit: contain; }
+.home-page .timeline-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+.home-page .timeline-step p { font-size: 15px; color: #000; line-height: 1.5; }
 
 /* Footer */
-footer { background: #f8f8f8; padding: 40px 20px; text-align: center; border-top: 1px solid #e5e5e5; }
-footer p { margin-bottom: 15px; color: #6b7280; }
-footer a { margin: 0 10px; color: #0073FF; text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-footer img { margin: 0 10px; width: 24px; height: 24px; }
+.home-page footer { background: #f8f8f8; padding: 40px 20px; text-align: center; border-top: 1px solid #e5e5e5; }
+.home-page footer p { margin-bottom: 15px; color: #6b7280; }
+.home-page footer a { margin: 0 10px; color: #0073FF; text-decoration: none; }
+.home-page footer a:hover { text-decoration: underline; }
+.home-page footer img { margin: 0 10px; width: 24px; height: 24px; }
 
 /*========================================
 7. DASHBOARD COMMON STYLES
@@ -294,10 +355,1490 @@ footer img { margin: 0 10px; width: 24px; height: 24px; }
 /*========================================
 8. STUDENT DASHBOARD SPECIFIC STYLES
 ==========================================*/
+.student-dashboard body {
+    font-family: var(--font-family);
+    background-color: #f8f9fa;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.6;
+    background-image: url('images/Blue-White-Smooth-Patterned-Background-1_1.jpg');
+    background-attachment: fixed; 
+    background-size: cover; 
+}
+
+.student-dashboard h1, 
+.student-dashboard h2, 
+.student-dashboard h3, 
+.student-dashboard h4, 
+.student-dashboard h5, 
+.student-dashboard h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.student-dashboard a {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.student-dashboard img {
+    max-width: 100%;
+}
+
+.student-dashboard select, 
+.student-dashboard input[type="text"], 
+.student-dashboard input[type="date"] {
+    font-family: var(--font-family);
+    padding: 0.65rem;
+    border: 0.7px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.student-dashboard select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' class='bi bi-chevron-down' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    padding-right: 2.5rem;
+}
+
+.student-dashboard .card {
+    background-color: #ffffff;
+    border: 0.7px solid var(--card-border);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem 2rem;
+}
+
+.student-dashboard .btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.student-dashboard .btn-primary {
+    background-color: var(--accent);
+    color: #fff;
+    border: 0.7px solid var(--border);
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+.student-dashboard .btn-primary:hover {
+    background-color: var(--companyaccent);
+    border-color: var(--border);
+}
+
+.student-dashboard .btn-secondary {
+    background-color: #fff;
+    color: var(--card);
+    border: 0.7px solid var(--accent);
+}
+.student-dashboard .btn-secondary:hover {
+    background-color: #f8faff;
+}
+
+.student-dashboard .btn-full {
+    width: 100%;
+    padding: 0.75rem;
+}
+
+.student-dashboard .btn-icon {
+    background: none;
+    border: 0.7px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--muted);
+    padding: 0.25rem 0.5rem;
+    margin-left: 0.25rem;
+}
+
+.student-dashboard .btn-save {
+    background-color: #e9ecef;
+    color: #adb5bd;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.student-dashboard .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2.5rem;
+    background-color: #fff;
+    border-bottom: 0.7px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.student-dashboard .main-header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.student-dashboard .main-header .logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.student-dashboard .header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.student-dashboard .main-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.student-dashboard .main-nav a {
+    color: var(--muted);
+    font-weight: 500;
+    padding: 0.5rem 0;
+}
+
+.student-dashboard .main-nav a.active {
+    color: var(--accent);
+    border-bottom: 0.7px solid var(--accent);
+}
+
+.student-dashboard .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+}
+
+.student-dashboard .user-profile .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.student-dashboard main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1.5rem 2.5rem;
+}
+.student-dashboard .dashboard-title {
+    background-color: var(--light-blue-bg);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('images/Blue-White-Patterned-Background-1_1.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.student-dashboard .dashboard-title h1 {
+    color: var(--accent);
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.student-dashboard .dashboard-title p {
+    font-size: 1.1rem;
+    color: #454545;
+    margin-bottom: 0;
+}
+
+.student-dashboard #applications-section {
+    padding: 1.5rem 2rem;
+}
+
+.student-dashboard .projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.student-dashboard .projects-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.student-dashboard .applications-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.student-dashboard .applications-table th,
+.student-dashboard .applications-table td {
+    padding: 1rem 0.5rem;
+    text-align: left;
+    border-bottom: 0.7px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.student-dashboard .applications-table th {
+    color: var(--muted);
+    font-weight: 500;
+    padding-bottom: 1rem;
+}
+
+.student-dashboard .applications-table tr:last-child td {
+    border-bottom: none;
+}
+
+.student-dashboard .applications-table td {
+    color: var(--text-dark);
+}
+
+.student-dashboard .applications-table td .btn {
+    margin-right: 0.5rem;
+}
+
+.student-dashboard .status-review { 
+    color: var(--chip); 
+    font-weight: 500; 
+}
+.student-dashboard .status-rejected { 
+    color: var(--status-rejected); 
+    font-weight: 500; 
+}
+.student-dashboard .status-accepted { 
+    color: var(--status-accepted); 
+    font-weight: 500; 
+}
+
+.student-dashboard #search-card {
+    padding: 1.5rem;
+}
+
+.student-dashboard .search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.student-dashboard .search-form .date-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.student-dashboard .project-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 0.7px solid var(--accent);
+}
+
+.student-dashboard .progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0; /*Light gray for the uncompleted portion */
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.student-dashboard .progress-bar {
+    height: 100%;
+    width: 60%; /*Percentage completed */
+    background-color: var(--accent); /*Completed portion in blue */
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+
+.student-dashboard .progress-percentage {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.student-dashboard .time-remaining {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.student-dashboard .time-remaining i {
+    font-size: 1.25rem;
+}
+
+.student-dashboard #milestones-section {
+    padding: 1.5rem 2rem;
+}
+
+.student-dashboard .milestones-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.student-dashboard .milestones-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.student-dashboard .milestones-filters {
+    display: flex;
+    gap: 1rem;
+}
+
+.student-dashboard .milestone-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1rem;
+    border: 0.7px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.student-dashboard .milestone-item i {
+    font-size: 1.75rem;
+    color: var(--accent);
+}
+
+.student-dashboard .milestone-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+}
+
+.student-dashboard .milestone-info p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+.student-dashboard .status-badge {
+    background-color: var(--chip);
+    color: var(--status-badge-text);
+    padding: 0.3rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.student-dashboard .pagination {
+    text-align: right;
+    margin-top: 1.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.student-dashboard .pagination button {
+    vertical-align: middle;
+}
+.student-dashboard .skill-tag {
+    background-color: #e7f1ff;
+    color: var(--accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 0.25rem;
+}
+
+.student-dashboard #opportunities-section {
+    padding: 1.5rem 2rem;
+}
+
+.student-dashboard .opportunity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.student-dashboard .opportunity-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.student-dashboard .company-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.student-dashboard .opportunity-details {
+    flex-grow: 1;
+}
+
+.student-dashboard .opportunity-details h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+}
+
+.student-dashboard .opportunity-details p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+}
+
+.student-dashboard .opportunity-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.student-dashboard .opportunity-duration {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.student-dashboard .profile-card {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.student-dashboard .profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 0.7px solid var(--border-color);
+}
+
+.student-dashboard .profile-card h3 {
+    margin-bottom: 0.25rem;
+}
+
+.student-dashboard .profile-major {
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.student-dashboard .profile-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.student-dashboard .profile-links a {
+    font-size: 1.75rem;
+    color: var(--muted);
+}
+
+.student-dashboard .profile-links a:hover {
+    color: var(--accent);
+}
+
+.student-dashboard .profile-skills h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 0.75rem;
+}
+
+.student-dashboard .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.student-dashboard #resume-section {
+    padding: 1.5rem 2rem;
+}
+
+.student-dashboard .resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-dashboard .resume-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.student-dashboard .current-resume-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.student-dashboard .resume-preview-container {
+    border: 0.7px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fdfdfd;
+    padding: 2rem;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.student-dashboard .resume-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.student-dashboard .resume-content .resume-title {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.student-dashboard .resume-content .resume-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+}
+
+.student-dashboard .resume-content .resume-contact span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.student-dashboard .resume-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+.student-dashboard .resume-section h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--text-dark);
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.student-dashboard .resume-section h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.student-dashboard .resume-section .company {
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+}
+
+.student-dashboard .resume-section .date-location {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+}
+
+.student-dashboard .resume-section .date-location span {
+    margin-left: 1rem;
+}
+
+.student-dashboard .resume-section .experience-list {
+    padding-left: 20px;
+    margin-top: 0;
+}
+
+.student-dashboard .skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.student-dashboard .skills-list li {
+    padding: 0.25rem 0;
+    font-weight: 500;
+}
+
+.student-dashboard .resume-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap; 
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 0.7px solid var(--border-color);
+}
+
+.student-dashboard .resume-info p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0 0 1rem 0;
+}
+
+.student-dashboard .resume-upload-form label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-right: 1rem;
+}
+
+.student-dashboard .file-input-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+}
+
+.student-dashboard .btn-file {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    border: 0.7px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: var(--font-family);
+}
+
+.student-dashboard .file-input-wrapper span {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.student-dashboard .file-input-wrapper input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+@media (max-width: 1200px) {
+    .student-dashboard main {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 980px) {
+    .student-dashboard {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden; /*Prevents horizontal scrolling */
+        padding: 0.5rem;
+        box-sizing: border-box; 
+    }
+
+    .student-dashboard main {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .student-dashboard .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.5rem 0; 
+    }
+
+    .student-dashboard .milestones-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .student-dashboard .milestone-item {
+        grid-template-columns: 1fr;
+        gap: 0.25rem; 
+        text-align: center;
+        max-width: 100%;
+        overflow-wrap: break-word; /*Prevents long text from overflowing */
+    }
+
+    .student-dashboard .milestone-item i {
+        margin: 0 auto;
+        font-size: 1rem; 
+    }
+
+    .student-dashboard .resume-body {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+        max-width: 100%;
+    }
+
+    .student-dashboard .resume-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .student-dashboard .save-button-container {
+        width: 100%;
+    }
+
+    .student-dashboard .save-button-container .btn-save {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    /*Ensures no internal elements spill out */
+    .student-dashboard *, 
+    .student-dashboard *::before, 
+    .student-dashboard *::after {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .student-dashboard {
+        width: 100%;
+        padding: 0.25rem;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+    .student-dashboard main {
+        display: block; /*Prevents nested grids from forcing width */
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .student-dashboard .main-header,
+    .student-dashboard .milestones-header,
+    .student-dashboard .resume-footer {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.25rem !important;
+    }
+
+    .student-dashboard .milestone-item,
+    .student-dashboard .resume-body,
+    .student-dashboard .resume-preview {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    /*Forces all images and iframes inside resume preview to shrink */
+    .student-dashboard img,
+    .student-dashboard iframe,
+    .student-dashboard .resume-preview * {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .student-dashboard .save-button-container {
+        width: 100% !important;
+    }
+
+    .student-dashboard .save-button-container .btn-save {
+        width: 100% !important;
+        font-size: 0.8rem !important;
+        padding: 0.35rem 0.5rem !important;
+    }
+
+    /* Ensure all children respect container width */
+    .student-dashboard *, 
+    .student-dashboard *::before, 
+    .student-dashboard *::after {
+        box-sizing: border-box;
+        max-width: 100% !important;
+    }
+}
+
 
 /*========================================
 9. COMPANY DASHBOARD SPECIFIC STYLES
-==========================================*/
+==========================================*/ 
+body.company-dashboard header {
+    background-color: #004081;
+    color: white; 
+    border-bottom: 0.7px solid white; 
+}
+
+body.company-dashboard header nav a {
+    color: white; /*Links */
+}
+
+body.company-dashboard header nav a:hover::after {
+    background-color: #5FAFFF; /*Link hover */
+}
+
+body.company-dashboard header nav a:hover {
+    color: #ffffff; /*Link hover color */
+}
+
+.company-dashboard * { box-sizing: border-box; font-family: var(--font-family);; }
+
+.company-dashboard html,
+.company-dashboard body {
+    height: 100%;
+}
+
+.company-dashboard body {
+    margin: 0;
+    font-family: Poppins, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    color: var(--ink);
+    background:
+        radial-gradient(1200px 400px at 50% -160px, #d9e8ff 0%, rgba(217,232,255,0) 70%),
+        var(--bg);
+}
+
+/* Top bar */
+.company-dashboard .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: linear-gradient(90deg, #0a3e88, #0a3e88 45%, #0d4ea8);
+    color: #fff;
+    box-shadow: var(--shadow);
+}
+
+.company-dashboard .nav {
+    max-width: 1200px; margin: auto; padding: 14px 20px;
+    display: flex; align-items: center; gap: 20px; justify-content: space-between;
+}
+
+.company-dashboard .brand {
+    display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none;
+    font-weight: 600;
+}
+
+.company-dashboard .brand img { height: 34px; width: auto; display: block; }
+.company-dashboard .brand small { font-weight: 500; opacity: .9; letter-spacing: .4px; }
+
+.company-dashboard .navlinks { display: flex; align-items: center; gap: 28px; }
+.company-dashboard .navlinks a {
+    color: #fff; text-decoration: none; font-weight: 500; opacity: .95;
+}
+
+.company-dashboard .divider { width: 1px; height: 20px; background: rgba(255,255,255,.35); }
+
+.company-dashboard .company {
+    display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 600;
+}
+
+.company-dashboard .company .dot {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: conic-gradient(#f7b500 0 25%, #3877B1 0 50%, #28c76f 0 75%, #ff6b6b 0);
+    border: 0.7px solid rgba(255,255,255,.85);
+}
+
+/* Page title */
+.company-dashboard .business-hero {
+    text-align: center; 
+    padding: 34px 16px 10px;
+    margin-bottom: 20px;
+}
+
+.company-dashboard .business-hero h1 {
+    margin: 0 0 8px; 
+    font-size: 40px; 
+    color: #0073FF; 
+    letter-spacing: .2px;
+}
+
+.company-dashboard .business-hero p { 
+    margin: 0; 
+    color: #000000;
+}
+
+/* Containers */
+.company-dashboard .wrap { max-width: 1200px; margin: 18px auto 60px; padding: 0 16px; }
+
+.company-dashboard .quick-stats {
+    padding: 12px 14px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #000000;
+    background: #E0F0FF;
+    border-radius: 6px;
+    margin-bottom: 16px; /*Space between stats and table */
+    border: 0.7px solid #000000; /*Black outline */
+    text-align: center; 
+}
+
+/* Panels */
+.company-dashboard .panel {
+    background: var(--card);
+    border: 0.7px solid #C9D3E0;
+    border-radius: 28px;
+    padding: 20px 20px 10px;
+    box-shadow: var(--shadow);
+    margin-bottom: 28px;
+}
+
+.company-dashboard .panel-inner {
+    border: 0.7px solid #C9D3E0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.company-dashboard .panel-head {
+    position: relative; /*Allows absolute positioning for child */
+    padding: 4px 4px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/*Centers the h2 absolutely in the container */
+.company-dashboard .panel-head h2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+.company-dashboard .panel-head select.select {
+    position: relative; 
+    z-index: 1;        
+}
+
+.company-dashboard .panel h2 {
+    text-align: center; width: 100%; margin: 8px 0 0; font-size: 34px;
+    letter-spacing: .3px;
+}
+
+.company-dashboard .panel-inner.projects {
+    padding: 0 24px; /*Horizontal spacing inside the grid */
+}
+
+/* Controls */
+.company-dashboard .select {
+    appearance: none;
+    padding: 12px 32px 12px 14px;
+    border: 0.7px solid #C9D3E0; border-radius: 8px;
+    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M4 7l5 5 5-5" fill="none" stroke="%235f6c7b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 10px center / 18px 18px;
+    font: 500 14px Poppins, sans-serif; color: #2f3b4a;
+
+    width: auto;
+    min-width: fit-content;
+    max-width: fit-content;
+    flex: 0 0 auto; /*Prevents stretching inside .panel-head flexbox */
+}
+
+/* Buttons */
+.company-dashboard .btn {
+    border: 0.7px solid #0073FF;
+    background: #0073FF;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.company-dashboard .btn.secondary {
+    background: #fff;
+    color: #0073FF;
+    box-shadow: none;
+    padding: 10px 24px;
+    min-width: 120px;
+    white-space: nowrap;
+    display: inline-flex;       
+    justify-content: center;   
+}
+
+.company-dashboard .btn.gray {
+    border-color: #D9D9D9;
+    background: #f7f8fb;
+    color: #50607a;
+    box-shadow: none;
+}
+
+.company-dashboard .btn.ghost {
+    border-color: #bfc8d4;
+    background: #f7f8fb;
+    color: #2f3b4a;
+    box-shadow: none;
+}
+/* Posted Projects layout */
+.company-dashboard .projects {
+    display: grid; 
+    grid-template-columns: 1fr 320px; 
+    gap: 18px; 
+    padding: 16px;
+}
+
+.company-dashboard .table {
+    border: 0.7px solid #000000; 
+    border-radius: 6px; 
+    overflow: hidden;
+}
+
+.company-dashboard .table table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 14.5px; 
+}
+
+.company-dashboard .table thead th {
+    background: #3877B1; 
+    color: #fff; 
+    text-align: center; 
+    padding: 12px 14px; 
+    border-right: 0.7px solid #000000;
+}
+
+
+.company-dashboard .table tbody td {
+    padding: 14px; 
+    border-bottom: 0.7px solid #000000; 
+    border-right: 0.7px solid #000000;
+}
+
+/* Center text in the 2nd and 3rd columns */
+.company-dashboard .table tbody td:nth-child(2),
+.company-dashboard .table tbody td:nth-child(3) {
+    text-align: center;
+}
+
+/* Alternate row background */
+.company-dashboard .table tbody tr:nth-child(odd) { 
+    background: #f5fbff; 
+}
+
+/* Actions cell - keep buttons side by side */
+.company-dashboard .table tbody td.actions {
+    display: table-cell;       
+    padding: 14px;
+    text-align: right;
+    vertical-align: middle;
+    border-bottom: 0.7px solid #000000;
+    border-right: 0.7px solid #000000;
+
+    /*Forces buttons to stay inline */
+    white-space: nowrap;      
+}
+
+/* Buttons inside actions */
+.company-dashboard .table tbody td.actions .btn {
+    display: inline-block;
+    margin: 0 4px;
+    padding: 6px 12px;
+    font-size: 13px;
+    line-height: 1.2;
+    height: auto;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+
+.company-dashboard .table tbody tr {
+    height: 52px; 
+}
+
+/* Status text */
+.company-dashboard .status { 
+    font-weight: 600; 
+    color: #000000; 
+    display: block;      
+    text-align: center;  
+}
+
+/* Right filter panel */
+.company-dashboard .filter {
+    border: 0.7px solid #C9D3E0; 
+    border-radius: 8px; 
+    padding: 12px; 
+    display: grid; 
+    gap: 10px;
+    align-content: start;
+}
+
+.company-dashboard .filter input,
+.company-dashboard .filter select {
+    width: 100%; 
+    padding: 12px 10px; 
+    border: 0.7px solid #C9D3E0; 
+    border-radius: 8px; 
+    font: 500 14px Poppins, sans-serif; 
+    color: #243142;
+    background: #fff;
+}
+
+.company-dashboard .filter label { 
+    font-size: 13px; 
+    color: #445266; 
+}
+
+/* Milestones */
+.company-dashboard .milestone-row {
+    display: grid; 
+    grid-template-columns: 1fr auto; 
+    gap: 12px; 
+    align-items: center;
+    padding: 16px 14px; 
+    border-bottom: 0.7px solid #e5ecf5;
+}
+
+.company-dashboard .milestone-main { 
+    display: grid; 
+    grid-template-columns: 26px 1fr; 
+    gap: 12px; 
+    align-items: center; 
+}
+
+.company-dashboard .m-icon {
+    width: 26px; 
+    height: 26px; 
+    border-radius: 50%; 
+    background: #004081; 
+    display: grid; 
+    place-items: center; 
+    color: #fff; 
+    font-weight: 700;
+}
+
+.company-dashboard .m-title {
+    margin: 0; 
+    font-weight: 600; 
+    color: #1760d7; 
+    font-size: 18px;
+}
+
+.company-dashboard .m-sub { 
+    margin: 2px 0 0; 
+    color: #6a7588; 
+    font-size: 13.5px; 
+}
+
+.company-dashboard .chip {
+    background: var(--chip); 
+    color: #4d3f00; 
+    padding: 7px 10px; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    border: 0.7px solid #e2c65e; 
+}
+
+.company-dashboard .chip.green { 
+    background: var(--chip-green); 
+    color: #fff; 
+    border-color: #0d8a2e; 
+}
+
+.company-dashboard .assigned {
+    margin-top: 10px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    color: #7a869a; 
+    font-size: 14px;
+}
+
+.company-dashboard .avatars { display: flex; }
+
+.company-dashboard .avatar {
+    width: 28px; 
+    height: 28px; 
+    border-radius: 50%; 
+    background: #e8eef7; 
+    border: 0.7px solid #fff;
+    display: grid; 
+    place-items: center; 
+    font-weight: 700; 
+    color: #385b7b; 
+    margin-left: -6px;
+}
+
+/* Review Teams */
+.company-dashboard .team-row { border-top: 0.7px solid #e5ecf5; }
+
+.company-dashboard .team-hdr {
+    background: #E0F0FF;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 22px;
+    flex-wrap: wrap;
+}
+
+.company-dashboard .team-hdr > div:first-child {
+    width: auto; /*Controls how far the goal is pushed */
+    flex-shrink: 0;
+}
+
+.company-dashboard .team-goal {
+    flex: 10; /*Gives the goal more space than other items */
+    border-left: 0.7px solid #9cbce7;
+    padding-left: 14px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 20px;
+    min-width: 200px;
+}
+
+.company-dashboard .team-hdr button {
+    flex-shrink: 0; /*Prevents button from shrinking */
+}
+
+.company-dashboard .team-body { 
+    padding: 12px 14px; 
+    display: grid; 
+    gap: 12px; 
+}
+
+.company-dashboard .kv { 
+    display: grid; 
+    grid-template-columns: 105px 1fr; 
+    gap: 14px; 
+    align-items: center; 
+    color: #6a7588; 
+}
+
+.company-dashboard .pill-actions { display: flex; gap: 10px; }
+
+/* Footer paging look */
+.company-dashboard .pager {
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+    gap: 10px; 
+    padding: 10px 14px; 
+    color: #3a4a62; 
+    font-weight: 600;
+}
+
+.company-dashboard .pager .circle {
+    width: 34px; 
+    height: 34px; 
+    border-radius: 50%; 
+    border: 0.7px solid #c7d3e4; 
+    display: grid; 
+    place-items: center; 
+    cursor: pointer; 
+    background: #fff;
+}
+
+/* Utilities */
+.company-dashboard .row { display: flex; align-items: center; gap: 10px; }
+.company-dashboard .space { flex: 1; }
+
+.company-dashboard .badge-proj {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 10px;
+    background: #004081; 
+    color: #fff; 
+    font-weight: 600; 
+    padding: 8px 12px; 
+    border-radius: 6px;
+}
+
+.company-dashboard .badge-proj .square {
+    width: 22px; 
+    height: 22px; 
+    border-radius: 4px;
+    background: conic-gradient(#f7b500 0 25%, #1b58c5 0 50%, #28c76f 0 75%, #ff6b6b 0);
+    border: 0.7px solid rgba(255,255,255,.7);
+}
+
+/* New Sections Styling (Form + Applications) */
+.company-dashboard .block {
+    background: var(--card); 
+    border: 0.7px solid #C9D3E0; 
+    border-radius: 24px; 
+    padding: 18px 18px 8px; 
+    box-shadow: var(--shadow); 
+    margin-bottom: 28px;
+}
+
+.company-dashboard .block h2 { 
+    margin: 6px 0 14px; 
+    text-align: center; 
+    font-size: 30px;
+}
+
+.company-dashboard .form {
+    border: 0.7px solid #C9D3E0; 
+    border-radius: 12px; 
+    padding: 16px; 
+    display: grid; 
+    gap: 14px;
+}
+
+.company-dashboard .row-grid {
+    display: grid; 
+    gap: 14px; 
+    grid-template-columns: 1fr 1fr;
+}
+
+.company-dashboard .form label { 
+    font-weight: 600; 
+    color: #314055; 
+    margin-bottom: 6px; 
+    display: block; 
+}
+
+.company-dashboard .form input[type="text"], 
+.company-dashboard .form input[type="number"], 
+.company-dashboard .form textarea, 
+.company-dashboard .form select {
+    width: 100%; 
+    padding: 12px 12px; 
+    border: 0.7px solid #C9D3E0; 
+    border-radius: 10px; 
+    font: 500 14px Poppins,ui-sans-serif; 
+    color: #243142; 
+    background: #fff;
+}
+
+.company-dashboard .form textarea { 
+    min-height: 120px; 
+    resize: vertical; 
+}
+
+.company-dashboard .checks { display: flex; flex-wrap: wrap; gap: 10px; }
+.company-dashboard .check {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    border: 0.7px solid #C9D3E0; 
+    border-radius: 999px; 
+    padding: 8px 12px; 
+    background: #fff; 
+    cursor: pointer;
+}
+
+.company-dashboard .help { 
+    color: var(--muted); 
+    font-size: 13px; 
+}
+
+.company-dashboard .actions { 
+    display: flex; 
+    gap: 10px; 
+    justify-content: flex-end; 
+    margin-top: 4px; 
+}
+
+.company-dashboard .cards {
+    display: grid; 
+    gap: 16px; 
+    grid-template-columns: 1fr 1fr;
+}
+
+.company-dashboard .card {
+    border: 0.7px solid #C9D3E0; 
+    border-radius: 14px; 
+    padding: 14px; 
+    display: grid; 
+    gap: 10px; 
+    background: #fff;
+}
+
+.company-dashboard .card .title { font-weight: 700; font-size: 18px; }
+.company-dashboard .sub { color: var(--muted); font-size: 14px; }
+.company-dashboard .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.company-dashboard .tag {
+    background: #eef4ff; 
+    color: #174ea6; 
+    border: 0.7px solid #cfe0ff; 
+    padding: 6px 10px; 
+    border-radius: 999px; 
+    font-weight: 600; 
+    font-size: 13px;
+}
+.company-dashboard .card .cta { display: flex; gap: 10px; justify-content: flex-end; }
+.company-dashboard .btn.ghost {
+    border-color: #bfc8d4; 
+    background: #f7f8fb; 
+    color: #2f3b4a; 
+}
+.company-dashboard .status-pill {
+    margin-right: auto; 
+    background: #eef7ee; 
+    border: 0.7px solid #cfe8d0; 
+    color: #1b6d36; 
+    border-radius: 999px; 
+    padding: 6px 10px; 
+    font-weight: 700; 
+    font-size: 12.5px; 
+    display: none;
+}
+
+/* Media queries */
+@media (max-width: 980px) {
+    .company-dashboard .projects { grid-template-columns: 1fr; }
+    .company-dashboard .panel h2 { font-size: 28px; }
+    .company-dashboard .m-title { font-size: 16px; }
+    .company-dashboard .team-hdr { font-size: 18px; flex-wrap: wrap; }
+    .company-dashboard .kv { grid-template-columns: 1fr; }
+    .company-dashboard .navlinks { display: none; }
+    .company-dashboard .row-grid { grid-template-columns: 1fr; }
+    .company-dashboard .cards { grid-template-columns: 1fr; }
+    .company-dashboard .panel-head {
+        flex-direction: column; /*Stacks items vertically */
+        align-items: center;
+        gap: 12px;
+        position: static; /*Removes absolute positioning issues */
+    }
+
+    .company-dashboard .panel-head h2 {
+        position: static; /* Places title on top */
+        transform: none;
+        font-size: 28px;
+        width: 100%;
+    }
+
+    .company-dashboard .panel-head select.select,
+    .company-dashboard .panel-head .btn.secondary {
+        width: auto; /*Ensures buttons fit content */
+    }
+
+    .company-dashboard .panel-head select.select {
+        order: 1; /*Appears after title */
+    }
+
+    .company-dashboard .panel-head .btn.secondary {
+        order: 2; /*Appears after dropdown */
+    }
+}
 
 /*========================================
 10. PROJECT LISTINGS PAGE STYLES (projects.html)
@@ -313,13 +1854,13 @@ X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
   padding: 28px 20px;
   box-shadow: var(--shadow);
   border: 0.7px solid var(--border);
-  height: auto; /* allow it to expand naturally */
+  height: auto; 
   position: sticky;
   top: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  overflow: visible; /* or auto if you want scroll */
+  overflow: visible; 
 }
 .sidebar h2 { margin: 0; font-size: 20px; letter-spacing: 0.4px; }
 .sidebar nav { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
@@ -339,7 +1880,7 @@ X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
     text-align: left;
     padding: 10px 12px;
     border-radius: 8px;
-    color: #FF857B; /* red text */
+    color: #FF857B; 
     font-size: 15px;
     cursor: pointer;
     display: flex;
@@ -350,11 +1891,10 @@ X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
     margin-top: auto;
     transition: background 0.2s ease;
 }
-/* Add hover state like .nav-btn */
+/* Adds hover state like .nav-btn */
 .logout:hover {
-    background: #f3f7fb; /* same hover background as nav-btn */
+    background: #f3f7fb; 
 }
-/* Optional: Add subtle border or left accent on hover to match current nav item */
 .logout:active {
     background: linear-gradient(90deg, rgba(255,133,123,0.08), rgba(255,133,123,0.03));
     border-left: 4px solid #FF857B;
@@ -388,6 +1928,30 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
 /* Save / Action Buttons */
 .actions { display: flex; justify-content: flex-end; margin-top: 18px; gap: 14px; }
 
+
+/*========================================
+X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
+==========================================*/
+.company-settings header {
+    background-color: #004081;
+    color: white; 
+    border-bottom: 0.7px solid white; 
+}
+
+.company-settings header nav a {
+    color: white; /*Links */
+}
+
+.company-settings header nav a:hover::after {
+    background-color: #5FAFFF; /*Link hover */
+}
+
+.company-settings header nav a:hover {
+    color: #ffffff; /*Link hover color */
+}
+
+.company-settings * { box-sizing: border-box; font-family: var(--font-family);; }
+
 /*========================================
 11. RESPONSIVE DESIGN (MEDIA QUERIES)
 ==========================================*/
@@ -401,15 +1965,45 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
     .actions { justify-content: space-between; }
 }
 @media (max-width: 900px) {
-    .our-value-wrapper { flex-direction: column; gap: 50px; max-width: 95%; }
-    .timeline-container { flex-direction: column; align-items: center; }
-    .timeline-container::before { top: auto; left: 50%; transform: translateX(-50%); width: 4px; height: 100%; }
-    .timeline-step { width: 80%; margin-bottom: 50px; text-align: center; }
-    .timeline-step:last-child { margin-bottom: 0; }
+    .home-page .timeline-container {
+        flex-direction: column;
+        align-items: center;
+        position: relative; /*Ensures ::before is positioned relative to container */
+        gap: 50px; /*Vertical spacing */
+    }
+
+    .home-page .timeline-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px; /*Thin vertical line */
+        height: 100%; /*Full height of container */
+        background: #0073FF;
+        z-index: 1;
+        border-radius: 2px;
+    }
+
+    .home-page .timeline-step {
+        width: 80%;
+        margin-bottom: 50px;
+        text-align: center;
+        z-index: 2; /*Ensure timeline elements sit above the vertical line */
+    }
+
+    .home-page .timeline-step:last-child {
+        margin-bottom: 0;
+    }
+
+    .home-page .timeline-icon {
+        margin: 0 auto 20px; /*Centers icons */
+    }
 }
+
 /* Media query for mobile */
 @media (max-width: 600px) {
-    /* Header row: logo + hamburger */
+    /* Logo + hamburger */
     .column-separator {
         display: none;
     }
@@ -475,14 +2069,14 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
         display: flex;
     }
 
-    /* Links & buttons uniform */
+    /* Links and buttons */
     nav ul.nav-list li a,
     nav ul.nav-list li button {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding: 0.5rem 1rem; /* uniform vertical spacing */
+        padding: 0.5rem 1rem; 
         font-size: 0.95rem;
         line-height: 1.2;
         box-sizing: border-box;
@@ -514,12 +2108,40 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
     .nav-btn {
         justify-content: center;
         font-size: 16px;
-        white-space: normal; /* Prevent text like “Sign-In and Security” from being cut off */
-        word-break: break-word; /* Allow long button names to wrap */
+        white-space: normal; /*Prevents text like “Sign-In and Security” from being cut off */
+        word-break: break-word; /*Allows long button names to wrap */
     }
 
     .logout {
         align-self: center;
+    }
+
+    body.company-dashboard .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #fff; /*Makes the hamburger icon white for company headers */
+    }
+
+    .company-settings header nav ul.nav-list li a,
+    .company-settings header nav ul.nav-list li button {
+        color: #000; /*Black text for company headers */
+    }
+
+    body.company-settings .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #fff; /*Makes the hamburger icon white for company headers */
+    }
+
+    .company-settings header nav ul.nav-list li a,
+    .company-settings header nav ul.nav-list li button {
+        color: #000; /*Black text for company headers */
     }
 }
 

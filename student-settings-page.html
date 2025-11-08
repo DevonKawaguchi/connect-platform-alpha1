@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="styles.css">
-    <title>Settings</title>
+    <title>Settings - CampusConnect</title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
             <li><a href="student-support-page.html">Support</a></li>
 
             <li class="nav-separator">
-                <img src="images/Header-Separator-1_1.jpg" alt="|" />
+                <img src="images/Black-Header-Separator-1_1.jpg" alt="|" />
             </li>
 
             <li><a href="javascript:void(0)" id="headerName">Jane Doe</a></li>
@@ -305,21 +305,27 @@
         const headerNameHamburger = document.getElementById('headerName');
         const profilePic = document.querySelector('.profile-pic');
 
+        //Toggles menu on click
         hamburger.addEventListener('click', () => {
             const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
             hamburger.setAttribute('aria-expanded', !expanded);
             headerNav.classList.toggle('open');
 
-            // Only change for mobile widths
+            //Only hides profile picture on mobile
             if (window.innerWidth <= 600) {
                 profilePic.style.display = 'none';
-                headerNameHamburger.textContent = 'Settings';
             } else {
                 profilePic.style.display = 'block';
                 headerNameHamburger.textContent = 'Jane Doe';
             }
         });
 
+        //Ensures profile picture is visible on desktop after resizing
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 600) {
+                profilePic.style.display = 'block';
+            }
+        });
         //HAMBURGER LOGIC (END)
         
         //SIDEBAR NAVIGATION
@@ -433,7 +439,7 @@
                 if (previewMini) previewMini.src = avatarData;
                 if (headerProfileImg) headerProfileImg.src = avatarData;
             } else {
-                const defaultImg = "images/Default-Profile-Picture-1_1.png";
+                const defaultImg = "images/Profile-Picture-1_1.jpg";
                 avatarImg.src = defaultImg;
                 if (previewMini) previewMini.src = defaultImg;
                 if (headerProfileImg) headerProfileImg.src = defaultImg;
