@@ -3,561 +3,587 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CampusConnect • Business Dashboard</title>
+  <title>Company Dashboard - CampusConnect</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    :root{
-      --ink:#101828;
-      --muted:#667085;
-      --stroke:#DFE4EA;
-      --card:#ffffff;
-      --bg:#f5f7fb;
-      --brand:#114a9f;
-      --brand-2:#1b58c5;
-      --accent:#0e7bf0;
-      --chip:#f9e08c;
-      --chip-green:#1aa639;
-      --soft:#e9f1ff;
-      --table:#2c6aa3;
-      --radius:18px;
-      --radius-sm:12px;
-      --shadow:0 1px 2px rgba(16,24,40,.06), 0 10px 20px rgba(16,24,40,.06);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Poppins, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--ink);
-      background:
-        radial-gradient(1200px 400px at 50% -160px, #d9e8ff 0%, rgba(217,232,255,0) 70%),
-        var(--bg);
-    }
-
-    /* Top bar */
-    .topbar{
-      position:sticky; top:0; z-index:20;
-      background:linear-gradient(90deg, #0a3e88, #0a3e88 45%, #0d4ea8);
-      color:#fff;
-      box-shadow:var(--shadow);
-    }
-    .nav{
-      max-width:1200px; margin:auto; padding:14px 20px;
-      display:flex; align-items:center; gap:20px; justify-content:space-between;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px; color:#fff; text-decoration:none;
-      font-weight:600;
-    }
-    .brand img{ height:34px; width:auto; display:block }
-    .brand small{font-weight:500; opacity:.9; letter-spacing:.4px}
-    .navlinks{ display:flex; align-items:center; gap:28px }
-    .navlinks a{
-      color:#fff; text-decoration:none; font-weight:500; opacity:.95;
-    }
-    .divider{ width:1px; height:20px; background:rgba(255,255,255,.35) }
-    .company{
-      display:flex; align-items:center; gap:10px; color:#fff; text-decoration:none; font-weight:600;
-    }
-    .company .dot{
-      width:22px; height:22px; border-radius:50%;
-      background:conic-gradient(#f7b500 0 25%, #1b58c5 0 50%, #28c76f 0 75%, #ff6b6b 0);
-      border:2px solid rgba(255,255,255,.85);
-    }
-
-    /* Page title */
-    .hero{
-      text-align:center; padding:34px 16px 10px;
-    }
-    .hero h1{
-      margin:0 0 8px; font-size:40px; color:#1b58c5; letter-spacing:.2px
-    }
-    .hero p{ margin:0; color:var(--muted) }
-
-    /* Containers */
-    .wrap{ max-width:1200px; margin:18px auto 60px; padding:0 16px }
-
-    .panel{
-      background:var(--card);
-      border:2px solid #C9D3E0;
-      border-radius:28px;
-      padding:20px 20px 10px;
-      box-shadow:var(--shadow);
-      margin-bottom:28px;
-    }
-    .panel-inner{
-      border:2px solid #C9D3E0;
-      border-radius:12px;
-      overflow:hidden;
-      background:#fff;
-    }
-    .panel-head{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:4px 4px 16px;
-    }
-    .panel h2{
-      text-align:center; width:100%; margin:8px 0 0; font-size:34px;
-      letter-spacing:.3px;
-    }
-
-    /* Controls */
-    .select{
-      appearance:none;
-      padding:12px 32px 12px 14px;
-      border:2px solid #C9D3E0; border-radius:8px;
-      background:#fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path d="M4 7l5 5 5-5" fill="none" stroke="%235f6c7b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 10px center / 18px 18px;
-      font:500 14px Poppins, sans-serif; color:#2f3b4a;
-    }
-    .btn{
-      border:2px solid #1b58c5;
-      background:#1b58c5; color:#fff; padding:10px 16px; border-radius:10px;
-      font-weight:600; cursor:pointer;
-      box-shadow:inset 0 -2px 0 rgba(0,0,0,.12);
-    }
-    .btn.secondary{
-      background:#fff; color:#1b58c5;
-    }
-    .btn.gray{
-      border-color:#bfc8d4; background:#f7f8fb; color:#50607a;
-    }
-
-    /* Posted Projects layout */
-    .projects{
-      display:grid; grid-template-columns: 1fr 320px; gap:18px; padding:16px;
-    }
-    .table{
-      border:2px solid #aac0d9; border-radius:6px; overflow:hidden;
-    }
-    .table table{ width:100%; border-collapse:collapse; font-size:14.5px }
-    .table thead th{
-      background:#2b5f90; color:#fff; text-align:left; padding:12px 14px; border-right:2px solid #3f7ab4;
-    }
-    .table tbody td{
-      padding:14px; border-bottom:2px solid #e8eff7; border-right:2px solid #eef2f7;
-    }
-    .table tbody tr:nth-child(odd){ background:#f5fbff }
-    .status{ font-weight:600; color:#385b7b }
-    .status.badge{ background:#e8f2ff; border:1.5px solid #bcd4f2; padding:6px 10px; border-radius:8px; display:inline-block }
-    .actions{ display:flex; gap:10px; }
-
-    /* Right filter panel */
-    .filter{
-      border:2px solid #C9D3E0; border-radius:8px; padding:12px; display:grid; gap:10px;
-      align-content:start;
-    }
-    .filter input,.filter select{
-      width:100%; padding:12px 10px; border:2px solid #C9D3E0; border-radius:8px; font:500 14px Poppins, sans-serif; color:#243142;
-      background:#fff;
-    }
-    .filter label{ font-size:13px; color:#445266 }
-
-    /* Milestones */
-    .milestone-row{
-      display:grid; grid-template-columns: 1fr auto; gap:12px; align-items:center;
-      padding:16px 14px; border-bottom:2px solid #e5ecf5;
-    }
-    .milestone-main{ display:grid; grid-template-columns: 26px 1fr; gap:12px; align-items:center; }
-    .m-icon{
-      width:26px; height:26px; border-radius:50%; background:#1b58c5; display:grid; place-items:center; color:#fff; font-weight:700;
-    }
-    .m-title{
-      margin:0; font-weight:600; color:#1760d7; font-size:18px;
-    }
-    .m-sub{ margin:2px 0 0; color:#6a7588; font-size:13.5px }
-    .chip{ background:var(--chip); color:#4d3f00; padding:7px 10px; border-radius:8px; font-weight:600; border:1.5px solid #e2c65e }
-    .chip.green{ background:var(--chip-green); color:#fff; border-color:#0d8a2e }
-
-    .assigned{
-      margin-top:10px; display:flex; align-items:center; gap:10px; color:#7a869a; font-size:14px;
-    }
-    .avatars{ display:flex; }
-    .avatar{
-      width:28px; height:28px; border-radius:50%; background:#e8eef7; border:2px solid #fff;
-      display:grid; place-items:center; font-weight:700; color:#385b7b; margin-left:-6px;
-    }
-
-    /* Review Teams */
-    .team-row{ border-top:2px solid #e5ecf5; }
-    .team-hdr{
-      background:#e6f1ff; padding:14px; display:flex; align-items:center; justify-content:space-between; gap:12px; font-weight:700; font-size:22px;
-    }
-    .team-goal{ border-left:3px solid #9cbce7; padding-left:14px; color:#344b66; font-weight:600 }
-    .team-body{ padding:12px 14px; display:grid; gap:12px }
-    .kv{ display:grid; grid-template-columns: 105px 1fr; gap:14px; align-items:center; color:#6a7588 }
-    .pill-actions{ display:flex; gap:10px }
-
-    /* Footer paging look */
-    .pager{
-      display:flex; justify-content:flex-end; align-items:center; gap:10px; padding:10px 14px; color:#3a4a62; font-weight:600;
-    }
-    .pager .circle{
-      width:34px; height:34px; border-radius:50%; border:2px solid #c7d3e4; display:grid; place-items:center; cursor:pointer; background:#fff;
-    }
-
-    /* Utilities */
-    .row{ display:flex; align-items:center; gap:10px }
-    .space{ flex:1 }
-    .badge-proj{
-      display:inline-flex; align-items:center; gap:10px;
-      background:#0d4ea8; color:#fff; font-weight:600; padding:8px 12px; border-radius:6px;
-    }
-    .badge-proj .square{
-      width:22px; height:22px; border-radius:4px;
-      background:conic-gradient(#f7b500 0 25%, #1b58c5 0 50%, #28c76f 0 75%, #ff6b6b 0);
-      border:2px solid rgba(255,255,255,.7);
-    }
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .projects{ grid-template-columns: 1fr; }
-      .panel h2{ font-size:28px }
-      .m-title{ font-size:16px }
-      .team-hdr{ font-size:18px; flex-wrap:wrap }
-      .kv{ grid-template-columns: 1fr }
-      .navlinks{ display:none }
-    }
   </style>
 </head>
-<body>
+<body class="company-dashboard">
+    <!-- HEADER (START) -->
+      <header>
+          <div class="logo">
+              <img src="images/Business-Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
+              <span class="logo-text">FOR COMPANIES</span>
+          </div>
+          
+          <!-- Hamburger Button -->
+          <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          &#9776; <!-- hamburger icon -->
+          </button>
 
-  <!-- Top bar -->
-  <header class="topbar">
-    <div class="nav">
-      <a class="brand" href="#">
-        <!-- Put CampusConnectLogo1_1.webp next to this HTML file or update the path -->
-        <img src="CampusConnectLogo1_1.webp" alt="CampusConnect logo">
-        <div>
-          <div style="line-height:1; font-size:15px; letter-spacing:.6px">FOR BUSINESS</div>
-          <small>CampusConnect</small>
-        </div>
-      </a>
+          <nav aria-label="Main navigation">
+          <ul class="nav-list">
+              <li><a href="home-page.html">Home</a></li>
+              <li><a href="javascript:void(0)">Manage</a></li>
+              <li><a href="student-support-page.html">Support</a></li>
 
-      <nav class="navlinks">
-        <a href="#">Home</a>
-        <a href="#" style="font-weight:700; text-decoration:underline;">Manage</a>
-        <a href="#">Support</a>
-        <span class="divider"></span>
-        <a class="company" href="#"><span>Example Company</span><span class="dot"></span></a>
-      </nav>
-    </div>
-  </header>
+              <li class="nav-separator">
+                  <img src="images/White-Header-Separator-1_1.jpg" alt="|" />
+              </li>
+
+              <li><a href="javascript:void(0)" id="headerName">Example Company</a></li>
+              <li class="profile-pic">
+                  <img src="images/Company-Profile-Picture-1_1.jpeg" alt="Profile Picture">
+              </li>
+          </ul>
+          </nav>
+      </header>
+      <!-- HEADER (END) -->
 
   <!-- Intro -->
-  <section class="hero">
-    <h1>Business Dashboard</h1>
-    <p>Track your applications, stay connected with company partners, and manage your quarterly resumes</p>
-  </section>
+  <div class="company-dashboard">
+    <section class="business-hero">
+      <h1>Company Dashboard</h1>
+      <p>Review incoming applications, connect with student partners, and manage your project teams</p>
+    </section>
+  </div>
 
   <main class="wrap">
-
-    <!-- Posted Projects -->
-    <section class="panel">
-      <div class="panel-head">
-        <select class="select"><option>Q4 2025</option></select>
-        <h2>Posted Projects (8)</h2>
-        <button class="btn secondary">+ Add Project</button>
+    <div class="company-dashboard">
+      <!-- Quick Stats -->
+      <div class="quick-stats">
+        Projects Applied: 5 | Active Projects: 3 | Completed: 2
       </div>
 
-      <div class="panel-inner projects">
-        <!-- table -->
-        <div class="table">
-          <table>
-            <thead>
-              <tr>
-                <th style="width:40%">Project</th>
-                <th style="width:12%">Applicants</th>
-                <th style="width:16%">Date Posted</th>
-                <th style="width:14%">Status</th>
-                <th style="width:18%">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Internal Dashboard Tool</td>
-                <td>64</td>
-                <td>10/17/25</td>
-                <td><span class="status">Under Review</span></td>
-                <td class="actions">
-                  <button class="btn">Review</button>
-                  <button class="btn gray">Details</button>
-                </td>
-              </tr>
-              <tr>
-                <td>AI Resume Matcher</td>
-                <td>192</td>
-                <td>09/12/25</td>
-                <td><span class="status">Under Review</span></td>
-                <td class="actions">
-                  <button class="btn">Review</button>
-                  <button class="btn gray">Details</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Productivity Tracker</td>
-                <td>128</td>
-                <td>09/27/25</td>
-                <td><span class="status badge">Open</span></td>
-                <td class="actions">
-                  <button class="btn secondary">Edit Posting</button>
-                  <button class="btn gray">Details</button>
-                </td>
-              </tr>
-              <tr>
-                <td>System Optimization</td>
-                <td>56</td>
-                <td>10/05/25</td>
-                <td><span class="status badge">Open</span></td>
-                <td class="actions">
-                  <button class="btn secondary">Edit Posting</button>
-                  <button class="btn gray">Details</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Company Website Redesign</td>
-                <td>128</td>
-                <td>08/01/25</td>
-                <td><span class="status badge">Open</span></td>
-                <td class="actions">
-                  <button class="btn secondary">Edit Posting</button>
-                  <button class="btn gray">Details</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Sales Forecasting System</td>
-                <td>47</td>
-                <td>09/18/25</td>
-                <td><span class="status">Under Review</span></td>
-                <td class="actions">
-                  <button class="btn">Review</button>
-                  <button class="btn gray">Details</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Environmental Monitor</td>
-                <td>90</td>
-                <td>08/29/25</td>
-                <td><span class="status badge">Open</span></td>
-                <td class="actions">
-                  <button class="btn secondary">Edit Posting</button>
-                  <button class="btn gray">Details</button>
-                </td>
-              </tr>
-              <tr>
-                <td>Social Media Engagement Study</td>
-                <td>161</td>
-                <td>10/08/25</td>
-                <td><span class="status">Closed</span></td>
-                <td class="actions">
-                  <button class="btn">Review</button>
-                  <button class="btn gray">Details</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- Posted Projects -->
+      <section class="panel">
+        <div class="panel-head">
+          <select class="select"><option>Q4 2025</option></select>
+          <h2>Posted Projects (8)</h2>
+          <button class="btn secondary">+ Add Project</button>
         </div>
 
-        <!-- filters -->
-        <aside class="filter">
-          <input type="text" placeholder="Search Projects…">
-          <div class="row">
-            <input type="text" placeholder="From:">
-            <input type="text" placeholder="To:">
+        <div class="panel-inner projects">
+          <!-- Table -->
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Project</th>
+                  <th style="width:12%">Applicants</th>
+                  <th style="width:16%">Date Posted</th>
+                  <th style="width:14%">Status</th>
+                  <th style="width:18%">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Internal Dashboard Tool</td>
+                  <td>64</td>
+                  <td>10/17/25</td>
+                  <td><span class="status">Under Review</span></td>
+                  <td class="actions">
+                    <button class="btn">Review</button>
+                    <button class="btn gray">Details</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>AI Resume Matcher</td>
+                  <td>192</td>
+                  <td>09/12/25</td>
+                  <td><span class="status">Under Review</span></td>
+                  <td class="actions">
+                    <button class="btn">Review</button>
+                    <button class="btn gray">Details</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Productivity Tracker</td>
+                  <td>128</td>
+                  <td>09/27/25</td>
+                  <td><span class="status">Open</span></td>
+                  <td class="actions">
+                    <button class="btn secondary">Edit Posting</button>
+                    <button class="btn gray">Details</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>System Optimization</td>
+                  <td>56</td>
+                  <td>10/05/25</td>
+                  <td><span class="status">Open</span></td>
+                  <td class="actions">
+                    <button class="btn secondary">Edit Posting</button>
+                    <button class="btn gray">Details</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Company Website Redesign</td>
+                  <td>128</td>
+                  <td>08/01/25</td>
+                  <td><span class="status">Open</span></td>
+                  <td class="actions">
+                    <button class="btn secondary">Edit Posting</button>
+                    <button class="btn gray">Details</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sales Forecasting System</td>
+                  <td>47</td>
+                  <td>09/18/25</td>
+                  <td><span class="status">Under Review</span></td>
+                  <td class="actions">
+                    <button class="btn">Review</button>
+                    <button class="btn gray">Details</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Environmental Monitor</td>
+                  <td>90</td>
+                  <td>08/29/25</td>
+                  <td><span class="status">Open</span></td>
+                  <td class="actions">
+                    <button class="btn secondary">Edit Posting</button>
+                    <button class="btn gray">Details</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Social Media Engagement Study</td>
+                  <td>161</td>
+                  <td>10/08/25</td>
+                  <td><span class="status">Closed</span></td>
+                  <td class="actions">
+                    <button class="btn">Review</button>
+                    <button class="btn gray">Details</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <input type="text" placeholder="Enter a City">
-          <select>
-            <option>Project Type</option>
-          </select>
-          <select>
-            <option>Project Status</option>
-          </select>
-          <button class="btn" style="width:100%">Apply</button>
-        </aside>
-      </div>
-    </section>
 
-    <!-- Milestones -->
-    <section class="panel">
-      <div class="panel-head">
-        <select class="select"><option>Active</option></select>
-        <h2>Milestones (6)</h2>
-        <button class="btn secondary">+ Add Milestone</button>
-      </div>
+          <!-- Filters -->
+          <aside class="filter">
+            <input type="text" placeholder="Search Projects…">
+            <div class="row">
+              <input type="text" placeholder="From:">
+              <input type="text" placeholder="To:">
+            </div>
+            <input type="text" placeholder="Enter a City">
+            <select>
+              <option>Project Type</option>
+            </select>
+            <select>
+              <option>Project Status</option>
+            </select>
+            <button class="btn" style="width:100%">Apply</button>
+          </aside>
+        </div>
+      </section>
 
-      <div class="panel-inner">
-        <div class="row" style="padding:10px 14px">
-          <span class="badge-proj"><span class="square"></span> Example Project</span>
+      <!-- Milestones -->
+      <section class="panel">
+        <div class="panel-head">
+          <select class="select"><option>Active</option></select>
+          <h2>Milestones (6)</h2>
+          <button class="btn secondary">+ Add Milestone</button>
         </div>
 
-        <div class="milestone-row">
-          <div class="milestone-main">
-            <div class="m-icon">Q</div>
-            <div>
-              <h3 class="m-title">Complete Cloud Infrastructure Due Diligence Report</h3>
-              <p class="m-sub">Due: 30 October 2025, 11:59pm CDT</p>
-              <div class="assigned">
-                <div class="avatars">
-                  <div class="avatar">J</div><div class="avatar">J</div><div class="avatar">M</div>
+        <div class="panel-inner">
+          <div class="row" style="padding:10px 14px">
+            <span class="badge-proj"><span class="square"></span> Example Project</span>
+          </div>
+
+          <div class="milestone-row">
+            <div class="milestone-main">
+              <div class="m-icon">Q</div>
+              <div>
+                <h3 class="m-title">Complete Cloud Infrastructure Due Diligence Report</h3>
+                <p class="m-sub">Due: 30 October 2025, 11:59pm CDT</p>
+                <div class="assigned">
+                  <div class="avatars">
+                    <div class="avatar">J</div><div class="avatar">J</div><div class="avatar">M</div>
+                  </div>
+                  <span><strong>Assigned:</strong> Jane Doe, John Smith, Mark Baker</span>
                 </div>
-                <span><strong>Assigned:</strong> Jane Doe, John Smith, Mark Baker</span>
               </div>
             </div>
+            <div class="row">
+              <span class="chip">Awaiting Submissions</span>
+              <button class="btn">Review</button>
+            </div>
           </div>
-          <div class="row">
-            <span class="chip">Awaiting Submissions</span>
-            <button class="btn">Review</button>
-          </div>
-        </div>
 
-        <div class="milestone-row">
-          <div class="milestone-main">
-            <div class="m-icon">B</div>
-            <div>
-              <h3 class="m-title">Setup Microsoft Azure App Service Backend</h3>
-              <p class="m-sub">Due: 3 November 2025, 11:59pm CDT</p>
-              <div class="assigned">
-                <div class="avatars">
-                  <div class="avatar">J</div><div class="avatar">J</div><div class="avatar">M</div>
+          <div class="milestone-row">
+            <div class="milestone-main">
+              <div class="m-icon">B</div>
+              <div>
+                <h3 class="m-title">Setup Microsoft Azure App Service Backend</h3>
+                <p class="m-sub">Due: 3 November 2025, 11:59pm CDT</p>
+                <div class="assigned">
+                  <div class="avatars">
+                    <div class="avatar">J</div><div class="avatar">J</div><div class="avatar">M</div>
+                  </div>
+                  <span><strong>Assigned:</strong> Jane Doe, John Smith, Mark Baker</span>
                 </div>
-                <span><strong>Assigned:</strong> Jane Doe, John Smith, Mark Baker</span>
               </div>
             </div>
+            <div class="row">
+              <span class="chip">Awaiting Submissions</span>
+              <button class="btn">Review</button>
+            </div>
           </div>
-          <div class="row">
-            <span class="chip">Awaiting Submissions</span>
-            <button class="btn">Review</button>
-          </div>
-        </div>
 
-        <div class="milestone-row">
-          <div class="milestone-main">
-            <div class="m-icon">L</div>
-            <div>
-              <h3 class="m-title">Label Control Groups for Computer Vision Model</h3>
-              <p class="m-sub">Due: 5 November 2025, 11:59pm CDT</p>
-              <div class="assigned">
-                <div class="avatars">
-                  <div class="avatar">E</div><div class="avatar">M</div>
+          <div class="milestone-row">
+            <div class="milestone-main">
+              <div class="m-icon">L</div>
+              <div>
+                <h3 class="m-title">Label Control Groups for Computer Vision Model</h3>
+                <p class="m-sub">Due: 5 November 2025, 11:59pm CDT</p>
+                <div class="assigned">
+                  <div class="avatars">
+                    <div class="avatar">E</div><div class="avatar">M</div>
+                  </div>
+                  <span><strong>Assigned:</strong> Emma Stone, Max Dawson</span>
                 </div>
-                <span><strong>Assigned:</strong> Emma Stone, Max Dawson</span>
               </div>
             </div>
+            <div class="row">
+              <span class="chip green">Submitted</span>
+              <button class="btn">Review</button>
+            </div>
           </div>
-          <div class="row">
-            <span class="chip green">Submitted</span>
-            <button class="btn">Review</button>
-          </div>
-        </div>
 
-        <div class="milestone-row">
-          <div class="milestone-main">
-            <div class="m-icon">R</div>
-            <div>
-              <h3 class="m-title">Research Potential Homography Methodologies</h3>
-              <p class="m-sub">Due: 12 November 2025, 11:59pm CDT</p>
-              <div class="assigned">
-                <div class="avatars">
-                  <div class="avatar">J</div><div class="avatar">M</div>
+          <div class="milestone-row">
+            <div class="milestone-main">
+              <div class="m-icon">R</div>
+              <div>
+                <h3 class="m-title">Research Potential Homography Methodologies</h3>
+                <p class="m-sub">Due: 12 November 2025, 11:59pm CDT</p>
+                <div class="assigned">
+                  <div class="avatars">
+                    <div class="avatar">J</div><div class="avatar">M</div>
+                  </div>
+                  <span><strong>Assigned:</strong> John Smith, Mark Baker</span>
                 </div>
-                <span><strong>Assigned:</strong> John Smith, Mark Baker</span>
+              </div>
+            </div>
+            <div class="row">
+              <span class="chip">Awaiting Submissions</span>
+              <button class="btn">Review</button>
+            </div>
+          </div>
+
+          <div class="pager">
+            <span>1 – 3 of 6</span>
+            <div class="circle">&lt;</div>
+            <div class="circle">&gt;</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Review Teams -->
+      <section class="panel">
+        <div class="panel-head">
+          <select class="select"><option>Q4 2025</option></select>
+          <h2>Review Teams</h2>
+          <span style="width:112px"></span>
+        </div>
+
+        <div class="panel-inner">
+          <div class="row" style="padding:10px 14px">
+            <span class="badge-proj"><span class="square"></span> Example Project</span>
+          </div>
+
+          <div class="team-row">
+            <div class="team-hdr">
+              <div>Team Alpha</div>
+              <div class="space"></div>
+              <div class="team-goal">Goal: Develop cloud infrastructure to support project backend</div>
+              <div class="space"></div>
+              <button class="btn gray">Edit</button>
+            </div>
+            <div class="team-body">
+              <div class="kv">
+                <div style="font-weight:700; color:#3c4f68">Students:</div>
+                <div class="row">
+                  <div class="avatars"><div class="avatar">J</div><div class="avatar">J</div><div class="avatar">M</div></div>
+                  <span>Jane Doe, John Smith, Mark Baker</span>
+                </div>
+              </div>
+              <div class="kv">
+                <div style="font-weight:700; color:#3c4f68">Supervisors:</div>
+                <div class="row">
+                  <div class="avatars"><div class="avatar">A</div><div class="avatar">S</div></div>
+                  <span>Alex Spencer, Sam Jones</span>
+                </div>
+              </div>
+              <div class="pill-actions">
+                <button class="btn secondary">Contact</button>
+                <button class="btn">Manage</button>
               </div>
             </div>
           </div>
-          <div class="row">
-            <span class="chip">Awaiting Submissions</span>
-            <button class="btn">Review</button>
-          </div>
-        </div>
 
-        <div class="pager">
-          <span>1 – 3 of 6</span>
-          <div class="circle">&lt;</div>
-          <div class="circle">&gt;</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Review Teams -->
-    <section class="panel">
-      <div class="panel-head">
-        <select class="select"><option>Q4 2025</option></select>
-        <h2>Review Teams</h2>
-        <span style="width:112px"></span>
-      </div>
-
-      <div class="panel-inner">
-        <div class="row" style="padding:10px 14px">
-          <span class="badge-proj"><span class="square"></span> Example Project</span>
-        </div>
-
-        <div class="team-row">
-          <div class="team-hdr">
-            <div>Team Alpha</div>
-            <div class="space"></div>
-            <div class="team-goal">Goal: Develop cloud infrastructure to support project backend</div>
-            <div class="space"></div>
-            <button class="btn gray">Edit</button>
-          </div>
-          <div class="team-body">
-            <div class="kv">
-              <div style="font-weight:700; color:#3c4f68">Students:</div>
-              <div class="row">
-                <div class="avatars"><div class="avatar">J</div><div class="avatar">J</div><div class="avatar">M</div></div>
-                <span>Jane Doe, John Smith, Mark Baker</span>
+          <div class="team-row">
+            <div class="team-hdr" style="border-top:2px solid #e5ecf5">
+              <div>Team Bravo</div>
+              <div class="space"></div>
+              <div class="team-goal">Goal: Optimize and port project to iOS and Android</div>
+              <div class="space"></div>
+              <button class="btn gray">Edit</button>
+            </div>
+            <div class="team-body">
+              <div class="kv">
+                <div style="font-weight:700; color:#3c4f68">Students:</div>
+                <div class="row">
+                  <div class="avatars"><div class="avatar">E</div><div class="avatar">M</div></div>
+                  <span>Emma Stone, Max Dawson</span>
+                </div>
+              </div>
+              <div class="kv">
+                <div style="font-weight:700; color:#3c4f68">Supervisors:</div>
+                <div class="row">
+                  <div class="avatars"><div class="avatar">H</div><div class="avatar">C</div></div>
+                  <span>Hayes Prescott, Charlotte Emerson</span>
+                </div>
+              </div>
+              <div class="pill-actions">
+                <button class="btn secondary">Contact</button>
+                <button class="btn">Manage</button>
               </div>
             </div>
-            <div class="kv">
-              <div style="font-weight:700; color:#3c4f68">Supervisors:</div>
-              <div class="row">
-                <div class="avatars"><div class="avatar">A</div><div class="avatar">S</div></div>
-                <span>Alex Spencer, Sam Jones</span>
-              </div>
-            </div>
-            <div class="pill-actions">
-              <button class="btn secondary">Contact</button>
-              <button class="btn">Manage</button>
-            </div>
+          </div>
+
+          <div class="pager">
+            <span>1 – 2 of 2</span>
+            <div class="circle">&lt;</div>
+            <div class="circle">&gt;</div>
           </div>
         </div>
+      </section>
 
-        <div class="team-row">
-          <div class="team-hdr" style="border-top:2px solid #e5ecf5">
-            <div>Team Bravo</div>
-            <div class="space"></div>
-            <div class="team-goal">Goal: Optimize and port project to iOS and Android</div>
-            <div class="space"></div>
-            <button class="btn gray">Edit</button>
+      <!-- Post New Project and Recent Applications -->
+      <section class="block" id="post-new-project">
+        <h2>Post New Project</h2>
+        <form class="form" id="new-project-form" novalidate>
+          <div>
+            <label for="p-title">Project title</label>
+            <input id="p-title" name="title" type="text" placeholder="E.g: Internal Dashboard Tool" required />
           </div>
-          <div class="team-body">
-            <div class="kv">
-              <div style="font-weight:700; color:#3c4f68">Students:</div>
-              <div class="row">
-                <div class="avatars"><div class="avatar">E</div><div class="avatar">M</div></div>
-                <span>Emma Stone, Max Dawson</span>
-              </div>
+
+          <div>
+            <label for="p-desc">Description</label>
+            <textarea id="p-desc" name="description" placeholder="Briefly describe your milestone's goals, deliverables, and tech stack..." required></textarea>
+          </div>
+
+          <div>
+            <label>Skills required</label>
+            <div class="checks" role="group" aria-label="Skills required">
+              <label class="check"><input type="checkbox" name="skills" value="Python" /> Python</label>
+              <label class="check"><input type="checkbox" name="skills" value="C" /> C</label>
+              <label class="check"><input type="checkbox" name="skills" value="C++" /> C++</label>
+              <label class="check"><input type="checkbox" name="skills" value="Java" /> Java</label>
+              <label class="check"><input type="checkbox" name="skills" value="C#" /> C#</label>
+              <label class="check"><input type="checkbox" name="skills" value="JavaScript" /> JavaScript</label>
             </div>
-            <div class="kv">
-              <div style="font-weight:700; color:#3c4f68">Supervisors:</div>
-              <div class="row">
-                <div class="avatars"><div class="avatar">H</div><div class="avatar">C</div></div>
-                <span>Hayes Prescott, Charlotte Emerson</span>
+            <div class="row-grid">
+              <div>
+                <label for="p-skills-extra" class="help">Add custom skills (comma-separated)</label>
+                <input id="p-skills-extra" name="skills_extra" type="text" placeholder="E.g: Docker, Figma" />
               </div>
-            </div>
-            <div class="pill-actions">
-              <button class="btn secondary">Contact</button>
-              <button class="btn">Manage</button>
+              <div></div>
             </div>
           </div>
-        </div>
 
-        <div class="pager">
-          <span>1 – 2 of 2</span>
-          <div class="circle">&lt;</div>
-          <div class="circle">&gt;</div>
-        </div>
-      </div>
-    </section>
+          <div class="row-grid">
+            <div>
+              <label for="p-duration">Duration</label>
+              <select id="p-duration" name="duration" required>
+                <option value="" disabled selected>Select duration</option>
+                <option value="8">8 weeks</option>
+                <option value="12">12 weeks</option>
+                <option value="16">16 weeks</option>
+              </select>
+            </div>
+            <div>
+              <label for="p-comp">Compensation (USD)</label>
+              <input id="p-comp" name="compensation" type="number" min="0" step="1" placeholder="E.g: 1500" required />
+            </div>
+          </div>
 
+          <div class="actions">
+            <button type="reset" class="btn secondary">Clear</button>
+            <button type="submit" class="btn">Submit</button>
+          </div>
+
+          <p class="help">Submitting will validate required fields and log the payload to the console for now.</p>
+        </form>
+      </section>
+
+      <section class="block" id="recent-applications">
+        <h2>Recent Applications</h2>
+        <div class="cards">
+          <!-- Card 1 -->
+          <article class="card">
+            <div class="row" style="align-items:center;gap:10px">
+              <span class="status-pill" aria-live="polite">Accepted</span>
+              <div class="title">Jane Doe</div>
+            </div>
+            <div class="sub">Applied to: <strong>Internal Dashboard Tool</strong></div>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Figma</span>
+            </div>
+            <div class="sub">Applied: 10/28/2025</div>
+            <div class="cta">
+              <button class="btn ghost">View Profile</button>
+              <button class="btn secondary act-reject">Reject</button>
+              <button class="btn act-accept">Accept</button>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card">
+            <div class="row" style="align-items:center;gap:10px">
+              <span class="status-pill" aria-live="polite">Accepted</span>
+              <div class="title">John Smith</div>
+            </div>
+            <div class="sub">Applied to: <strong>AI Resume Matcher</strong></div>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Azure</span>
+            </div>
+            <div class="sub">Applied: 10/29/2025</div>
+            <div class="cta">
+              <button class="btn ghost">View Profile</button>
+              <button class="btn secondary act-reject">Reject</button>
+              <button class="btn act-accept">Accept</button>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card">
+            <div class="row" style="align-items:center;gap:10px">
+              <span class="status-pill" aria-live="polite">Rejected</span>
+              <div class="title">Emma Stone</div>
+            </div>
+            <div class="sub">Applied to: <strong>Productivity Tracker</strong></div>
+            <div class="tags">
+              <span class="tag">SQL</span><span class="tag">Dashboards</span><span class="tag">Data Viz</span>
+            </div>
+            <div class="sub">Applied: 10/30/2025</div>
+            <div class="cta">
+              <button class="btn ghost">View Profile</button>
+              <button class="btn secondary act-reject">Reject</button>
+              <button class="btn act-accept">Accept</button>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card">
+            <div class="row" style="align-items:center;gap:10px">
+              <span class="status-pill" aria-live="polite">—</span>
+              <div class="title">Max Dawson</div>
+            </div>
+            <div class="sub">Applied to: <strong>System Optimization</strong></div>
+            <div class="tags">
+              <span class="tag">C++</span><span class="tag">Profiling</span><span class="tag">Linux</span>
+            </div>
+            <div class="sub">Applied: 11/01/2025</div>
+            <div class="cta">
+              <button class="btn ghost">View Profile</button>
+              <button class="btn secondary act-reject">Reject</button>
+              <button class="btn act-accept">Accept</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
   </main>
+  <!-- FOOTER (START) -->
+    <footer style="background:#ffffff; padding:40px 20px; text-align:center; border-top:1px solid #e5e5e5;" aria-label="CampusConnect Footer">
+      <!-- Copyright -->
+      <p style="margin:0 0 15px; color:#6c6c6c;">&copy; 2025 CampusConnect. All rights reserved.</p>
 
+      <!-- Links (Terms, Privacy, Contact) -->
+      <div style="margin-bottom:15px;"> <!-- Creates spacing between sections -->
+        <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Terms</a>|
+        <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Privacy</a>|
+        <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Contact</a>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div>
+        <a href="javascript:void(0)" aria-label="Visit CampusConnect on Facebook" style="margin:0 10px;"><img src="images/Facebook-Icon-1_1.png" alt="Facebook" width="24" height="24"></a>
+        <a href="javascript:void(0)" aria-label="Visit CampusConnect on X" style="margin:0 10px;"><img src="images/X-Icon-1_1.png" alt="X" width="24" height="24"></a>
+        <a href="javascript:void(0)" aria-label="Visit CampusConnect on LinkedIn" style="margin:0 10px;"><img src="images/LinkedIn-Icon-1_1.png" alt="LinkedIn" width="24" height="24"></a>
+        <a href="javascript:void(0)" aria-label="Visit CampusConnect on Instagram" style="margin:0 10px;"><img src="images/Instagram-Icon-1_1.png" alt="Instagram" width="24" height="24"></a>
+      </div>
+    </footer>
+    <!-- FOOTER (END) -->
+
+  <script>
+    // Handle New Project submission 
+    const form = document.getElementById('new-project-form');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+      const data = new FormData(form);
+      const out = {
+        title: data.get('title')?.trim(),
+        description: data.get('description')?.trim(),
+        duration: data.get('duration'),
+        compensation: Number(data.get('compensation')),
+        skills: [...document.querySelectorAll('input[name="skills"]:checked')].map(el=>el.value),
+        skills_extra: data.get('skills_extra')?.split(',').map(s=>s.trim()).filter(Boolean) || []
+      };
+      console.log('[New Project Submission]', out);
+      alert('Project submitted! (Check console for payload)');
+      form.reset();
+    });
+
+    // Accept/Reject handlers for demo
+    const setStatus = (card, text, color) => {
+      const pill = card.querySelector('.status-pill');
+      pill.style.display = 'inline-block';
+      pill.textContent = text;
+      pill.style.background = color === 'green' ? '#e9f8ee' : '#fff2f0';
+      pill.style.borderColor = color === 'green' ? '#bfe7c9' : '#f4c7c3';
+      pill.style.color = color === 'green' ? '#1b6d36' : '#9b2c2c';
+    };
+
+    document.querySelectorAll('.card').forEach(card=>{
+      card.querySelector('.act-accept').addEventListener('click', ()=>setStatus(card,'Accepted','green'));
+      card.querySelector('.act-reject').addEventListener('click', ()=>setStatus(card,'Rejected','red'));
+    });
+
+    //HAMBURGER LOGIC (START)
+        const hamburger = document.querySelector('.hamburger');
+        const headerNav = document.querySelector('header nav');
+        const headerNameHamburger = document.getElementById('headerName');
+        const profilePic = document.querySelector('.profile-pic');
+
+        //Toggles menu on click
+        hamburger.addEventListener('click', () => {
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+            hamburger.setAttribute('aria-expanded', !expanded);
+            headerNav.classList.toggle('open');
+
+            //Only hides profile picture on mobile
+            if (window.innerWidth <= 600) {
+                profilePic.style.display = 'none';
+            } else {
+                profilePic.style.display = 'block';
+                headerNameHamburger.textContent = 'Jane Doe';
+            }
+        });
+
+        //Ensures profile picture is visible on desktop after resizing
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 600) {
+                profilePic.style.display = 'block';
+            }
+        });
+        //HAMBURGER LOGIC (END)
+  </script>
 </body>
 </html>
