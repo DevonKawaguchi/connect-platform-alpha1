@@ -44,6 +44,7 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 - Developed the platform's navigation bar, which can present its contents in a hamburger menu on mobile devices and adapt to unregistered, student, or company users
 - Developed the platform's footer
 - Refactored and consolidated all of the platform's individual CSS page styles into styles.css
+- Deployed our project onto GitHub pages for public access
 - Integrated ARIA labels and alt text into the home, student/company dashboards, and student/company settings pages
 - Revised the home, student/company dashboard, and student/company settings pages to adapt to desktop, tablet, and mobile media queries
 - Implemented project graphics into the home page and company dashboard, including the hero image, student/company platform logo, and value proposition icons
