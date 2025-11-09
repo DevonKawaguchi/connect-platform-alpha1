@@ -19,7 +19,7 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 ## Implemented Pages
 | Page | File |
 | :---: | :---: |
-| Landing Page | home-page.html |
+| Landing Page | index.html |
 | Login/Register | login-register-page.html |
 | Student Apply | student-dashboard-page.html |
 | Student Dashboard | student-dashboard-page.html |
