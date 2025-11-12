@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Project Listings - CampusConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="company-dashboard" id="dynamic-header">
+        <!-- HEADER (START) -->
+        <header>
+            <div class="logo">
+                <img src="images/Business-Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
+                <span class="logo-text">FOR COMPANIES</span>
+            </div>
+            
+            <!-- Hamburger Button -->
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            &#9776; <!-- hamburger icon -->
+            </button>
+
+            <nav aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="home-page.html">Home</a></li>
+                <li><a href="javascript:void(0)">Manage</a></li>
+                <li><a href="student-support-page.html">Support</a></li>
+
+                <li class="nav-separator">
+                    <img src="images/White-Header-Separator-1_1.jpg" alt="|" />
+                </li>
+
+                <li><a href="javascript:void(0)" id="headerName">Example Company</a></li>
+                <li class="profile-pic">
+                    <img src="images/Company-Profile-Picture-1_1.jpeg" alt="Profile Picture">
+                </li>
+            </ul>
+            </nav>
+        </header>
+        <!-- HEADER (END) -->
+    </div>
+
+    <div class="project-listings-page">
+        <!-- Main Container -->
+        <div class="container">
+
+            <!-- Sidebar Filters -->
+            <aside class="sidebar">
+                <h3>Search and Filters</h3>
+                <label for="search" class="filter-title">Search Projects</label>
+                <input type="text" id="search" placeholder="Search...">
+
+                <label class="filter-title">Skills</label>
+                <label><input type="checkbox"> Python</label>
+                <label><input type="checkbox"> C</label>
+                <label><input type="checkbox"> C++</label>
+                <label><input type="checkbox"> Java</label>
+                <label><input type="checkbox"> C#</label>
+                <label><input type="checkbox"> JavaScript</label>
+                <label><input type="checkbox"> HTML</label>
+                <label><input type="checkbox"> CSS</label>
+
+                <label class="filter-title">Duration</label>
+                <label><input type="radio" name="duration"> 8 weeks</label>
+                <label><input type="radio" name="duration"> 12 weeks</label>
+                <label><input type="radio" name="duration"> 16 weeks</label>
+
+                <label for="compensation" class="filter-title">Compensation Estimate</label>
+                <input type="number" id="compensation" placeholder="$">
+
+                <button>Apply Filter(s)</button>
+            </aside>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Repeat Project Card 6-8 times -->
+                <div class="project-card">
+                    <div class="company-name">
+                        <img src="images/Company-Profile-Picture-1_1.jpeg" alt="Company Logo">
+                        Company A
+                    </div>
+                    <h3>Website Redesign Project</h3>
+                    <p>Help revamp the company website to improve user experience and accessibility.</p>
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-details">
+                        <span>12 weeks</span>
+                        <span>Compensation: $1,500</span>
+                    </div>
+                    <button>View Details</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="company-name">
+                        <img src="images/LinkedIn-Icon-1_1.png" alt="Company Logo">
+                        Company B
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Develop a cross-platform mobile application to enhance customer engagement.</p>
+                    <div class="tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-details">
+                        <span>16 weeks</span>
+                        <span>Compensation: $2,000</span>
+                    </div>
+                    <button>View Details</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="company-name">
+                        <img src="images/Instagram-Icon-1_1.png" alt="Company Logo">
+                        Company C
+                    </div>
+                    <h3>Data Analysis Project</h3>
+                    <p>Analyze large datasets to provide actionable insights for marketing strategies.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-details">
+                        <span>8 weeks</span>
+                        <span>Compensation: $1,750</span>
+                    </div>
+                    <button>View Details</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="company-name">
+                        <img src="images/X-Icon-1_1.png" alt="Company Logo">
+                        Company D
+                    </div>
+                    <h3>Website Redesign Project</h3>
+                    <p>Help revamp the company website to improve user experience and accessibility.</p>
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-details">
+                        <span>12 weeks</span>
+                        <span>Compensation: $1,500</span>
+                    </div>
+                    <button>View Details</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="company-name">
+                        <img src="images/Facebook-Icon-1_1.png" alt="Company Logo">
+                        Company E
+                    </div>
+                    <h3>Website Redesign Project</h3>
+                    <p>Help revamp the company website to improve user experience and accessibility.</p>
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-details">
+                        <span>12 weeks</span>
+                        <span>Compensation: $1,500</span>
+                    </div>
+                    <button>View Details</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="company-name">
+                        <img src="images/Company-Profile-Picture-1_1.jpeg" alt="Company Logo">
+                        Company F
+                    </div>
+                    <h3>Website Redesign Project</h3>
+                    <p>Help revamp the company website to improve user experience and accessibility.</p>
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-details">
+                        <span>12 weeks</span>
+                        <span>Compensation: $1,500</span>
+                    </div>
+                    <button>View Details</button>
+                </div>
+
+                <!-- Add more cards as needed -->
+            </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button>Previous</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>Next</button>
+        </div>
+    </div>
+
+    <!-- FOOTER (START) -->
+    <footer style="background:#ffffff; padding:40px 20px; text-align:center; border-top:1px solid #e5e5e5;" aria-label="CampusConnect Footer">
+    <!-- Copyright -->
+    <p style="margin:0 0 15px; color:#6c6c6c;">&copy; 2025 CampusConnect. All rights reserved.</p>
+
+    <!-- Links (Terms, Privacy, Contact) -->
+    <div style="margin-bottom:15px;"> <!-- Creates spacing between sections -->
+        <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Terms</a>|
+        <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Privacy</a>|
+        <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Contact</a>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div>
+        <a href="javascript:void(0)" aria-label="Visit CampusConnect on Facebook" style="margin:0 10px;"><img src="images/Facebook-Icon-1_1.png" alt="Facebook" width="24" height="24"></a>
+        <a href="javascript:void(0)" aria-label="Visit CampusConnect on X" style="margin:0 10px;"><img src="images/X-Icon-1_1.png" alt="X" width="24" height="24"></a>
+        <a href="javascript:void(0)" aria-label="Visit CampusConnect on LinkedIn" style="margin:0 10px;"><img src="images/LinkedIn-Icon-1_1.png" alt="LinkedIn" width="24" height="24"></a>
+        <a href="javascript:void(0)" aria-label="Visit CampusConnect on Instagram" style="margin:0 10px;"><img src="images/Instagram-Icon-1_1.png" alt="Instagram" width="24" height="24"></a>
+    </div>
+    </footer>
+    <!-- FOOTER (END) -->
+
+    <script>
+        const userType = localStorage.getItem('userType');
+        const headerContainer = document.getElementById('dynamic-header');
+
+        if(userType === 'company') {
+            // Ensure company styles are applied
+            headerContainer.classList.add('company-dashboard');
+
+            headerContainer.innerHTML = `
+            <!-- HEADER (START) -->
+            <header>
+                <div class="logo">
+                    <img src="images/Business-Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
+                    <span class="logo-text">FOR COMPANIES</span>
+                </div>
+                
+                <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+
+                <nav aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li><a href="home-page.html">Home</a></li>
+                        <li><a href="javascript:void(0)">Manage</a></li>
+                        <li><a href="company-support-page.html">Support</a></li>
+
+                        <li class="nav-separator">
+                            <img src="images/White-Header-Separator-1_1.jpg" alt="|" />
+                        </li>
+
+                        <li><a href="company-settings-page.html" id="headerName">Example Company</a></li>
+                        <li class="profile-pic">
+                            <img src="images/Company-Profile-Picture-1_1.jpeg" alt="Profile Picture">
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- HEADER (END) -->
+
+            <div class="company-dashboard">
+                <!-- Intro/Hero -->
+                <section class="business-hero">
+                <h1>Project Listings</h1>
+                    <p>Explore all available project opportunities and find the one that suits you best.</p>
+                </section>
+
+                <!-- Quick Stats -->
+                <main class="wrap">
+                    <div class="quick-stats">
+                        Projects Posted: 5 | Active Projects: 3 | Completed: 2
+                    </div>
+                </main>
+            </div>
+            `;
+        } else {
+            // Remove company styles for students
+            headerContainer.classList.remove('company-dashboard');
+
+            headerContainer.innerHTML = `
+            <!-- HEADER (START) -->
+            <header>
+                <div class="logo">
+                    <img src="images/Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
+                </div>
+                
+                <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+
+                <nav aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="student-apply-page.html">Apply</a></li>
+                        <li><a href="javascript:void(0)">Projects</a></li>
+                        <li><a href="student-dashboard-page.html">Manage</a></li>
+                        <li><a href="student-support-page.html">Support</a></li>
+
+                        <li class="nav-separator">
+                            <img src="images/Black-Header-Separator-1_1.jpg" alt="|" />
+                        </li>
+
+                        <li><a href="student-settings-page.html" id="headerName">Jane Doe</a></li>
+                        <li class="profile-pic">
+                            <img src="images/Profile-Picture-1_1.jpg" alt="Profile Picture">
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- HEADER (END) -->
+
+            <div class="company-dashboard">
+                <!-- Intro/Hero -->
+                <section class="business-hero">
+                <h1>Project Listings</h1>
+                    <p>Explore all available project opportunities and find the one that suits you best.</p>
+                </section>
+
+                <!-- Quick Stats -->
+                <main class="wrap">
+                    <div class="quick-stats">
+                        Projects Applied: 5 | Active Projects: 3 | Completed: 2
+                    </div>
+                </main>
+            </div>
+            `;
+        }
+    </script>
+
+</body>
+</html>

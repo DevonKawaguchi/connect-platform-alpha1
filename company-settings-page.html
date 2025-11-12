@@ -27,7 +27,7 @@
         <ul class="nav-list">
             <li><a href="home-page.html">Home</a></li>
             <li><a href="javascript:void(0)">Manage</a></li>
-            <li><a href="student-support-page.html">Support</a></li>
+            <li><a href="company-support-page.html">Support</a></li>
 
             <li class="nav-separator">
                 <img src="images/White-Header-Separator-1_1.jpg" alt="|" />
@@ -53,8 +53,6 @@
                 <button class="nav-btn" data-section="account" aria-current="true" aria-label="Account Preferences">Account Preferences</button>
                 <button class="nav-btn" data-section="security" aria-label="Sign-In and Security">Sign-In and Security</button>
                 <button class="nav-btn" data-section="visibility" aria-label="Visibility">Visibility</button>
-                <button class="nav-btn" data-section="privacy" aria-label="Data Privacy">Data Privacy</button>
-                <button class="nav-btn" data-section="advertising" aria-label="Advertising Data">Advertising Data</button>
                 <button class="nav-btn" data-section="notifications" aria-label="Notifications">Notifications</button>
             </nav>
 
@@ -73,19 +71,19 @@
 
             <div class="row">
                 <div class="col-2">
-                <label class="label" for="name">Name:</label>
+                <label class="label" for="name">Company Name:</label>
                 <div class="field-with-clear">
                     <input id="name" class="input" name="name" type="name" value="Example Company" placeholder="Enter Company Name">
-                    <button type="button" title="Clear" class="clear-x" data-clear-for="email" aria-label="Clear email">✕</button>
+                    <button type="button" title="Clear" class="clear-x" data-clear-for="name" aria-label="Clear email">✕</button>
                 </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-2">
-                <label class="label" for="email">Email:</label>
+                <label class="label" for="email">Campus Connect Public URL:</label>
                 <div class="field-with-clear">
-                    <input id="email" class="input" name="email" type="email" value="jdo@ttu.edu" placeholder="Enter Email">
+                    <input id="email" class="input" name="email" type="email" value="campusconnect.com/company/examplecompany" placeholder="Enter Email">
                     <button type="button" title="Clear" class="clear-x" data-clear-for="email" aria-label="Clear email">✕</button>
                 </div>
                 </div>
@@ -101,68 +99,38 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-2">
-                <label class="label" for="school">School:</label>
-                <div class="field-with-clear">
-                    <input id="school" class="input" name="school" type="text" value="Texas Tech University" placeholder="Enter University">
-                    <button type="button" title="Clear" class="clear-x" data-clear-for="school" aria-label="Clear school">✕</button>
-                </div>
-                </div>
-            </div>
+            <div class="divider" aria-hidden="true"></div>
 
-            <div class="row">
-                <div class="col-2">
-                <label class="label" for="major">Major/Academic Program:</label>
-                <input id="major" class="input" name="major" type="text" value="Computer Science" placeholder="Enter Major">
-                <div style="margin-top:8px">
-                    <button type="button" class="small-btn" id="addMajorBtn" style="color: #0073FF;">+ Additional</button>
-                </div>
-                </div>
-            </div>
+            <div class="section-title account">Company Details</div>
 
-            <div class="row">
-                <div class="col-2">
-                <label class="label" for="minor">Minor (Optional):</label>
-                <input id="minor" class="input" name="minor" type="text" placeholder="Computer Science">
-                <div style="margin-top:8px">
-                    <button type="button" class="small-btn" id="addMajorBtn" style="color: #0073FF;">+ Additional</button>
-                </div>
+            <div class="row" style="align-items:flex-end">
+                <div class="col-1">
+                    <label class="label" for="industry">Industry:</label>
+                    <select id="degree" class="select" name="industry" aria-label="Degree level">
+                        <option>Agriculture</option>
+                        <option selected>Technology, Information, and Media</option>
+                    </select>
                 </div>
             </div>
 
             <div class="row" style="align-items:flex-end">
                 <div class="col-1">
-                <label class="label" for="degree">Degree Level:</label>
-                <select id="degree" class="select" name="degree" aria-label="Degree level">
-                    <option selected>Bachelor's</option>
-                    <option>Master's</option>
-                    <option>Doctorate</option>
-                    <option>Other</option>
-                </select>
-                </div>
-
-                <div class="col-1">
-                <label class="label" for="studentYear">Student Year:</label>
-                <select id="studentYear" class="select" name="studentYear">
-                    <option>Freshman</option>
-                    <option>Sophomore</option>
-                    <option selected>Junior</option>
-                    <option>Senior</option>
-                    <option>Graduate</option>
-                </select>
-                </div>
-
-                <div class="col-1">
-                <label class="label" for="gpa">Undergraduate/Graduate GPA:</label>
-                <input id="gpa" class="input" name="gpa" type="text" inputmode="decimal" value="4.0" placeholder="Enter GPA">
+                    <label class="label" for="companySize">Company Size:</label>
+                    <select id="companySize" class="select" name="companySize" aria-label="Company Size">
+                        <option selected>Small (1-200 Employees)</option>
+                        <option>Medium (201-500 Employees)</option>
+                        <option>Large (501-10,000 Employees)</option>
+                        <option>Enterprise (10,000+ employees)</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-2">
-                <label class="label" for="gradTerm">Graduation Term:</label>
-                <input id="gradTerm" class="input" name="gradTerm" value="Spring 2027" placeholder="Enter Graduation Term">
+            <div class="row" style="align-items:flex-end">
+                <div class="col-1">
+                    <label class="label" for="companyType">Company Type:</label>
+                    <select id="companySize" class="select" name="companyType" aria-label="Company Size">
+                        <option selected>Information Technology</option>
+                    </select>
                 </div>
             </div>
 
@@ -193,6 +161,18 @@
                 </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-2">
+                    <label class="label" for="tagline">Tagline:</label>
+                    <div class="field-with-clear">
+                        <input id="tagline" class="input" name="tagline" type="text" value="Example tagline" placeholder="Enter tagline">
+                        <button type="button" title="Clear" class="clear-x" data-clear-for="tagline" aria-label="Clear tagline">✕</button>
+                    </div>
+                </div>
+            </div>
+
+            
             <div class="actions" role="group" aria-label="Form actions">
                 <button type="button" class="btn reset" id="resetBtn" aria-label="Reset Form">Reset</button>
                 <button type="submit" class="btn save" id="saveBtn" aria-label="Save Form">Save</button>
@@ -233,32 +213,6 @@
             </div>
         </section>
         <!-- VISIBILITY (END) -->
-
-        <!-- PRIVACY (START) -->
-        <section id="privacy" class="content-section" hidden role="region" aria-label="Data Privacy">
-            <h1>Data Privacy</h1>
-            <div class="divider"></div>
-            <p style="color:var(--muted)">Control how we use your data, request exports, or delete your account data.</p>
-            <div style="margin-top:10px">
-            <button class="btn save">Download My Data</button>
-            <button class="btn save" style="margin-left:8px;background:#fff;border:0.7px solid #FF857B; color:#000;">
-                Delete My Account
-            </button>
-            </div>
-        </section>
-        <!-- PRIVACY (END) -->
-
-        <!-- ADVERTISING (START) -->
-        <section id="advertising" class="content-section" hidden role="region" aria-label="Advertising Data">
-            <h1>Advertising Data</h1>
-            <div class="divider"></div>
-            <p style="color:var(--muted)">Manage ad personalization and connected marketing preferences.</p>
-            <div style="margin-top:12px">
-            <label class="label">Ad Personalization:</label>
-            <select class="select"><option>Enabled</option><option>Disabled</option></select>
-            </div>
-        </section>
-        <!-- ADVERTISING (END) -->
 
         <!-- NOTIFICATIONS (START) -->
         <section id="notifications" class="content-section" hidden role="region" aria-label="Notifications">
@@ -423,7 +377,7 @@
                 if (previewMini) previewMini.src = avatarData;
                 if (headerProfileImg) headerProfileImg.src = avatarData;
             } else {
-                const defaultImg = "images/Profile-Picture-1_1.jpg";
+                const defaultImg = "images/Company-Profile-Picture-1_1.jpeg";
                 avatarImg.src = defaultImg;
                 if (previewMini) previewMini.src = defaultImg;
                 if (headerProfileImg) headerProfileImg.src = defaultImg;
@@ -541,7 +495,7 @@
         //Button Logic
         document.getElementById('logoutBtn').addEventListener('click', () => {
             // Redirects to another page
-            window.location.href = 'home-page.html';
+            window.location.href = 'index.html';
         });
 
         //Update Placeholder Text in Preview

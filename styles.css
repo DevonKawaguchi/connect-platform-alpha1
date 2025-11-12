@@ -166,6 +166,27 @@ nav ul.nav-list li.profile-pic img {
 }
 .sign-in-btn:hover { background-color: #004081; }
 
+.return-to-home-btn {
+    background-color: white;
+    color: var(--accent);
+    border: 0.7px solid var(--accent);
+    border-radius: 7px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: var(--font-sans);
+    transition: background-color 0.2s ease;
+}
+.return-to-home-btn:hover { 
+    color: white; 
+    background-color: var(--accent); 
+}
+
+.return-to-home-btn::after {
+  content: none !important; /* removes the blue underline entirely */
+}
+
 /* Company dashboard button variants */
 .company-dashboard .btn {
     padding: 10px 16px;
@@ -351,6 +372,174 @@ nav ul.nav-list li.profile-pic img {
 /*========================================
 7. DASHBOARD COMMON STYLES
 ==========================================*/
+
+/*========================================
+X. LOGIN/REGISTER SPECIFIC STYLES
+==========================================*/
+.login-register-page {
+  height: 90vh; /* ✅ use height instead of min-height */
+  background: 
+    url('images/Blue-White-Smooth-Patterned-Background-2_1.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* ✅ perfectly center container */
+}
+
+.login-register-page .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 90vh;
+    gap: 40px;
+    padding-top: 70px;
+}
+
+.login-register-page .card {
+    width: 320px;
+    border-radius: 14px;
+    padding: 25px 30px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.login-register-page .student {
+    background: white;
+    border: 0.7px solid var(--border); /* blue border */
+}
+
+.login-register-page .business {
+    background: var(--companyaccent);
+    color: white;
+    border: 0.7px solid white; /* white border */
+}
+
+.login-register-page .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-register-page .logo img {
+    height: 35px;
+}
+
+.login-register-page h2 {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.login-register-page input[type="email"],
+.login-register-page input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+
+/* Student card inputs - black outline */
+.login-register-page .student input[type="email"],
+.login-register-page .student input[type="password"] {
+    border: 0.7px solid #000000;
+}
+
+/* Company card inputs - blue outline */
+.login-register-page .business input[type="email"],
+.login-register-page .business input[type="password"] {
+    border: 0.7px solid white; /* or any blue color you want */
+    font-family: inherit;
+}
+
+/* Student card inputs - black outline, white background */
+.login-register-page .student input[type="email"],
+.login-register-page .student input[type="password"] {
+    border: 0.7px solid #000000;
+    background-color: #ffffff; /* keep white */
+    color: #000000; /* text color */
+}
+
+/* Company card inputs - blue outline, blue background */
+.login-register-page .business input[type="email"],
+.login-register-page .business input[type="password"] {
+    background-color: #437BB3; /* or use var(--companyaccent) lighter if needed */
+    color: white; /* ensure text is readable */
+}
+
+.login-register-page .forgot {
+    text-align: left;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.login-register-page .forgot a {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+/* Base styling for all buttons inside login/register page */
+.login-register-page .btn {
+    width: 100%;             /* optional, keep full width */
+    padding: 8px 18px;      /* same as home-page buttons */
+    border-radius: 7px;
+    background-color: #0073FF;  /* main button color */
+    color: #ffffff;
+    border: 0.7px solid #000000;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    display: inline-block;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+/* Hover effect */
+.login-register-page .btn:hover {
+    background-color: #004081;
+}
+
+/* Outline variant */
+.login-register-page .btn.outline {
+    background: white;
+    border: 0.7px solid #000000;
+    color: #0073FF;
+}
+
+.login-register-page .btn.outline:hover {
+    background-color: #5FAFFF;
+    color: #fff;
+}
+
+/* Google button can have its own minor tweak */
+.login-register-page .google-btn {
+    border: 1px solid #ccc;
+    background: white;
+    color: black;
+}
+
+.login-register-page .google-btn img {
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* Footer links */
+.login-register-page .footer-text {
+    text-align: center;
+    font-size: 13px;
+}
+
+/* All footer links */
+.login-register-page .footer-text a {
+    color: var(--accent); /* fallback color */
+    text-decoration: none;
+    transition: color 0.3s ease; /* smooth color change */
+}
+
+/* Darken on hover */
+.login-register-page .footer-text a:hover {
+    color: #529cec !important; /* use !important to override inline styles */
+}
 
 /*========================================
 8. STUDENT DASHBOARD SPECIFIC STYLES
@@ -1188,21 +1377,21 @@ nav ul.nav-list li.profile-pic img {
 /*========================================
 9. COMPANY DASHBOARD SPECIFIC STYLES
 ==========================================*/ 
-body.company-dashboard header {
+.company-dashboard header {
     background-color: #004081;
     color: white; 
     border-bottom: 0.7px solid white; 
 }
 
-body.company-dashboard header nav a {
+.company-dashboard header nav a {
     color: white; /*Links */
 }
 
-body.company-dashboard header nav a:hover::after {
+.company-dashboard header nav a:hover::after {
     background-color: #5FAFFF; /*Link hover */
 }
 
-body.company-dashboard header nav a:hover {
+.company-dashboard header nav a:hover {
     color: #ffffff; /*Link hover color */
 }
 
@@ -1280,7 +1469,7 @@ body.company-dashboard header nav a:hover {
 }
 
 /* Containers */
-.company-dashboard .wrap { max-width: 1200px; margin: 18px auto 60px; padding: 0 16px; }
+.company-dashboard .wrap { max-width: 1200px; margin: 18px auto 16px; padding: 0 16px; }
 
 .company-dashboard .quick-stats {
     padding: 12px 14px;
@@ -1422,7 +1611,6 @@ body.company-dashboard header nav a:hover {
     border-right: 0.7px solid #000000;
 }
 
-
 .company-dashboard .table tbody td {
     padding: 14px; 
     border-bottom: 0.7px solid #000000; 
@@ -1456,15 +1644,24 @@ body.company-dashboard header nav a:hover {
 /* Buttons inside actions */
 .company-dashboard .table tbody td.actions .btn {
     display: inline-block;
-    margin: 0 4px;
-    padding: 6px 12px;
+    width: 120px;           /* fixed width */
+    height: 32px;           /* fixed height */
+    margin: 0 2px;
+    padding: 6px 8px;       /* reduce horizontal padding a bit */
     font-size: 13px;
     line-height: 1.2;
-    height: auto;
     vertical-align: middle;
     box-sizing: border-box;
+
+    white-space: nowrap;    /* keep text on one line */
+    overflow: hidden;       /* cut off text that doesn't fit */
+    text-overflow: ellipsis; /* show "..." if text too long */
+    text-align: center;     /* center text */
 }
 
+.company-dashboard .table tbody td.actions .btn {
+    font-size: clamp(10px, 0.8rem, 13px);
+}
 
 .company-dashboard .table tbody tr {
     height: 52px; 
@@ -1841,8 +2038,252 @@ body.company-dashboard header nav a:hover {
 }
 
 /*========================================
-10. PROJECT LISTINGS PAGE STYLES (projects.html)
+10. PROJECT LISTINGS PAGE STYLES (project-listings-page.html)
 ==========================================*/
+/* General Reset */
+.project-listings-page * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.project-listings-page {
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #333;
+}
+
+.project-listings-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigation Bar */
+.project-listings-page nav {
+    background-color: #1a73e8;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-listings-page nav .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.project-listings-page nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Company Dashboard Header */
+.project-listings-page .company-header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.project-listings-page .company-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.project-listings-page .company-info img {
+    width: 60px;
+    height: 60px;
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.project-listings-page .company-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.project-listings-page .company-stats div {
+    font-size: 0.9rem;
+}
+
+/* Page Header */
+.project-listings-page .page-header {
+    padding: 2rem;
+    background-color: #779cff;
+}
+
+.project-listings-page .page-header h1 {
+    margin-bottom: 0.5rem;
+}
+
+.project-listings-page .page-header p {
+    color: var(--muted);
+}
+
+/* Layout */
+.project-listings-page .container {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.project-listings-page .sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    height: fit-content;
+}
+
+.project-listings-page .sidebar h3 {
+    margin-bottom: 1rem;
+}
+
+.project-listings-page .sidebar input[type="text"], 
+.project-listings-page .sidebar input[type="number"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.project-listings-page .sidebar label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.project-listings-page .sidebar button {
+    font-family: inherit;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.project-listings-page .sidebar label.filter-title {
+    font-weight: bold;
+}
+
+/* Project Listings Grid */
+.project-listings-page .projects-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-listings-page .project-card {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-listings-page .project-card img {
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.project-listings-page .project-card .company-name {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.project-listings-page .project-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.project-listings-page .project-card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.project-listings-page .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-listings-page .tag {
+    background-color: #e0e0e0;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.project-listings-page .project-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.project-listings-page .project-card button {
+    font-family: inherit;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+/* Pagination */
+.project-listings-page .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2rem 0;
+}
+
+.project-listings-page .pagination button {
+    font-family: inherit;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.project-listings-page .pagination button.active {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+}
+
+/* Footer */
+.project-listings-page footer {
+    background-color: #1a73e8;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
 
 /*========================================
 X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
@@ -1920,7 +2361,7 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
 .profile-row { display: flex; gap: 20px; align-items: center; margin-top: 6px; }
 .avatar { width: 88px; height: 88px; border-radius: 50%; overflow: hidden; border: 2px solid #e9eef4; display: grid; place-items: center; background: #f8fafc; }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
-.preview-card { border-radius: 10px; border: 0.7px solid #eef2f6; padding: 12px; flex: 1; display: flex; gap: 12px; align-items: center; background: #fbfdff; min-width: 240px; }
+.preview-card { border-radius: 10px; border: 0.7px solid #000000; padding: 12px; flex: 1; display: flex; gap: 12px; align-items: center; background: #fbfdff; min-width: 240px; }
 .preview-mini img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: center; display: block; overflow: hidden; border: 0.7px solid #e6edf6; }
 .preview-lines { flex: 1; }
 .muted-note { font-size: 13px; color: var(--muted); margin-top: 6px; font-style: italic; }
@@ -2116,7 +2557,7 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
         align-self: center;
     }
 
-    body.company-dashboard .hamburger {
+    .company-dashboard .hamburger {
         display: block;
         font-size: 1.8rem;
         background: none;
@@ -2125,12 +2566,12 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
         color: #fff; /*Makes the hamburger icon white for company headers */
     }
 
-    .company-settings header nav ul.nav-list li a,
+    .company-dashboard header nav ul.nav-list li a,
     .company-settings header nav ul.nav-list li button {
         color: #000; /*Black text for company headers */
     }
 
-    body.company-settings .hamburger {
+    .company-settings .hamburger {
         display: block;
         font-size: 1.8rem;
         background: none;

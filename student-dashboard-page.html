@@ -24,16 +24,17 @@
 
         <nav aria-label="Main navigation">
         <ul class="nav-list">
-            <li><a href="home-page.html">Home</a></li>
-            <li><a href="apply.html">Apply</a></li>
-            <li><a href="manage.html">Manage</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="student-apply-page.html">Apply</a></li>
+            <li><a href="project-listings-page.html">Projects</a></li>
+            <li><a href="javascript:void(0)">Manage</a></li>
             <li><a href="student-support-page.html">Support</a></li>
 
             <li class="nav-separator">
                 <img src="images/Black-Header-Separator-1_1.jpg" alt="|" />
             </li>
 
-            <li><a href="javascript:void(0)" id="headerName">Jane Doe</a></li>
+            <li><a href="student-settings-page.html" id="headerName">Jane Doe</a></li>
             <li class="profile-pic">
                 <img src="images/Profile-Picture-1_1.jpg" alt="Profile Picture">
             </li>
@@ -50,133 +51,142 @@
             <p>Track your applications, stay connected with company partners, and manage your quarterly resumes</p>
             </section>
 
-            <!-- Posted Projects Panel -->
-            <section class="panel">
-            <div class="panel-head">
-                <select class="select">
-                <option selected disabled>Q4 2025</option>
-                </select>
-                <h2>Posted Projects (8)</h2>
-            </div>
+            <!-- Quick Stats -->
+            <main class="wrap">
+                <div class="quick-stats">
+                    Projects Applied: 5 | Active Projects: 3 | Completed: 2
+                </div>
+            </main>
 
-            <div class="panel-inner projects">
-                <!-- Projects Table -->
-                <div class="table">
-                <table class="projects-table">
-                    <thead>
-                    <tr>
-                        <th class="col-project">Project</th>
-                        <th class="col-applicants">Applicants</th>
-                        <th class="col-date">Date Posted</th>
-                        <th class="col-status">Status</th>
-                        <th class="col-actions">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Internal Dashboard Tool</td>
-                        <td>64</td>
-                        <td>10/17/25</td>
-                        <td><span class="status under-review">Under Review</span></td>
-                        <td class="actions">
-                        <button class="btn">Review</button>
-                        <button class="btn gray">Details</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>AI Resume Matcher</td>
-                        <td>192</td>
-                        <td>09/12/25</td>
-                        <td><span class="status under-review">Under Review</span></td>
-                        <td class="actions">
-                        <button class="btn">Review</button>
-                        <button class="btn gray">Details</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Productivity Tracker</td>
-                        <td>128</td>
-                        <td>09/27/25</td>
-                        <td><span class="status open">Open</span></td>
-                        <td class="actions">
-                        <button class="btn secondary">Edit Posting</button>
-                        <button class="btn gray">Details</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>System Optimization</td>
-                        <td>56</td>
-                        <td>10/05/25</td>
-                        <td><span class="status open">Open</span></td>
-                        <td class="actions">
-                        <button class="btn secondary">Edit Posting</button>
-                        <button class="btn gray">Details</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Company Website Redesign</td>
-                        <td>128</td>
-                        <td>08/01/25</td>
-                        <td><span class="status open">Open</span></td>
-                        <td class="actions">
-                        <button class="btn secondary">Edit Posting</button>
-                        <button class="btn gray">Details</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sales Forecasting System</td>
-                        <td>47</td>
-                        <td>09/18/25</td>
-                        <td><span class="status under-review">Under Review</span></td>
-                        <td class="actions">
-                        <button class="btn">Review</button>
-                        <button class="btn gray">Details</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Environmental Monitor</td>
-                        <td>90</td>
-                        <td>08/29/25</td>
-                        <td><span class="status open">Open</span></td>
-                        <td class="actions">
-                        <button class="btn secondary">Edit Posting</button>
-                        <button class="btn gray">Details</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Social Media Engagement Study</td>
-                        <td>161</td>
-                        <td>10/08/25</td>
-                        <td><span class="status closed">Closed</span></td>
-                        <td class="actions">
-                        <button class="btn">Review</button>
-                        <button class="btn gray">Details</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <!-- Applied Projects Panel -->
+            <main class="wrap">
+                <section class="panel">
+                <div class="panel-head">
+                    <select class="select">
+                    <option selected disabled>Q4 2025</option>
+                    </select>
+                    <h2>Applied Projects (8)</h2>
                 </div>
 
-                <!-- Filters Sidebar -->
-                <aside class="filter">
-                <input type="text" placeholder="Search Projects…">
-                <div class="row">
-                    <input type="text" placeholder="From:">
-                    <input type="text" placeholder="To:">
+                <div class="panel-inner projects">
+                    <!-- Projects Table -->
+                    <div class="table">
+                    <table class="projects-table">
+                        <thead>
+                        <tr>
+                            <th class="col-project">Project</th>
+                            <th class="col-applicants">Applicants</th>
+                            <th class="col-date">Date Posted</th>
+                            <th class="col-status">Status</th>
+                            <th class="col-actions">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Internal Dashboard Tool</td>
+                            <td>64</td>
+                            <td>10/17/25</td>
+                            <td><span class="status under-review">Under Review</span></td>
+                            <td class="actions">
+                            <button class="btn">Withdraw</button>
+                            <button class="btn gray">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>AI Resume Matcher</td>
+                            <td>192</td>
+                            <td>09/12/25</td>
+                            <td><span class="status under-review">Under Review</span></td>
+                            <td class="actions">
+                            <button class="btn">Withdraw</button>
+                            <button class="btn gray">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Productivity Tracker</td>
+                            <td>128</td>
+                            <td>09/27/25</td>
+                            <td><span class="status open">Rejected</span></td>
+                            <td class="actions">
+                            <button class="btn secondary">View Decision</button>
+                            <button class="btn gray">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>System Optimization</td>
+                            <td>56</td>
+                            <td>10/05/25</td>
+                            <td><span class="status open">Accepted</span></td>
+                            <td class="actions">
+                            <button class="btn secondary">View/Accept</button>
+                            <button class="btn gray">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Company Website Redesign</td>
+                            <td>128</td>
+                            <td>08/01/25</td>
+                            <td><span class="status open">Accepted</span></td>
+                            <td class="actions">
+                            <button class="btn secondary">View/Accept</button>
+                            <button class="btn gray">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sales Forecasting System</td>
+                            <td>47</td>
+                            <td>09/18/25</td>
+                            <td><span class="status under-review">Under Review</span></td>
+                            <td class="actions">
+                            <button class="btn">Withdraw</button>
+                            <button class="btn gray">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Environmental Monitor</td>
+                            <td>90</td>
+                            <td>08/29/25</td>
+                            <td><span class="status open">Rejected</span></td>
+                            <td class="actions">
+                            <button class="btn secondary">View Decision</button>
+                            <button class="btn gray">Details</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Social Media Engagement Study</td>
+                            <td>161</td>
+                            <td>10/08/25</td>
+                            <td><span class="status closed">Under Review</span></td>
+                            <td class="actions">
+                            <button class="btn">Withdraw</button>
+                            <button class="btn gray">Details</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+
+                    <!-- Filters Sidebar -->
+                    <aside class="filter">
+                    <input type="text" placeholder="Search Projects…">
+                    <div class="row">
+                        <input type="text" placeholder="From:">
+                        <input type="text" placeholder="To:">
+                    </div>
+                    <input type="text" placeholder="Enter a City">
+                    <select>
+                        <option disabled selected>Project Type</option>
+                    </select>
+                    <select>
+                        <option disabled selected>Project Status</option>
+                    </select>
+                    <button class="btn full-width">Apply</button>
+                    </aside>
                 </div>
-                <input type="text" placeholder="Enter a City">
-                <select>
-                    <option disabled selected>Project Type</option>
-                </select>
-                <select>
-                    <option disabled selected>Project Status</option>
-                </select>
-                <button class="btn full-width">Apply</button>
-                </aside>
-            </div>
-            </section>
+                </section>
+            </main>
         </div>
-        </main>
+    </main>
 
         
     <div class="student-dashboard">
@@ -460,26 +470,26 @@
             
         </main>
         <!-- FOOTER (START) -->
-            <footer style="background:#ffffff; padding:40px 20px; text-align:center; border-top:1px solid #e5e5e5;" aria-label="CampusConnect Footer">
-            <!-- Copyright -->
-            <p style="margin:0 0 15px; color:#6c6c6c;">&copy; 2025 CampusConnect. All rights reserved.</p>
+        <footer style="background:#ffffff; padding:40px 20px; text-align:center; border-top:1px solid #e5e5e5;" aria-label="CampusConnect Footer">
+        <!-- Copyright -->
+        <p style="margin:0 0 15px; color:#6c6c6c;">&copy; 2025 CampusConnect. All rights reserved.</p>
 
-            <!-- Links (Terms, Privacy, Contact) -->
-            <div style="margin-bottom:15px;"> <!-- Creates spacing between sections -->
-                <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Terms</a>|
-                <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Privacy</a>|
-                <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Contact</a>
-            </div>
+        <!-- Links (Terms, Privacy, Contact) -->
+        <div style="margin-bottom:15px;"> <!-- Creates spacing between sections -->
+            <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Terms</a>|
+            <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Privacy</a>|
+            <a href="javascript:void(0)" style="margin:0 10px; color:#0073FF; text-decoration:none;">Contact</a>
+        </div>
 
-            <!-- Social Media Icons -->
-            <div>
-                <a href="javascript:void(0)" aria-label="Visit CampusConnect on Facebook" style="margin:0 10px;"><img src="images/Facebook-Icon-1_1.png" alt="Facebook" width="24" height="24"></a>
-                <a href="javascript:void(0)" aria-label="Visit CampusConnect on X" style="margin:0 10px;"><img src="images/X-Icon-1_1.png" alt="X" width="24" height="24"></a>
-                <a href="javascript:void(0)" aria-label="Visit CampusConnect on LinkedIn" style="margin:0 10px;"><img src="images/LinkedIn-Icon-1_1.png" alt="LinkedIn" width="24" height="24"></a>
-                <a href="javascript:void(0)" aria-label="Visit CampusConnect on Instagram" style="margin:0 10px;"><img src="images/Instagram-Icon-1_1.png" alt="Instagram" width="24" height="24"></a>
-            </div>
-            </footer>
-            <!-- FOOTER (END) -->
+        <!-- Social Media Icons -->
+        <div>
+            <a href="javascript:void(0)" aria-label="Visit CampusConnect on Facebook" style="margin:0 10px;"><img src="images/Facebook-Icon-1_1.png" alt="Facebook" width="24" height="24"></a>
+            <a href="javascript:void(0)" aria-label="Visit CampusConnect on X" style="margin:0 10px;"><img src="images/X-Icon-1_1.png" alt="X" width="24" height="24"></a>
+            <a href="javascript:void(0)" aria-label="Visit CampusConnect on LinkedIn" style="margin:0 10px;"><img src="images/LinkedIn-Icon-1_1.png" alt="LinkedIn" width="24" height="24"></a>
+            <a href="javascript:void(0)" aria-label="Visit CampusConnect on Instagram" style="margin:0 10px;"><img src="images/Instagram-Icon-1_1.png" alt="Instagram" width="24" height="24"></a>
+        </div>
+        </footer>
+        <!-- FOOTER (END) -->
     </div>
 
     <script>

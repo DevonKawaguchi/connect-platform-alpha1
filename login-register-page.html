@@ -3,193 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CampusConnect Login</title>
-<style>
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(90deg, #d9e8ff 0%, #5da0ff 100%);
-    background-image: url('https://i.imgur.com/wVqgJp2.png'); /* optional background pattern */
-    background-repeat: repeat;
-    background-size: 200px;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  }
-
-  header img {
-    height: 50px;
-  }
-
-  .home-link {
-    border: 1.5px solid #007BFF;
-    padding: 8px 16px;
-    border-radius: 6px;
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-  }
-  .home-link:hover {
-    background: #007BFF;
-    color: white;
-  }
-
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 90vh;
-    gap: 40px;
-  }
-
-  .card {
-    width: 320px;
-    border-radius: 18px;
-    padding: 25px 30px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  }
-
-  .student {
-    background: white;
-  }
-
-  .business {
-    background: #0b4ea2;
-    color: white;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .logo img {
-    height: 35px;
-  }
-
-  h2 {
-    margin-top: 10px;
-    margin-bottom: 25px;
-  }
-
-  input[type="email"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-
-  .forgot {
-    text-align: left;
-    font-size: 13px;
-    margin-bottom: 15px;
-  }
-
-  .forgot a {
-    text-decoration: none;
-    color: #007BFF;
-  }
-
-  button {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    background: #007BFF;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-
-  .google-btn {
-    border: 1px solid #ccc;
-    background: white;
-    color: black;
-  }
-
-  .google-btn img {
-    height: 18px;
-    vertical-align: middle;
-    margin-right: 6px;
-  }
-
-  .footer-text {
-    text-align: center;
-    font-size: 13px;
-  }
-
-  .footer-text a {
-    color: #007BFF;
-    text-decoration: none;
-  }
-</style>
+<title>Login/Register - CampusConnect</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <img src="https://i.imgur.com/YKk5AfB.png" alt="CampusConnect Logo">
-    <a href="index.html" class="home-link">Return to Home</a>
-  </header>
-
-  <div class="container">
-    <div class="card student">
+  <div class="home-page">
+    <!-- HEADER (START) -->
+    <header>
       <div class="logo">
-        <img src="https://i.imgur.com/YKk5AfB.png" alt="CampusConnect Logo">
+        <img src="images/Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
       </div>
-      <h2>Student Login</h2>
 
-      <label>Email:</label>
-      <input type="email" value="jdo@ttu.edu">
-
-      <label>Password:</label>
-      <input type="password" value="****************">
-
-      <div class="forgot"><a href="#">Forgot Password?</a></div>
-
-      <button onclick="window.location.href='student-dashboard-page.html'">Sign In</button>
-
-      <div style="text-align:center;margin:10px 0;">or</div>
-
-      <button onclick="window.location.href='student-dashboard-page.html'"
-class="google-btn" aria-label="Login button">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png" alt="Google Logo">
-        Continue with Google
+      <!-- Hamburger Button -->
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776; <!-- hamburger icon -->
       </button>
 
-      <div class="footer-text">
-        New to CampusConnect? <a href="student-dashboard-page.html">Join Now</a>
-      </div>
-    </div>
-
-    <div class="card business">
-      <div class="logo">
-        <img src="https://i.imgur.com/YKk5AfB.png" alt="CampusConnect Logo">
-      </div>
-      <h2>Business Login</h2>
-
-      <label>Email:</label>
-      <input type="email" value="jdo@ttu.edu">
-
-      <label>Password:</label>
-      <input type="password" value="****************">
-
-      <div class="forgot"><a href="#" style="color:#BFDFFF;">Forgot Password?</a></div>
-
-      <button onclick="window.location.href='company-dashboard-page.html'">Sign In</button>
-
-      <div class="footer-text" style="color:#BFDFFF;margin-top:15px;">
-        New to CampusConnect? <a href="company-dashboard-page.html" style="color:#BFDFFF;">Join Now</a>
-      </div>
-    </div>
+      <nav aria-label="Header Webpage Navigation">
+        <ul class="nav-list">
+          <li>
+            <a href="index.html" class="return-to-home-btn" aria-label="Return to Home">Return to Home</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- HEADER (END) -->
   </div>
-</body>
+
+  <div class="login-register-page">
+      <div class="container">
+        <div class="card student">
+          <div class="logo">
+            <img src="images/Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo">
+          </div>
+          <h2>Student Login</h2>
+
+          <label>Email:</label>
+          <input type="email" value="jdo@ttu.edu">
+
+          <label>Password:</label>
+          <input type="password" value="****************">
+
+          <div class="forgot"><a href="#">Forgot Password?</a></div>
+
+          <button class="btn" onclick="handleSignIn('student')">Sign In</button>
+
+          <div style="text-align:center;margin:10px 0;">or</div>
+
+          <button onclick="handleSignIn('student')" class="btn outline google-btn" aria-label="Login button">
+          <img src="images/Google-Icon-1_1.png" alt="Google Logo">
+          Continue with Google
+        </button>
+
+        <div class="footer-text" style="margin-top:15px;">
+          <a href="#" onclick="handleSignIn('student'); return false;">New to CampusConnect? Join Now</a>
+        </div>
+        </div>
+
+        <div class="card business">
+          <div class="logo">
+            <img src="images/Business-Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo">
+          </div>
+          <h2>Business Login</h2>
+
+          <label>Email:</label>
+          <input type="email" value="examplecompany@gmail.com">
+
+          <label>Password:</label>
+          <input type="password" value="****************">
+
+          <div class="forgot"><a href="#" style="color:#BFDFFF;">Forgot Password?</a></div>
+
+          <button class="btn outline" onclick="handleSignIn('company')">Sign In</button>
+
+          <div class="footer-text" style="color:#BFDFFF;margin-top:15px;">
+            <a href="#" style="color:#BFDFFF;" onclick="handleSignIn('company'); return false;">New to CampusConnect? Join Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    function handleSignIn(userType) {
+        // Save the type in localStorage
+        localStorage.setItem('userType', userType); // changed from 'lastSignIn' to 'userType'
+
+        // Optional: Save user name and profile picture for dynamic header
+        if(userType === 'student') {
+            localStorage.setItem('userName', 'Jane Doe'); // replace with actual student name if available
+            localStorage.setItem('userProfile', 'images/Profile-Picture-1_1.jpg'); // replace with actual profile picture if available
+            window.location.href = 'student-dashboard-page.html';
+        } else {
+            localStorage.setItem('userName', 'Example Company'); // replace with actual company name if available
+            localStorage.setItem('userProfile', 'images/Company-Profile-Picture-1_1.jpeg'); // replace with actual company logo/profile picture
+            window.location.href = 'company-dashboard-page.html';
+        }
+    }
+    </script>
+
+  </body>
 </html>
