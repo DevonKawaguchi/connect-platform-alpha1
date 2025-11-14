@@ -73,7 +73,10 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 
 ### Avaneesh Jha:
 - Created the Student Apply Page.
-- Created the Student Dashboard page
+- Created the Student Dashboard page.
+- Made necessary bug fixes.
+- Made format and styling consistent across both the pages.
+- Fixed background issues.
 
 ## License Information:
 The application is protected under the MIT License. The full conditions of the license can be found in this repository's [LICENSE](https://github.com/DevonKawaguchi/connect-platform-alpha1?tab=MIT-1-ov-file#readme).
