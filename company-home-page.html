@@ -10,45 +10,49 @@
     <title>Home - CampusConnect</title>
   </head>
 <body>
-  <div class="home-page">
+  <div class="company-dashboard">
     <!-- HEADER (START) -->
-    <header>
-      <div class="logo">
-        <img src="images/Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
-      </div>
+      <header>
+          <div class="logo">
+              <img src="images/Business-Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
+              <span class="logo-text">FOR COMPANIES</span>
+          </div>
+          
+          <!-- Hamburger Button -->
+          <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          &#9776; <!-- Hamburger Icon -->
+          </button>
 
-      <!-- Hamburger Button -->
-      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-        &#9776; <!-- Hamburger Icon -->
-      </button>
+          <nav aria-label="Main navigation">
+          <ul class="nav-list">
+              <li><a href="javascript:void(0)">Home</a></li>
+              <li><a href="project-listings-page.html">Projects</a></li>
+              <li><a href="company-dashboard-page.html">Manage</a></li>
+              <li><a href="company-support-page.html">Support</a></li>
 
-      <nav aria-label="Header Webpage Navigation">
-        <ul class="nav-list">
-          <li><a href="javascript:void(0)">Home</a></li>
-          <li><a href="login-register-page.html">Apply</a></li>
-          <li><a href="login-register-page.html">Manage</a></li>
-          <li><a href="login-register-page.html">Support</a></li>
+              <li class="nav-separator">
+                  <img src="images/White-Header-Separator-1_1.jpg" alt="|" />
+              </li>
 
-          <li class="nav-separator">
-            <img src="images/Black-Header-Separator-1_1.jpg" alt="|" />
-          </li>
-
-          <li>
-            <button class="sign-in-btn" aria-label="Sign into your account" onclick="window.location.href='login-register-page.html'">Sign In</button>
-          </li>
-        </ul>
-      </nav>
-    </header>
+              <li><a href="company-settings-page.html" id="headerName">Example Company</a></li>
+              <li class="profile-pic">
+                  <img src="images/Company-Profile-Picture-1_1.jpeg" alt="Profile Picture">
+              </li>
+          </ul>
+          </nav>
+      </header>
     <!-- HEADER (END) -->
+  </div>
 
+  <div class="home-page">
     <!-- HERO -->
     <section class="hero" aria-label="Hero section introducing CampusConnect" role="banner">
       <div class="hero-inner">
         <h1>Connect with Real-World Projects.<br>Build Real-World Experience.</h1>
         <p>CampusConnect links college students with companies seeking fresh ideas and energy for semester-long projects and research opportunities.</p>
         <div class="cta">
-          <a class="btn" href="login-register-page.html" aria-label="Find a project as a student">Find a Project</a>
-          <a class="btn outline" href="login-register-page.html" aria-label="Post a company opportunity">Post an Opportunity</a>
+          <a class="btn" href="company-dashboard-page.html" aria-label="Find a project as a student">Find a Project</a>
+          <a class="btn outline" href="company-dashboard-page.html" aria-label="Post a company opportunity">Post an Opportunity</a>
         </div>
       </div>
     </section>
@@ -154,7 +158,7 @@
       <div class="inner">
         <h2>Start Building Your Future Today</h2>
         <p>Join CampusConnect and gain real-world experience while helping companies solve real problems</p>
-        <a class="btn outline" href="login-register-page.html">Get Started</a>
+        <a class="btn outline" href="company-dashboard-page.html">Get Started</a>
       </div>
     </section>
     <!-- CALL TO ACTION (CTA) BAND (START) -->

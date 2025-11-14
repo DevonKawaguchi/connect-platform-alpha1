@@ -89,9 +89,9 @@ header {
 header .logo img { height: 50px; display: block; }
 header .logo { display: flex; align-items: center; gap: 8px; }
 header .logo .logo-text {
-    font-size: 1rem; /* adjust size as needed */
+    font-size: 1rem; 
     font-weight: 600;
-    color: white; /* or whatever color fits your header */
+    color: white; 
 }
 header nav ul { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
 header nav a {
@@ -184,7 +184,7 @@ nav ul.nav-list li.profile-pic img {
 }
 
 .return-to-home-btn::after {
-  content: none !important; /* removes the blue underline entirely */
+  content: none !important;
 }
 
 /* Company dashboard button variants */
@@ -252,7 +252,7 @@ nav ul.nav-list li.profile-pic img {
 }
 
 /*========================================
-6. LANDING PAGE STYLES (home-page.html)
+6. LANDING PAGE STYLES (index.html)
 ==========================================*/
 .home-page .hero {
     position: relative;
@@ -372,18 +372,19 @@ nav ul.nav-list li.profile-pic img {
 /*========================================
 7. DASHBOARD COMMON STYLES
 ==========================================*/
+/* N/A */
 
 /*========================================
-X. LOGIN/REGISTER SPECIFIC STYLES
+8. LOGIN/REGISTER SPECIFIC STYLES (login-register-page.html)
 ==========================================*/
 .login-register-page {
-  height: 90vh; /* ✅ use height instead of min-height */
+  height: 90vh; 
   background: 
     url('images/Blue-White-Smooth-Patterned-Background-2_1.jpg') no-repeat center center;
   background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: center; /* ✅ perfectly center container */
+  align-items: center; 
 }
 
 .login-register-page .container {
@@ -404,13 +405,13 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 
 .login-register-page .student {
     background: white;
-    border: 0.7px solid var(--border); /* blue border */
+    border: 0.7px solid var(--border); /*Blue border */
 }
 
 .login-register-page .business {
     background: var(--companyaccent);
     color: white;
-    border: 0.7px solid white; /* white border */
+    border: 0.7px solid white; /*White border */
 }
 
 .login-register-page .logo {
@@ -436,31 +437,18 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     margin-bottom: 10px;
     font-family: inherit;
 }
-
-/* Student card inputs - black outline */
-.login-register-page .student input[type="email"],
-.login-register-page .student input[type="password"] {
-    border: 0.7px solid #000000;
-}
-
-/* Company card inputs - blue outline */
-.login-register-page .business input[type="email"],
-.login-register-page .business input[type="password"] {
-    border: 0.7px solid white; /* or any blue color you want */
-    font-family: inherit;
-}
-
-/* Student card inputs - black outline, white background */
+/* Student Card Inputs */
 .login-register-page .student input[type="email"],
 .login-register-page .student input[type="password"] {
     border: 0.7px solid #000000;
     background-color: #ffffff; /* keep white */
     color: #000000; /* text color */
 }
-
-/* Company card inputs - blue outline, blue background */
+/* Company Card Inputs */
 .login-register-page .business input[type="email"],
 .login-register-page .business input[type="password"] {
+    border: 0.7px solid white; 
+    font-family: inherit;
     background-color: #437BB3; /* or use var(--companyaccent) lighter if needed */
     color: white; /* ensure text is readable */
 }
@@ -476,12 +464,11 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     color: var(--accent);
 }
 
-/* Base styling for all buttons inside login/register page */
 .login-register-page .btn {
-    width: 100%;             /* optional, keep full width */
-    padding: 8px 18px;      /* same as home-page buttons */
+    width: 100%; 
+    padding: 8px 18px;
     border-radius: 7px;
-    background-color: #0073FF;  /* main button color */
+    background-color: var(--accent);  
     color: #ffffff;
     border: 0.7px solid #000000;
     font-weight: 500;
@@ -493,12 +480,10 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     font-family: inherit;
 }
 
-/* Hover effect */
 .login-register-page .btn:hover {
     background-color: #004081;
 }
 
-/* Outline variant */
 .login-register-page .btn.outline {
     background: white;
     border: 0.7px solid #000000;
@@ -510,7 +495,6 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     color: #fff;
 }
 
-/* Google button can have its own minor tweak */
 .login-register-page .google-btn {
     border: 1px solid #ccc;
     background: white;
@@ -523,13 +507,13 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     margin-right: 6px;
 }
 
-/* Footer links */
+/* Footer Links */
 .login-register-page .footer-text {
     text-align: center;
     font-size: 13px;
 }
 
-/* All footer links */
+/* All Footer Links */
 .login-register-page .footer-text a {
     color: var(--accent); /* fallback color */
     text-decoration: none;
@@ -542,7 +526,7 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 }
 
 /*========================================
-8. STUDENT DASHBOARD SPECIFIC STYLES
+9. STUDENT DASHBOARD SPECIFIC STYLES (student-dashboard-page.html)
 ==========================================*/
 .student-dashboard body {
     font-family: var(--font-family);
@@ -1375,7 +1359,7 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 
 
 /*========================================
-9. COMPANY DASHBOARD SPECIFIC STYLES
+10. COMPANY DASHBOARD SPECIFIC STYLES (company-dashboard-page.html)
 ==========================================*/ 
 .company-dashboard header {
     background-color: #004081;
@@ -1454,12 +1438,17 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     text-align: center; 
     padding: 34px 16px 10px;
     margin-bottom: 20px;
+
+    background-image: url("images/Pattern-Gradient-1_1.png");
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
 }
 
 .company-dashboard .business-hero h1 {
     margin: 0 0 8px; 
     font-size: 40px; 
-    color: #0073FF; 
+    color: var(--accent); 
     letter-spacing: .2px;
 }
 
@@ -1518,7 +1507,6 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     font-weight: 600;
 }
 
-
 .company-dashboard .panel-head select.select {
     position: relative; 
     z-index: 1;        
@@ -1549,8 +1537,8 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 
 /* Buttons */
 .company-dashboard .btn {
-    border: 0.7px solid #0073FF;
-    background: #0073FF;
+    border: 0.7px solid --accent;
+    background: var(--accent);
     color: #fff;
     padding: 10px 16px;
     border-radius: 10px;
@@ -1561,7 +1549,7 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 
 .company-dashboard .btn.secondary {
     background: #fff;
-    color: #0073FF;
+    color: var(--accent);
     box-shadow: none;
     padding: 10px 24px;
     min-width: 120px;
@@ -1583,7 +1571,7 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     color: #2f3b4a;
     box-shadow: none;
 }
-/* Posted Projects layout */
+/* Posted Projects Layout */
 .company-dashboard .projects {
     display: grid; 
     grid-template-columns: 1fr 320px; 
@@ -1617,18 +1605,17 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     border-right: 0.7px solid #000000;
 }
 
-/* Center text in the 2nd and 3rd columns */
 .company-dashboard .table tbody td:nth-child(2),
 .company-dashboard .table tbody td:nth-child(3) {
     text-align: center;
 }
 
-/* Alternate row background */
+/* Alternate Row Background */
 .company-dashboard .table tbody tr:nth-child(odd) { 
     background: #f5fbff; 
 }
 
-/* Actions cell - keep buttons side by side */
+/* Actions Cell */
 .company-dashboard .table tbody td.actions {
     display: table-cell;       
     padding: 14px;
@@ -1641,22 +1628,22 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     white-space: nowrap;      
 }
 
-/* Buttons inside actions */
+/* Buttons Inside Actions */
 .company-dashboard .table tbody td.actions .btn {
     display: inline-block;
-    width: 120px;           /* fixed width */
-    height: 32px;           /* fixed height */
+    width: 120px;
+    height: 32px;
     margin: 0 2px;
-    padding: 6px 8px;       /* reduce horizontal padding a bit */
+    padding: 6px 8px;
     font-size: 13px;
     line-height: 1.2;
     vertical-align: middle;
     box-sizing: border-box;
 
-    white-space: nowrap;    /* keep text on one line */
-    overflow: hidden;       /* cut off text that doesn't fit */
-    text-overflow: ellipsis; /* show "..." if text too long */
-    text-align: center;     /* center text */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; /*Shows "..." if the text too long */
+    text-align: center;
 }
 
 .company-dashboard .table tbody td.actions .btn {
@@ -1667,7 +1654,7 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     height: 52px; 
 }
 
-/* Status text */
+/* Status Text */
 .company-dashboard .status { 
     font-weight: 600; 
     color: #000000; 
@@ -1675,7 +1662,7 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     text-align: center;  
 }
 
-/* Right filter panel */
+/* Right Filter Panel */
 .company-dashboard .filter {
     border: 0.7px solid #C9D3E0; 
     border-radius: 8px; 
@@ -1830,7 +1817,7 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 
 .company-dashboard .pill-actions { display: flex; gap: 10px; }
 
-/* Footer paging look */
+/* Footer Paging Look */
 .company-dashboard .pager {
     display: flex; 
     justify-content: flex-end; 
@@ -1875,7 +1862,6 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     border: 0.7px solid rgba(255,255,255,.7);
 }
 
-/* New Sections Styling (Form + Applications) */
 .company-dashboard .block {
     background: var(--card); 
     border: 0.7px solid #C9D3E0; 
@@ -2038,7 +2024,7 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 }
 
 /*========================================
-10. PROJECT LISTINGS PAGE STYLES (project-listings-page.html)
+11. PROJECT LISTINGS PAGE STYLES (project-listings-page.html)
 ==========================================*/
 /* General Reset */
 .project-listings-page * {
@@ -2056,37 +2042,6 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 .project-listings-page a {
     text-decoration: none;
     color: inherit;
-}
-
-/* Navigation Bar */
-.project-listings-page nav {
-    background-color: #1a73e8;
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.project-listings-page nav .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.project-listings-page nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-/* Company Dashboard Header */
-.project-listings-page .company-header {
-    background-color: #ffffff;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
 }
 
 .project-listings-page .company-info {
@@ -2130,6 +2085,8 @@ X. LOGIN/REGISTER SPECIFIC STYLES
     display: flex;
     padding: 2rem;
     gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .project-listings-page .sidebar {
@@ -2179,7 +2136,7 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 .project-listings-page .projects-grid {
     flex: 1;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
@@ -2286,9 +2243,534 @@ X. LOGIN/REGISTER SPECIFIC STYLES
 }
 
 /*========================================
-X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
+12. STUDENT APPLY PAGE STYLES (student-apply-page.html)
 ==========================================*/
-.container.settings { display: grid; grid-template-columns: 260px 1fr; gap: 20px; align-items: start; min-height: 100vh; }
+.student-apply-page {
+  --primary: var(--accent);
+  --primary-light: #e6f0ff;
+  --border: #000000;
+  --text-main: #222;
+  --text-muted: var(--muted);
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  font-family: var(--font-sans);
+}
+
+.student-apply-page * {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.student-apply-page {
+  margin: 0;
+  background: var(--bg-page);
+  color: var(--text-main);
+}
+
+/* Top Nav */
+.student-apply-page .navbar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.student-apply-page .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.student-apply-page .logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.student-apply-page .nav-links {
+  display: flex;
+  gap: 25px;
+  font-size: 14px;
+  margin-left: 40px;
+}
+
+.student-apply-page .nav-link {
+  text-decoration: none;
+  color: #555;
+  position: relative;
+}
+
+.student-apply-page .nav-link.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.student-apply-page .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 999px;
+}
+
+.student-apply-page .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.student-apply-page .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+/* Page Container */
+.student-apply-page .page {
+  max-width: 1100px;
+  margin: 20px auto 40px;
+  padding: 0 20px 40px;
+}
+
+/* Accordion */
+.student-apply-page .accordion {
+  margin-top: 20px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+  margin-bottom: 15px;
+}
+
+.student-apply-page .accordion-header {
+  background: #ffffff;
+  padding: 16px 24px;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.student-apply-page .accordion-header::after {
+  content: "⌃";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #888;
+}
+
+.student-apply-page .accordion.collapsed .accordion-header::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.student-apply-page .accordion-body {
+  padding: 20px 24px 24px;
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
+
+/* Submit Resume */
+.student-apply-page .file-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.student-apply-page .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.15s background, 0.15s box-shadow, 0.15s transform;
+}
+
+.student-apply-page .btn-outline:hover {
+  color: #fff;
+  background: var(--accent); 
+}
+
+.student-apply-page .btn:hover {
+  background: var(--accent);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.student-apply-page .btn-outline {
+  background: #fff;
+  color: var(--primary);
+}
+
+/* Job Specific Card */
+.student-apply-page .form-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: #fff;
+  overflow: hidden;
+}
+
+.student-apply-page .form-card-header {
+  padding: 18px;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+.student-apply-page .form-grid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 18px;
+}
+
+@media (max-width: 900px) {
+  .student-apply-page .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .student-apply-page .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .student-apply-page .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .student-apply-page .nav-links {
+    margin-left: 0;
+  }
+}
+
+.student-apply-page .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.student-apply-page .form-label {
+  color: var(--text-muted);
+}
+
+.student-apply-page input[type="text"],
+.student-apply-page input[type="email"] {
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  padding: 7px 10px;
+  font-size: 13px;
+  outline: none;
+}
+
+.student-apply-page input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(24, 121, 255, 0.15);
+}
+
+.student-apply-page .field-with-btn {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.student-apply-page .pill-btn {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.student-apply-page .gpa-field input {
+  max-width: 120px;
+}
+
+/* Bottom Submit Button */
+.student-apply-page .page-submit-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.student-apply-page .page-submit-row .btn {
+  min-width: 120px;
+  border-radius: 8px;
+}
+
+/*========================================
+13. STUDENT SUPPORT PAGE STYLES (student-support-page.html)
+==========================================*/
+.student-support-page body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+}
+
+/* Header */ 
+.student-support-page header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 40px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.student-support-page header img {
+    height: 50px;
+}
+
+.student-support-page nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.student-support-page nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.student-support-page nav a:hover {
+    color: var(--accent);
+}
+
+.student-support-page nav img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+/* Hero Section */
+.student-support-page .hero {
+    text-align: center;
+    padding: 40px 20px; 
+
+    color: white; 
+}
+
+.student-support-page .hero div {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.student-support-page .hero h1 {
+    color: var(--accent);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.student-support-page .hero p {
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.student-support-page .hero input[type="text"] {
+    width: 50%;
+    max-width: 500px;
+    
+    height: 45px;
+    
+    padding: 0 12px; 
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+}
+
+
+.student-support-page .hero button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 45px;
+    width: 45px;
+
+    background-color: var(--accent);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+.student-support-page .hero button:hover {
+    background-color: var(--accent);
+}
+
+.student-support-page .hero button img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Main Content */
+.student-support-page .content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.student-support-page .shortcuts,
+.student-support-page .topics {
+    flex: 1;
+    min-width: 280px;
+    margin: 10px 20px;
+}
+
+.student-support-page .shortcuts h2,
+.student-support-page .topics h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.student-support-page .shortcuts a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+.student-support-page .shortcuts a:hover {
+    text-decoration: underline;
+}
+
+.student-support-page .topics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-support-page .topics-header a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.student-support-page .topics-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.student-support-page .topics-buttons button {
+    padding: 12px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: var(--font-sans);
+}
+
+.student-support-page .topics-buttons button:hover {
+    border-color: var(--accent);
+    color: #007bff;
+}
+
+/* Getting Started Section */
+.student-support-page .getting-started {
+    background-color: var(--accent);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.student-support-page .getting-started h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.student-support-page .image-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.student-support-page .image-card {
+    text-align: left;
+    max-width: 405px;
+}
+
+.student-support-page .image-grid img {
+    width: 405px; 
+    height: 270px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 0.7px solid white;
+}
+
+.student-support-page .image-card p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .student-support-page .hero input[type="text"] {
+        width: 80%;
+    }
+
+    .student-support-page .content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/*========================================
+14. COMPANY SUPPORT PAGE STYLES (company-support-page.html)
+==========================================*/
+/* N/A */
+
+/*========================================
+15. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
+==========================================*/
+.container.settings {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+    align-items: start;
+    min-height: 100vh;
+    width: 100%;
+    max-width: none;
+    background-color: #D9D9D9;
+}
 .sidebar {
   background: #fff;
   border-radius: var(--radius);
@@ -2332,7 +2814,7 @@ X. STUDENT SETTINGS PAGE STYLES (student-settings-page.html)
     margin-top: auto;
     transition: background 0.2s ease;
 }
-/* Adds hover state like .nav-btn */
+
 .logout:hover {
     background: #f3f7fb; 
 }
@@ -2366,12 +2848,12 @@ form { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
 .preview-lines { flex: 1; }
 .muted-note { font-size: 13px; color: var(--muted); margin-top: 6px; font-style: italic; }
 
-/* Save / Action Buttons */
+/* Save/Action Buttons */
 .actions { display: flex; justify-content: flex-end; margin-top: 18px; gap: 14px; }
 
 
 /*========================================
-X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
+16. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
 ==========================================*/
 .company-settings header {
     background-color: #004081;
@@ -2394,7 +2876,7 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
 .company-settings * { box-sizing: border-box; font-family: var(--font-family);; }
 
 /*========================================
-11. RESPONSIVE DESIGN (MEDIA QUERIES)
+17. RESPONSIVE DESIGN (MEDIA QUERIES)
 ==========================================*/
 @media (max-width:980px){
     .container { grid-template-columns: 260px 1fr; padding-bottom: 60px; }
@@ -2421,7 +2903,7 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
         transform: translateX(-50%);
         width: 4px; /*Thin vertical line */
         height: 100%; /*Full height of container */
-        background: #0073FF;
+        background: var(--accent);
         z-index: 1;
         border-radius: 2px;
     }
@@ -2448,7 +2930,7 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
     .column-separator {
         display: none;
     }
-
+ 
     header {
         display: flex;
         justify-content: space-between;
@@ -2459,7 +2941,7 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
         box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
-    /* Hamburger button visible */
+    /* Makes hamburger button visible */
     .hamburger {
         display: block;
         font-size: 1.8rem;
@@ -2468,7 +2950,7 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
         cursor: pointer;
     }
 
-    /* Hide nav initially */
+    /* Hides nav initially */
     header nav {
         position: absolute;
         top: 100%;
@@ -2487,7 +2969,6 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
         max-height: 500px;
     }
 
-    /* Nav list as column */
     header nav ul.nav-list {
         display: flex;
         flex-direction: column;
@@ -2496,7 +2977,7 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
         gap: 0;
     }
 
-    /* Hide separator in mobile */
+    /* Hides separator in mobile */
     nav ul.nav-list li.nav-separator {
         display: none;
     }
@@ -2587,19 +3068,16 @@ X. COMPANY SETTINGS PAGE STYLES (company-settings-page.html)
 }
 
 /*========================================
-12. ACCESSIBILITY ENHANCEMENTS
+18. ACCESSIBILITY ENHANCEMENTS
 ==========================================*/
-
 
 
 /*========================================
-13. PRINT STYLES
+19. PRINT STYLES
 ==========================================*/
-
 
 
 /*========================================
-14. UTILITY CLASSES (OPTIONAL)
+20. UTILITY CLASSES (OPTIONAL)
 ==========================================*/
-
 

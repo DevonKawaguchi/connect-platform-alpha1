@@ -1,216 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Connect - Apply</title>
-    
-    <link rel="stylesheet" href="StudentApplyPageStyles.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <title>Apply - CampusConnect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
-    <nav class="navbar">
-        <div class="container">
-            
-            <div class="logo">
-                <a href="HomePage.html">
-                    <img src="images/Business-Campus-Connect-Logo-1_1.png" alt="Campus Connect Logo">
-                </a>
-            </div>
-            
-            <div class="navbar-right">
-                
-                <ul class="nav-links">
-                    <li><a href="HomePage.html">Home</a></li>
-                    <li><a href="StudentApplyPage.html" aria-current="page">Apply</a></li>
-                    <li><a href="ManagePage.html">Manage</a></li>
-                    <li><a href="SupportPage.html">Support</a></li>
-                </ul>
-                
-                <div class="user-profile">
-                    <span>Jane Doe</span>
-                    <a href="ProfilePage.html">
-                        <img src="images/Profile-Picture-1_1.jpg" alt="Jane Doe Profile Picture">
-                    </a>
-                </div>
-
-            </div> 
-
+    <!-- HEADER (START) -->
+    <header>
+        <div class="logo">
+            <img src="images/Campus-Connect-Logo-1_1.png" alt="CampusConnect Logo" />
         </div>
-    </nav>
-
-    <main class="dashboard-main">
-        <div class="container">
-            
-            <section class="page-header">
-                <h2>Apply</h2>
-                <p class="page-description">Submit your resume and we'll connect you with projects specifically built to align with your field of study</p>
-            </section>
-
-            <section class="card">
-                <div class="card-header">
-                    <h2>Submit Resume</h2>
-                    <span class="accordion-icon">&#9650;</span> </div>
-                <div class="card-body">
-                    <div class="form-group file-upload-group">
-                        <label for="resume-upload">Upload Resume:</label>
-                        <div class="file-upload">
-                            <input type="file" id="resume-upload" hidden>
-                            <label for="resume-upload" class="btn btn-primary btn-small">Choose File</label>
-                            <span class="file-name">No File(s) Chosen</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card">
-                <div class="card-header">
-                    <h2>Job Specific Information</h2>
-                    <span class="accordion-icon">&#9650;</span> </div>
-                <div class="card-body">
-                    <div class="form-row-three">
-                        <div class="form-group">
-                            <label for="first-name">First Name:</label>
-                            <input type="text" id="first-name" value="Jane">
-                            <span class="clear-input">&times;</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="middle-name">Middle Name (Optional):</label>
-                            <input type="text" id="middle-name" value="Marie">
-                            <span class="clear-input">&times;</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="last-name">Last Name:</label>
-                            <input type="text" id="last-name" value="Doe">
-                            <span class="clear-input">&times;</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" value="j.doe@ttu.edu">
-                        <span class="clear-input">&times;</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="personal-website">Personal Website (Optional):</label>
-                        <input type="text" id="personal-website" value="www.examplewebsite.com">
-                        <span class="clear-input">&times;</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="school">School:</label>
-                        <input type="text" id="school" value="Texas Tech University">
-                        <span class="clear-input">&times;</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="major-program">Major/Academic Program:</label>
-                        <input type="text" id="major-program" value="Computer Science">
-                        <span class="clear-input">&times;</span>
-                        <button class="btn-additional">+ Additional</button>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="minor">Minor:</label>
-                        <input type="text" id="minor" value="Computer Science">
-                        <span class="clear-input">&times;</span>
-                        <button class="btn-additional">+ Additional</button>
-                    </div>
-
-                    <div class="form-row-three">
-                        <div class="form-group">
-                            <label for="degree-level">Degree Level:</label>
-                            <input type="text" id="degree-level" value="Bachelor's">
-                            <span class="clear-input">&times;</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="student-year">Student Year:</label>
-                            <input type="text" id="student-year" value="Junior">
-                            <span class="clear-input">&times;</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="gpa">Undergraduate/Graduate GPA:</label>
-                            <input type="text" id="gpa" value="4.0">
-                            <span class="clear-input">&times;</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="graduation-term">Graduation Term:</label>
-                        <input type="text" id="graduation-term" value="Spring 2027">
-                        <span class="clear-input">&times;</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card collapsed">
-                <div class="card-header">
-                    <h2>Psychometric Assessment</h2>
-                    <span class="accordion-icon">&#9660;</span> </div>
-                <div class="card-body">
-                    <p>This section is for psychometric assessment details.</p>
-                </div>
-            </section>
-
-            <section class="card collapsed">
-                <div class="card-header">
-                    <h2>Confidential Applicant Form</h2>
-                    <span class="accordion-icon">&#9660;</span> </div>
-                <div class="card-body">
-                    <p>This section contains confidential applicant form details.</p>
-                </div>
-            </section>
-
-            <section class="card collapsed">
-                <div class="card-header">
-                    <h2>Disclosure of Potential Employment Conflicts</h2>
-                    <span class="accordion-icon">&#9660;</span> </div>
-                <div class="card-body">
-                    <p>This section is for employment conflict disclosures.</p>
-                </div>
-            </section>
-            
-            <div class="submit-button-container">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </main>
-
-    <script>
-        const cardHeaders = document.querySelectorAll('.card-header');
-        cardHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const card = header.parentElement;
-                card.classList.toggle('collapsed');
-                const icon = header.querySelector('.accordion-icon');
-                if (card.classList.contains('collapsed')) {
-                    icon.innerHTML = '&#9660;'; 
-                } else {
-                    icon.innerHTML = '&#9650;';
-                }
-            });
-        });
-        const resumeUpload = document.getElementById('resume-upload');
-        const fileNameSpan = document.querySelector('.file-name');
-
-        resumeUpload.addEventListener('change', function() {
-            if (this.files.length > 0) {
-                fileNameSpan.textContent = this.files[0].name;
-            } else {
-                fileNameSpan.textContent = 'No File(s) Chosen';
-            }
-        });
-        const clearInputButtons = document.querySelectorAll('.clear-input');
         
-        clearInputButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const inputField = this.previousElementSibling;
-                inputField.value = '';
-            });
-        });
-    </script>
-</body>
+        <!-- Hamburger Button -->
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776; <!-- Hamburger Icon -->
+        </button>
+
+        <nav aria-label="Main navigation">
+        <ul class="nav-list">
+            <li><a href="student-home-page.html">Home</a></li>
+            <li><a href="javascript:void(0)">Apply</a></li>
+            <li><a href="project-listings-page.html">Projects</a></li>
+            <li><a href="student-dashboard-page.html">Manage</a></li>
+            <li><a href="student-support-page.html">Support</a></li>
+
+            <li class="nav-separator">
+                <img src="images/Black-Header-Separator-1_1.jpg" alt="|" />
+            </li>
+
+            <li><a href="student-settings-page.html" id="headerName">Jane Doe</a></li>
+            <li class="profile-pic">
+                <img src="images/Profile-Picture-1_1.jpg" alt="Profile Picture">
+            </li>
+        </ul>
+        </nav>
+    </header>
+    <!-- HEADER (END) -->
+
+    <div class="company-dashboard">
+        <!-- Intro/Hero -->
+        <section class="business-hero">
+        <h1>Apply</h1>
+        <p>Submit your resume and we’ll connect you with projects specifically built to align with your field of study</p>
+        </section>
+    </div>
+
+    <div class="student-apply-page">
+        <main class="page">
+            <!-- Submit Resume Accordion -->
+            <div class="accordion">
+                <div class="accordion-header">Submit Resume</div>
+                <div class="accordion-body">
+                <div class="file-row">
+                    <label class="btn btn-outline">
+                    Upload Resume:
+                    <input type="file" style="display:none" />
+                    </label>
+                    <span>No File(s) Chosen</span>
+                </div>
+                </div>
+            </div>
+
+            <!-- Job Info Accordion -->
+            <div class="accordion">
+                <div class="accordion-header">Job Specific Information</div>
+                <div class="accordion-body">
+                <div class="form-card">
+                    <div class="form-card-header">Personal Information</div>
+                    <div class="form-grid">
+                    <div class="form-field">
+                        <span class="form-label">First Name:</span>
+                        <input type="text" value="Jane" />
+                    </div>
+                    <div class="form-field">
+                        <span class="form-label">Middle Name (Optional):</span>
+                        <input type="text" value="Marie" />
+                    </div>
+                    <div class="form-field">
+                        <span class="form-label">Last Name:</span>
+                        <input type="text" value="Doe" />
+                    </div>
+
+                    <div class="form-field">
+                        <span class="form-label">Email:</span>
+                        <input type="email" value="jdoe@ttu.edu" />
+                    </div>
+                    <div class="form-field">
+                        <span class="form-label">Personal Website (Optional):</span>
+                        <input type="text" value="www.examplewebsite.com" />
+                    </div>
+                    <div class="form-field">
+                        <span class="form-label">School:</span>
+                        <input type="text" value="Texas Tech University" />
+                    </div>
+
+                    <div class="form-field">
+                        <span class="form-label">Major/Academic Program:</span>
+                        <div class="field-with-btn">
+                        <input type="text" value="Computer Science" />
+                        <button type="button" class="pill-btn">+ Additional</button>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <span class="form-label">Minor:</span>
+                        <div class="field-with-btn">
+                        <input type="text" value="Computer Science" />
+                        <button type="button" class="pill-btn">+ Additional</button>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <span class="form-label">Degree Level:</span>
+                        <input type="text" value="Bachelor's" />
+                    </div>
+
+                    <div class="form-field">
+                        <span class="form-label">Student Year:</span>
+                        <input type="text" value="Junior" />
+                    </div>
+
+                    <div class="form-field gpa-field">
+                        <span class="form-label">Undergraduate/Graduate GPA:</span>
+                        <input type="text" value="4.0" />
+                    </div>
+
+                    <div class="form-field">
+                        <span class="form-label">Graduation Term:</span>
+                        <input type="text" value="Spring 2027" />
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Other Accordions -->
+            <div class="accordion collapsed">
+                <div class="accordion-header">Confidential Applicant Form</div>
+            </div>
+
+            <div class="accordion collapsed">
+                <div class="accordion-header">
+                Disclosure of Potential Employment Conflicts
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="page-submit-row">
+                <button class="btn" type="button">Submit</button>
+            </div>
+            </section>
+        </main>
+    </div>
+    </body>
 </html>

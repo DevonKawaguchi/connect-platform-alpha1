@@ -16,7 +16,7 @@
 
       <!-- Hamburger Button -->
       <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-        &#9776; <!-- hamburger icon -->
+        &#9776; <!-- Hamburger Icon -->
       </button>
 
       <nav aria-label="Header Webpage Navigation">
@@ -85,17 +85,16 @@
 
     <script>
     function handleSignIn(userType) {
-        // Save the type in localStorage
-        localStorage.setItem('userType', userType); // changed from 'lastSignIn' to 'userType'
-
-        // Optional: Save user name and profile picture for dynamic header
-        if(userType === 'student') {
-            localStorage.setItem('userName', 'Jane Doe'); // replace with actual student name if available
-            localStorage.setItem('userProfile', 'images/Profile-Picture-1_1.jpg'); // replace with actual profile picture if available
+        // Saves the user type in localStorage
+        localStorage.setItem('userType', userType); 
+      
+        if (userType === 'student') {
+            localStorage.setItem('userName', 'Jane Doe'); 
+            localStorage.setItem('userProfile', 'images/Profile-Picture-1_1.jpg'); 
             window.location.href = 'student-dashboard-page.html';
         } else {
-            localStorage.setItem('userName', 'Example Company'); // replace with actual company name if available
-            localStorage.setItem('userProfile', 'images/Company-Profile-Picture-1_1.jpeg'); // replace with actual company logo/profile picture
+            localStorage.setItem('userName', 'Example Company');
+            localStorage.setItem('userProfile', 'images/Company-Profile-Picture-1_1.jpeg'); 
             window.location.href = 'company-dashboard-page.html';
         }
     }

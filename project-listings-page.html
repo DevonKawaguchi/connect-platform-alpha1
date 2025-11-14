@@ -18,7 +18,7 @@
             
             <!-- Hamburger Button -->
             <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-            &#9776; <!-- hamburger icon -->
+            &#9776; <!-- Hamburger Icon -->
             </button>
 
             <nav aria-label="Main navigation">
@@ -74,7 +74,6 @@
 
             <!-- Projects Grid -->
             <div class="projects-grid">
-                <!-- Repeat Project Card 6-8 times -->
                 <div class="project-card">
                     <div class="company-name">
                         <img src="images/Company-Profile-Picture-1_1.jpeg" alt="Company Logo">
@@ -186,8 +185,6 @@
                     </div>
                     <button>View Details</button>
                 </div>
-
-                <!-- Add more cards as needed -->
             </div>
 
         </div>
@@ -229,7 +226,6 @@
         const headerContainer = document.getElementById('dynamic-header');
 
         if(userType === 'company') {
-            // Ensure company styles are applied
             headerContainer.classList.add('company-dashboard');
 
             headerContainer.innerHTML = `
@@ -244,8 +240,9 @@
 
                 <nav aria-label="Main navigation">
                     <ul class="nav-list">
-                        <li><a href="home-page.html">Home</a></li>
-                        <li><a href="javascript:void(0)">Manage</a></li>
+                        <li><a href="company-home-page.html">Home</a></li>
+                        <li><a href="javascript:void(0)">Projects</a></li>
+                        <li><a href="company-dashboard-page.html">Manage</a></li>
                         <li><a href="company-support-page.html">Support</a></li>
 
                         <li class="nav-separator">
@@ -277,7 +274,6 @@
             </div>
             `;
         } else {
-            // Remove company styles for students
             headerContainer.classList.remove('company-dashboard');
 
             headerContainer.innerHTML = `
@@ -291,7 +287,7 @@
 
                 <nav aria-label="Main navigation">
                     <ul class="nav-list">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="student-home-page.html">Home</a></li>
                         <li><a href="student-apply-page.html">Apply</a></li>
                         <li><a href="javascript:void(0)">Projects</a></li>
                         <li><a href="student-dashboard-page.html">Manage</a></li>
