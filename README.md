@@ -21,12 +21,15 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 | :---: | :---: |
 | Landing Page | index.html |
 | Login/Register | login-register-page.html |
+| Student Home | student-home-page.html |
 | Student Apply | student-dashboard-page.html |
+| Project Listings | project-listings-page.html |
 | Student Dashboard | student-dashboard-page.html |
-| Company Dashboard | company-dashboard-page.html |
 | Student Support | student-support-page.html |
-| Company Support | company-support-page.html |
 | Student Settings | student-settings-page.html |
+| Company Home | company-home-page.html |
+| Company Dashboard | company-dashboard-page.html |
+| Company Support | company-support-page.html |
 | Company Settings | company-settings-page.html |
 
 ## Technologies Utilized
@@ -38,16 +41,17 @@ CampusConnect is a career platform designed to connect students to paid, 16-week
 
 ## Individual Contributions
 ### Devon Kawaguchi:
-- Implemented the platform's student and company settings pages
+- Implemented the platform's project listings and student/company settings pages
 - Assisted in the design and development of the home page, including the student and company value propositions table and "How It Works" timeline
 - Assisted in the design and development of the student/company dashboard pages, including adding a "Quick Stats" section and ensuring consistency with the rest of the platform
+- Assisted in the design and development of the register/login, apply, and student/company support pages by ensuring pages aligned with the design of our Figma prototype
 - Developed the platform's navigation bar, which can present its contents in a hamburger menu on mobile devices and adapt to unregistered, student, or company users
 - Developed the platform's footer
 - Refactored and consolidated all of the platform's individual CSS page styles into styles.css
 - Deployed our project to GitHub pages for public access
 - Integrated ARIA labels and alt text into the home, student/company dashboards, and student/company settings pages
-- Revised the home, student/company dashboard, and student/company settings pages to adapt to desktop, tablet, and mobile media queries
-- Implemented project graphics into the home page and company dashboard, including the hero image, student/company platform logo, and value proposition icons
+- Revised all of the platform's pages to adapt to desktop, tablet, and mobile media queries
+- Implemented custom graphics across the platform, including the hero image, student/company platform logo, and value proposition icons
 
 ### Zaine Brobbey:
 - Worked on the login/register page.
