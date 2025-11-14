@@ -944,6 +944,12 @@ nav ul.nav-list li.profile-pic img {
     padding: 1.5rem 2rem;
 }
 
+.student-dashboard .opportunity-details-wrapper .btn {
+    min-width: 120px; /* keeps button from shrinking */
+    max-width: 120px; /* optional: prevents growing too much */
+    text-align: center; /* keeps text centered */
+}
+
 .student-dashboard .opportunity-item {
     display: flex;
     align-items: flex-start;
@@ -1556,6 +1562,7 @@ nav ul.nav-list li.profile-pic img {
     white-space: nowrap;
     display: inline-flex;       
     justify-content: center;   
+    border: 0.7px solid var(--accent);
 }
 
 .company-dashboard .btn.gray {
